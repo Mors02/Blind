@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -95,9 +96,11 @@ public class PlayerController : MonoBehaviour
         _from = _cameraTransform.position;
 
         if (Physics.Raycast(_from, _cameraTransform.forward, out RaycastHit hit, 10f, _touchLayer))
-        {
-            GameObject worldText = Instantiate(_worldTextPrefab, hit.point, Quaternion.identity);
+        {   
+            WorldObject obj = hit.collider.gameObject.GetComponent<WorldObject>();
 
+            GameObject worldText = Instantiate(_worldTextPrefab, hit.point, Quaternion.identity);
+            worldText.GetComponent<WorldText>().Setup(obj);
             Vector3 normal = hit.normal; // always points toward camera
 
             // Text's Z = surface normal → flush to surface, facing player
