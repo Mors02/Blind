@@ -229,13 +229,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d3e1f3a8be49444b9f49b3637c473d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldText
+  _decal: {fileID: 8633545463358391542}
   _life: 15
   _timePassed: 0
   _fadeInTime: 0.3
   _print: {fileID: 1403369943073103787}
-  _hand: {fileID: 21300000, guid: 9217949a05f18514687888c4257842c3, type: 3}
-  _leftFoot: {fileID: 21300000, guid: 90733fe8e6d4cdd4198df20d54b40274, type: 3}
-  _rightFoot: {fileID: 21300000, guid: e4a6fb2d339fef949b9baca8c97375d3, type: 3}
+  _handM: {fileID: 2100000, guid: 1ca84586a1189f146ba3c65f80f7ee39, type: 2}
+  _leftFootM: {fileID: 2100000, guid: 43e1f732966a3ba49a7c14eeb5e8a4f0, type: 2}
+  _rightFootM: {fileID: 2100000, guid: 2457f1c240dc1524591f00ea41849494, type: 2}
   _text: {fileID: 8310755405160587213}
 --- !u!95 &7479651301017964147
 Animator:
@@ -463,7 +464,7 @@ Transform:
   m_GameObject: {fileID: 7582500415954112639}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0.3}
+  m_LocalPosition: {x: 0, y: 0, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -492,8 +493,8 @@ MonoBehaviour:
     serializedVersion: 0
     m_Bits: 1
   m_ScaleMode: 0
-  m_Offset: {x: 0, y: 0, z: 0.5}
-  m_Size: {x: 0.5, y: 0.5, z: 1}
+  m_Offset: {x: 0, y: 0, z: 0.25}
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_FadeFactor: 1
   m_VisibleInScene: 1
   version: 1

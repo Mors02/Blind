@@ -1,10 +1,13 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class WorldText : MonoBehaviour
 {
     private WorldObject _objectOrigin;
+    [SerializeField]
+    private DecalProjector _decal;
 
     [SerializeField]
     private float _life;
@@ -25,8 +28,10 @@ public class WorldText : MonoBehaviour
     /// <summary>
     /// I'd like to use the fucking game assets but right now it's not working
     /// </summary>
-    [SerializeField]
+    //[SerializeField]
     private Sprite _hand, _leftFoot, _rightFoot;
+    [SerializeField]
+    private Material _handM, _leftFootM, _rightFootM;
 
     private Sprite[] _prints;
 
@@ -52,9 +57,8 @@ public class WorldText : MonoBehaviour
         this._objectOrigin = obj;
         this._text.text = obj.Text();
 
-        HandlePrint();
-       
-        
+        HandlePrint(print);
+        //ApplyDecalRotation(decalNormal);
     }
 
     public void FixedUpdate()
@@ -71,9 +75,22 @@ public class WorldText : MonoBehaviour
 
         if (_timePassed >= _life)
             Destroy(this.gameObject);
-    } 
+    }
 
-    private void HandlePrint()
+    public void ApplyDecalRotation(Vector3 decalNormal, Transform cameraTransform)
+    {
+        Vector3 decalUp = Vector3.ProjectOnPlane(Vector3.up, decalNormal).normalized;
+        if (decalUp.sqrMagnitude < 0.001f)
+            decalUp = Vector3.ProjectOnPlane(cameraTransform.forward, decalNormal).normalized;
+
+        _decal.transform.rotation = Quaternion.LookRotation(decalNormal, decalUp);
+
+        // Same flip the text uses — keeps the decal's up aligned with the player's up
+        if (Vector3.Dot(_decal.transform.up, cameraTransform.up) < 0)
+            _decal.transform.Rotate(0, 0, 180f);
+        } 
+
+    private void HandlePrint(PrintType print)
     {
         /* CANVAS VERSION */
         /*
@@ -87,7 +104,8 @@ public class WorldText : MonoBehaviour
             this._print.transform.Rotate(Vector3.forward, Random.Range(-100, 100));
         */
 
+
         /* DECAL VERSION */
-        
+        this._decal.material = print == PrintType.Left? _leftFootM : (print == PrintType.Right? _rightFootM : _handM);
     }
 }

@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
     {
         HandleMovement();
         HandleFootprints();
+        
     }
 
     /// <summary>
@@ -119,7 +120,7 @@ public class PlayerController : MonoBehaviour
         if (_currentMovement.magnitude > 0)
         {
             float distanceSinceLastFootprint = Vector3.Distance(_lastFootprint, this.transform.position);
-            Debug.Log(distanceSinceLastFootprint);
+            //Debug.Log(distanceSinceLastFootprint);
             if (distanceSinceLastFootprint >= _footSpacer)
             {
                 Vector3 from = _normal = this.transform.position;
@@ -194,7 +195,7 @@ public class PlayerController : MonoBehaviour
         GameObject worldText = Instantiate(_worldTextPrefab, hit.point, Quaternion.identity);
         worldText.GetComponent<WorldText>().Setup(obj, type);
         //Vector3 normal = hit.normal; // always points toward camera
-        Vector3 normal = GetDecalNormal(hit);
+        Vector3 normal = hit.normal; //GetDecalNormal(hit);
 
         // Text's Z = surface normal → flush to surface, facing player
         // Text's Y = world up projected onto surface → stable, no spiral
@@ -209,6 +210,9 @@ public class PlayerController : MonoBehaviour
         // Flip if upside down relative to camera
         if (Vector3.Dot(worldText.transform.up, _cameraTransform.up) < 0)
             worldText.transform.Rotate(0, 0, 180f);
+
+        Vector3 decalNormal = GetDecalNormal(hit);
+        worldText.GetComponent<WorldText>().ApplyDecalRotation(decalNormal, _cameraTransform);
 
         return worldText;
     }
@@ -244,11 +248,14 @@ public class PlayerController : MonoBehaviour
                     halfSize + 0.5f, mask, QueryTriggerInteraction.Ignore))
                 continue;
 
+            bool isConvex = Vector3.Dot(adj.normal, n) < 0;
             // Confirm it's a genuine 90° edge (normals are perpendicular)
             // if (Vector3.Dot(adj.normal, n) > 0.1f)
             //    continue;
-
-             Vector3 adjNormal = Vector3.Dot(adj.normal, n) < 0 ? -adj.normal : adj.normal;
+            Debug.Log(isConvex);
+            Debug.Log(
+                adj.normal);
+            Vector3 adjNormal = new Vector3(Mathf.Abs(adj.normal.x), Mathf.Abs(adj.normal.y), Mathf.Abs(adj.normal.z));//Vector3.Dot(adj.normal, n) < 0 ? -adj.normal : adj.normal;
             // ← Blend and return; no second decal needed
             return (n + adjNormal).normalized;
         }
