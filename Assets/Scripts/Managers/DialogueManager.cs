@@ -16,30 +16,42 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private InputActionAsset _playerControls;
     private InputAction _continueAction;
+    private InputAction _exitAction;
 
     private void Awake()
     {
         //instantiate the story from the json
         _story = new Story(_inkJson.text);
         //use the Dialogue actions for the dialogue
-        _continueAction = _playerControls.FindActionMap("Dialogue").FindAction("Continue");
+        _continueAction = _playerControls.FindActionMap("Player").FindAction("Touch");
         _continueAction.performed += OnContinue;
+
+        _exitAction = _playerControls.FindActionMap("Player").FindAction("Interact");
+        _exitAction.performed += OnExit;
     }
 
     private void OnContinue(InputAction.CallbackContext context)
     {
-        Debug.Log("Piero");
-        ContinueOrExitStory();
+        if (GameManager.i.State == StateMachineStep.Inspect)
+            ContinueOrExitStory();
+    }
+
+    private void OnExit(InputAction.CallbackContext context)
+    {
+        //if (GameManager.i.State == StateMachineStep.Inspect)
+        //    ExitDialogue();
     }
 
     private void OnEnable()
     {
-        GameManager.i.DialogueEvents.OnEnterDialogue += EnterDialogue;        
+        GameManager.i.DialogueEvents.OnEnterDialogue += EnterDialogue;
+        GameManager.i.DialogueEvents.OnDialoguePanelClose += ExitDialogue;        
     }
 
     private void OnDisable()
     {
         GameManager.i.DialogueEvents.OnEnterDialogue -= EnterDialogue;
+        GameManager.i.DialogueEvents.OnDialoguePanelClose -= ExitDialogue;
     }
     private void EnterDialogue(string knotName)
     {
@@ -47,6 +59,9 @@ public class DialogueManager : MonoBehaviour
             return;
 
         _dialoguePlaying = true;
+
+        //inform all other systems that we started our interaction
+        GameManager.i.DialogueEvents.DialogueStarted();
 
         if (!knotName.Equals(""))
         {
@@ -67,6 +82,7 @@ public class DialogueManager : MonoBehaviour
         {
             string dialogueLine = _story.Continue();
             Debug.Log(dialogueLine);
+            GameManager.i.DialogueEvents.DisplayDialogue(dialogueLine);   
         } else
         {
             ExitDialogue();
@@ -79,6 +95,9 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("Exiting dialogue");
 
         _dialoguePlaying = false;
+
+        //inform all other systems that we finished our interaction
+        GameManager.i.DialogueEvents.DialogueFinished();
 
         //reset the story to the start
         _story.ResetState();

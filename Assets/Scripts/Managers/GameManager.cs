@@ -58,15 +58,16 @@ public class GameManager
                 Cursor.lockState = CursorLockMode.Locked;
                 instance._cinemachineController.enabled = true;
                 //switch on and off the correct action bindings
-                instance.PlayerControls.FindActionMap("Player").Enable();
-                instance.PlayerControls.FindActionMap("Dialogue").Disable();
+                //instance.PlayerControls.FindActionMap("Player").Enable();
+                //instance.PlayerControls.FindActionMap("Dialogue").Disable();
                 break;
             
             case StateMachineStep.Inspect:
                 Cursor.lockState = CursorLockMode.None;
                 instance._cinemachineController.enabled = false;
-                instance.PlayerControls.FindActionMap("Player").Disable();
-                instance.PlayerControls.FindActionMap("Dialogue").Enable();
+                //cute solution but I can't walk away from interactions so discarded
+                //instance.PlayerControls.FindActionMap("Player").Disable();
+                //instance.PlayerControls.FindActionMap("Dialogue").Enable();
                 break;
         }
 

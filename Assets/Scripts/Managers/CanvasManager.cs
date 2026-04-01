@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class CanvasManager : MonoBehaviour
@@ -5,6 +6,9 @@ public class CanvasManager : MonoBehaviour
 
     [SerializeField]
     private Animator _animator;
+
+    [SerializeField]
+    private TMP_Text _text;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {   
@@ -13,13 +17,22 @@ public class CanvasManager : MonoBehaviour
             this.gameObject.SetActive(false);*/
         StateChanged(GameManager.i.State);
 
+        GameManager.i.DialogueEvents.OnDisplayDialogue += DisplayText;
+
+        GameManager.i.DialogueEvents.OnDialogueFinished += CloseInspectMenu;
+
         GameManager.i.OnChangeState.AddListener(StateChanged);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DisplayText(string dialogueLine)
     {
-        
+        Debug.Log(dialogueLine);
+        _text.text = dialogueLine;
+    }
+
+    private void ResetPanel()
+    {
+        _text.text = "";
     }
 
     public void StateChanged(StateMachineStep newState)
@@ -34,6 +47,7 @@ public class CanvasManager : MonoBehaviour
         
         if (newState == StateMachineStep.Inspect)
         {
+          //  ResetPanel();
             //this.gameObject.SetActive(true);
             ResetTriggers();
             _animator.SetTrigger("Show");

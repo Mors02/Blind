@@ -179,7 +179,7 @@ public class PlayerController : MonoBehaviour
     public void OnInteract(InputAction.CallbackContext context)
     {
         //interact only with a text
-        if (Physics.Raycast(_from, _cameraTransform.forward, out RaycastHit hit, 5f, _interactLayer))
+        if (Physics.Raycast(_from, _cameraTransform.forward, out RaycastHit hit, 5f, _interactLayer) && GameManager.i.State == StateMachineStep.Free)
         {
             //if it hits
             if (hit.collider != null)
