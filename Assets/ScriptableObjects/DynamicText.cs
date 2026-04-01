@@ -33,7 +33,6 @@ public class DynamicText : ScriptableObject
     public string GetText(float deltaTime)
     {
         _passedTime += deltaTime;
-        Debug.Log(_passedTime);
         //if enough time has passed in the state
         if (_passedTime >= _states[_currentState].Duration)
         {

@@ -50,3 +50,4 @@ MonoBehaviour:
   HandMaterial: {fileID: 2100000, guid: 1ca84586a1189f146ba3c65f80f7ee39, type: 2}
   LeftFootMaterial: {fileID: 2100000, guid: 43e1f732966a3ba49a7c14eeb5e8a4f0, type: 2}
   RightFootMaterial: {fileID: 2100000, guid: 2457f1c240dc1524591f00ea41849494, type: 2}
+  PlayerControls: {fileID: -944628639613478452, guid: aa64f760f9820f648abef901d3de0e6f, type: 3}

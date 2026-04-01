@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /***
  *  GameAssets contains assets needed to be changed on runtime.
@@ -30,4 +31,7 @@ public class GameAssets : MonoBehaviour
     public Material HandMaterial;
     public Material LeftFootMaterial;
     public Material RightFootMaterial;
+
+    [Header("Input System")]
+    public InputActionAsset PlayerControls;
 }
