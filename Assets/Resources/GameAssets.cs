@@ -26,4 +26,8 @@ public class GameAssets : MonoBehaviour
     public Sprite LeftFootPrint;
     public Sprite RightFootPrint;
 
+    [Header("Materials")]
+    public Material HandMaterial;
+    public Material LeftFootMaterial;
+    public Material RightFootMaterial;
 }

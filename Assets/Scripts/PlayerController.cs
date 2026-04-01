@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float _speed = 5f, _mouseSensitivity = 4f;
 
+    [SerializeField]
+    private Camera _mainCamera;
+
     private Vector3 _currentMovement;
     private float _verticalRotation;
 
@@ -28,7 +31,7 @@ public class PlayerController : MonoBehaviour
     private InputAction _lookAction;
 
     [SerializeField]
-    private LayerMask _touchLayer;
+    private LayerMask _touchLayer, _interactLayer;
 
 
     private Vector3 _from, _to, _normal;
@@ -46,7 +49,6 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         _rb = GetComponent<Rigidbody>();
         _cc = GetComponent<CharacterController>();
         _moveAction = _playerControls.FindActionMap("Player").FindAction("Move");
@@ -55,12 +57,15 @@ public class PlayerController : MonoBehaviour
         _touchAction = _playerControls.FindActionMap("Player").FindAction("Touch");
         _touchAction.performed += OnTouch;
         _interactAction = _playerControls.FindActionMap("Player").FindAction("Interact");
+        _interactAction.performed += OnInteract;
         _lookAction = _playerControls.FindActionMap("Player").FindAction("Look");
         _lookAction.performed += OnLook;
         _lookAction.canceled += StopLook;
 
         _whichFoot = PrintType.Left;
         _lastFootprint = this.transform.position;
+
+        //Debug.Log(GameManager.i.State);
     }
 
     private void OnEnable()
@@ -85,7 +90,7 @@ public class PlayerController : MonoBehaviour
         HandleFootprints();
         
     }
-
+    #region Movement and controls
     /// <summary>
     /// Handles the movement and the creation of footprints
     /// </summary>
@@ -99,7 +104,12 @@ public class PlayerController : MonoBehaviour
         horizontalMovement = _cameraTransform.rotation * horizontalMovement;
         _currentMovement.x = horizontalMovement.x;
         _currentMovement.z = horizontalMovement.z;
-        
+        //if the player is moving
+        if (_currentMovement.magnitude > 0)
+        {   
+            //close all menus
+            GameManager.ChangeState(StateMachineStep.Free);
+        }
         _cc.Move(_currentMovement * Time.fixedDeltaTime);
         
     }
@@ -143,8 +153,9 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    #endregion
 
-
+    #region Actions
     public void OnMove(InputAction.CallbackContext context)
     {
         _moveInput = context.ReadValue<Vector2>();
@@ -158,10 +169,26 @@ public class PlayerController : MonoBehaviour
    public void OnTouch(InputAction.CallbackContext context)
     {
         _from = _cameraTransform.position;
-
-        if (Physics.Raycast(_from, _cameraTransform.forward, out RaycastHit hit, 5f, _touchLayer))
+        //Check that the ray hits and we are free to move
+        if (Physics.Raycast(_from, _cameraTransform.forward, out RaycastHit hit, 5f, _touchLayer) && GameManager.i.State == StateMachineStep.Free)
         {   
             InstantiateText(hit);
+        }
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        Debug.Log("interacted");
+        //interact only with a text
+        if (Physics.Raycast(_from, _cameraTransform.forward, out RaycastHit hit, 5f, _interactLayer))
+        {
+            //if it hits
+            if (hit.collider != null)
+            {
+                Debug.Log("Hit: " + hit.collider.gameObject.name);
+                //enter inspect state in the stace machine
+                GameManager.ChangeState(StateMachineStep.Inspect);
+            }
         }
     }
 
@@ -174,15 +201,16 @@ public class PlayerController : MonoBehaviour
     {
         _lookInput = Vector2.zero;
     }
-
+    #endregion
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
 
-        Gizmos.DrawLine(_normal, _normal + Vector3.ProjectOnPlane(_cameraTransform.forward, -_cameraTransform.up));
+        Gizmos.DrawRay(_from, _cameraTransform.forward * 5f);
     }
 
+    #region Text instantiation section
     /// <summary>
     /// When touching or walking this spawns a prefab that contains the print and the text. By default, spawns an hand
     /// </summary>
@@ -262,6 +290,7 @@ public class PlayerController : MonoBehaviour
 
         return n; // no edge nearby, use surface normal as-is
     }
+    #endregion
 }
 
 public enum PrintType

@@ -29,11 +29,7 @@ public class WorldText : MonoBehaviour
     /// I'd like to use the fucking game assets but right now it's not working
     /// </summary>
     //[SerializeField]
-    private Sprite _hand, _leftFoot, _rightFoot;
-    [SerializeField]
-    private Material _handM, _leftFootM, _rightFootM;
-
-    private Sprite[] _prints;
+    //    private Sprite _hand, _leftFoot, _rightFoot;
 
     [SerializeField]
     private TMP_Text _text;
@@ -41,12 +37,6 @@ public class WorldText : MonoBehaviour
     void Start()
     {
         _timePassed = 0;
-        _prints = new Sprite[]
-        {
-            _leftFoot,
-            _rightFoot,
-            _hand
-        };
     }
 
     /// <summary>
@@ -106,6 +96,9 @@ public class WorldText : MonoBehaviour
 
 
         /* DECAL VERSION */
-        this._decal.material = print == PrintType.Left? _leftFootM : (print == PrintType.Right? _rightFootM : _handM);
+        this._decal.material = print == PrintType.Left? GameAssets.i.LeftFootMaterial : (print == PrintType.Right? GameAssets.i.RightFootMaterial : GameAssets.i.HandMaterial);
+      //  if (print == PrintType.Hand)
+      //      this._decal.transform.Rotate(Vector3.forward, Random.Range(-100, 100));
+        
     }
 }

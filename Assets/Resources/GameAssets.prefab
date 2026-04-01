@@ -47,3 +47,6 @@ MonoBehaviour:
   HandPrint: {fileID: 21300000, guid: 9217949a05f18514687888c4257842c3, type: 3}
   LeftFootPrint: {fileID: -1656608061, guid: d95e44141d650b84b83239882358bd9e, type: 3}
   RightFootPrint: {fileID: 1602507975, guid: d95e44141d650b84b83239882358bd9e, type: 3}
+  HandMaterial: {fileID: 2100000, guid: 1ca84586a1189f146ba3c65f80f7ee39, type: 2}
+  LeftFootMaterial: {fileID: 2100000, guid: 43e1f732966a3ba49a7c14eeb5e8a4f0, type: 2}
+  RightFootMaterial: {fileID: 2100000, guid: 2457f1c240dc1524591f00ea41849494, type: 2}

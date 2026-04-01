@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5125910035462017492}
   - component: {fileID: 3177334256897064610}
   - component: {fileID: 8310755405160587213}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,8 @@ GameObject:
   - component: {fileID: 5754154908090553568}
   - component: {fileID: 2719772416934664146}
   - component: {fileID: 7479651301017964147}
-  m_Layer: 0
+  - component: {fileID: 5498696888981438744}
+  m_Layer: 9
   m_Name: WorldText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,13 +231,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldText
   _decal: {fileID: 8633545463358391542}
-  _life: 15
+  _life: 30
   _timePassed: 0
   _fadeInTime: 0.3
   _print: {fileID: 1403369943073103787}
-  _handM: {fileID: 2100000, guid: 1ca84586a1189f146ba3c65f80f7ee39, type: 2}
-  _leftFootM: {fileID: 2100000, guid: 43e1f732966a3ba49a7c14eeb5e8a4f0, type: 2}
-  _rightFootM: {fileID: 2100000, guid: 2457f1c240dc1524591f00ea41849494, type: 2}
   _text: {fileID: 8310755405160587213}
 --- !u!95 &7479651301017964147
 Animator:
@@ -260,6 +258,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &5498696888981438744
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3845659935400467910}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 0.4}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5118416475706142854
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +290,7 @@ GameObject:
   - component: {fileID: 1179958627695263253}
   - component: {fileID: 4667663280745556760}
   - component: {fileID: 1403369943073103787}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Handprint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +366,7 @@ GameObject:
   - component: {fileID: 1876163819439848588}
   - component: {fileID: 2810501089615273360}
   - component: {fileID: 9100957256523336126}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,7 +467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6889516002406562885}
   - component: {fileID: 8633545463358391542}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Handprint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
