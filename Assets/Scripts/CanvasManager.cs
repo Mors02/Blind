@@ -24,7 +24,6 @@ public class CanvasManager : MonoBehaviour
 
     public void StateChanged(StateMachineStep newState)
     {
-        Debug.Log("Piero");
         if (newState == StateMachineStep.Free)
         {
             //this.gameObject.SetActive(false);
