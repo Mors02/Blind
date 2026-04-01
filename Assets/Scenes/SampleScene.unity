@@ -1129,15 +1129,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: '- Go away'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8e86d2f92a48c674db1b2b3f1f9d2d90, type: 2}
-  m_sharedMaterial: {fileID: 9074292738877754972, guid: 8e86d2f92a48c674db1b2b3f1f9d2d90, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8646cdb47d8a10342ba9a8cd755292b1, type: 2}
+  m_sharedMaterial: {fileID: 9074292738877754972, guid: 8646cdb47d8a10342ba9a8cd755292b1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4289572269
+  m_fontColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1266,15 +1266,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: ?- This isn't my home...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8e86d2f92a48c674db1b2b3f1f9d2d90, type: 2}
-  m_sharedMaterial: {fileID: 9074292738877754972, guid: 8e86d2f92a48c674db1b2b3f1f9d2d90, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8646cdb47d8a10342ba9a8cd755292b1, type: 2}
+  m_sharedMaterial: {fileID: 9074292738877754972, guid: 8646cdb47d8a10342ba9a8cd755292b1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4289572269
+  m_fontColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1578,7 +1578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2417,7 +2417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2550,7 +2550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2896,7 +2896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1821617632
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2913,8 +2913,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000076293945, y: 79.05774}
-  m_SizeDelta: {x: 627, y: 258.1155}
+  m_AnchoredPosition: {x: 0.0002594, y: 574.6668}
+  m_SizeDelta: {x: 905.92, y: 1701.0022}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1821617633
 MonoBehaviour:
@@ -2936,7 +2936,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 115ed2e33ba9b96499e1bfdb51effc05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c84cedc1d37a6f4cbfa5c3a34f23a81, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3275,15 +3275,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: '- Lick it'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8e86d2f92a48c674db1b2b3f1f9d2d90, type: 2}
-  m_sharedMaterial: {fileID: 9074292738877754972, guid: 8e86d2f92a48c674db1b2b3f1f9d2d90, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8646cdb47d8a10342ba9a8cd755292b1, type: 2}
+  m_sharedMaterial: {fileID: 9074292738877754972, guid: 8646cdb47d8a10342ba9a8cd755292b1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4289572269
+  m_fontColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
