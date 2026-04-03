@@ -95,6 +95,7 @@ public class DialogueManager : MonoBehaviour
     private void UpdateChoiceIndex(int choiceIndex)
     {
         this._currentChoiceIndex = choiceIndex;
+        ContinueOrExitStory();
     }
 
     private void ContinueOrExitStory()

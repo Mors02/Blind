@@ -114,6 +114,7 @@ public class PlayerController : MonoBehaviour
             //close all menus
             GameManager.ChangeState(StateMachineStep.Free);
         }
+
         _cc.Move(_currentMovement * Time.fixedDeltaTime);
         
     }
@@ -172,6 +173,7 @@ public class PlayerController : MonoBehaviour
 
    public void OnTouch(InputAction.CallbackContext context)
     {
+        //_from = new Vector3(transform.position.x, transform.position.y + transform.localScale.y/2, transform.position.z);
         _from = _cameraTransform.position;
         //Check that the ray hits and we are free to move
         if (Physics.Raycast(_from, _cameraTransform.forward, out RaycastHit hit, 5f, _touchLayer) && GameManager.i.State == StateMachineStep.Free)
@@ -182,6 +184,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
+        //_from = new Vector3(transform.position.x, transform.position.y + transform.localScale.y/2, transform.position.z);
+        _from = _cameraTransform.position;
         //interact only with a text
         if (Physics.Raycast(_from, _cameraTransform.forward, out RaycastHit hit, 5f, _interactLayer) && GameManager.i.State == StateMachineStep.Free)
         {
@@ -215,7 +219,7 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
 
-        Gizmos.DrawRay(_from, _cameraTransform.forward * 5f);
+        Gizmos.DrawRay(_from, _from + _cameraTransform.forward * 5f);
     }
 
     #region Text instantiation section

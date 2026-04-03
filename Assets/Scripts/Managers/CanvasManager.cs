@@ -16,6 +16,9 @@ public class CanvasManager : MonoBehaviour
 
     [SerializeField]
     private DialogueChoiceButton[] _choiceButtons;
+
+    [SerializeField]
+    private TextFadeTransition _textFade;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {   
@@ -38,8 +41,11 @@ public class CanvasManager : MonoBehaviour
 
     public void DisplayText(string dialogueLine, List<Choice> choices)
     {
-        Debug.Log(dialogueLine);
-        _text.text = dialogueLine;
+        //_text.text = dialogueLine;
+        if (_textFade.IsFirstText())
+            _textFade.FadeIn(dialogueLine);
+        else
+            _textFade.TransitionTo(dialogueLine);
 
         if (choices.Count > _choiceButtons.Length)
         {
@@ -82,10 +88,17 @@ public class CanvasManager : MonoBehaviour
         {
             
             //this.gameObject.SetActive(false);
-            ResetPanel();
+            
             ResetTriggers();
             _animator.SetTrigger("Hide");
+            _textFade.FadeOut();
+            ResetPanel();
             GameManager.i.DialogueEvents.CloseDialoguePanel();
+                //Reset the state of all the buttons
+            foreach (DialogueChoiceButton choiceButton in _choiceButtons)
+            {
+                choiceButton.gameObject.SetActive(false);
+            }
         }
             
         
