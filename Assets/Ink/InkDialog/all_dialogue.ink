@@ -17,3 +17,7 @@ A feint smell of chemicals pass through the door.
     -> doorOptions
 * [- Go away]
     ->END
+    
+=== floor ===
+A squeaky clean marble floor.
+-> END
