@@ -51,16 +51,20 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _cc = GetComponent<CharacterController>();
+        
         _moveAction = _playerControls.FindActionMap("Player").FindAction("Move");
         _moveAction.performed += OnMove;
         _moveAction.canceled += StopMovement;
+
         _touchAction = _playerControls.FindActionMap("Player").FindAction("Touch");
         _touchAction.performed += OnTouch;
+        
         _interactAction = _playerControls.FindActionMap("Player").FindAction("Interact");
         _interactAction.performed += OnInteract;
-        _lookAction = _playerControls.FindActionMap("Player").FindAction("Look");
+        
+        /*_lookAction = _playerControls.FindActionMap("Player").FindAction("Look");
         _lookAction.performed += OnLook;
-        _lookAction.canceled += StopLook;
+        _lookAction.canceled += StopLook;*/
 
         _whichFoot = PrintType.Left;
         _lastFootprint = this.transform.position;
@@ -73,7 +77,7 @@ public class PlayerController : MonoBehaviour
         _moveAction.Enable();
         _touchAction.Enable();
         _interactAction.Enable();
-        _lookAction.Enable();
+//        _lookAction.Enable();
     }
 
     private void OnDisable()
@@ -81,7 +85,7 @@ public class PlayerController : MonoBehaviour
         _moveAction.Disable();
         _touchAction.Disable();
         _interactAction.Disable();
-        _lookAction.Disable();
+      //  _lookAction.Disable();
     }
 
     public void FixedUpdate()
@@ -105,7 +109,7 @@ public class PlayerController : MonoBehaviour
         _currentMovement.x = horizontalMovement.x;
         _currentMovement.z = horizontalMovement.z;
         //if the player is moving
-        if (_currentMovement.magnitude > 0)
+        if (_currentMovement.magnitude > 0 && GameManager.i.State == StateMachineStep.Inspect)
         {   
             //close all menus
             GameManager.ChangeState(StateMachineStep.Free);

@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
-
+using Ink.Runtime;
+using System.Collections.Generic;
 public class DialogueEvents
 {
     public event Action<string> OnEnterDialogue;
@@ -35,15 +36,21 @@ public class DialogueEvents
     /// <summary>
     /// Called when the next string of the dialogue should be displayed
     /// </summary>
-    public event Action<string> OnDisplayDialogue;
-    public void DisplayDialogue(string dialogueLine)
+    public event Action<string, List<Choice>> OnDisplayDialogue;
+    public void DisplayDialogue(string dialogueLine, List<Choice> choices)
     {
-        OnDisplayDialogue?.Invoke(dialogueLine);
+        OnDisplayDialogue?.Invoke(dialogueLine, choices);
     }
-
+    
     public event Action OnDialoguePanelClose;
     public void CloseDialoguePanel()
     {
         OnDialoguePanelClose?.Invoke();
+    }
+
+    public event Action<int> OnChoiceSelected;
+    public void UpdateChoiceIndex(int choiceIndex)
+    {
+        OnChoiceSelected?.Invoke(choiceIndex);
     }
 }

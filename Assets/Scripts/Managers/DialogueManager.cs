@@ -1,6 +1,7 @@
 using UnityEngine;
 using Ink.Runtime;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class DialogueManager : MonoBehaviour
     private InputAction _continueAction;
     private InputAction _exitAction;
 
+    private int _currentChoiceIndex = -1;
+    
+    
+
     private void Awake()
     {
         //instantiate the story from the json
@@ -28,6 +33,8 @@ public class DialogueManager : MonoBehaviour
 
         _exitAction = _playerControls.FindActionMap("Player").FindAction("Interact");
         _exitAction.performed += OnExit;
+
+
     }
 
     private void OnContinue(InputAction.CallbackContext context)
@@ -45,16 +52,23 @@ public class DialogueManager : MonoBehaviour
     private void OnEnable()
     {
         GameManager.i.DialogueEvents.OnEnterDialogue += EnterDialogue;
-        GameManager.i.DialogueEvents.OnDialoguePanelClose += ExitDialogue;        
+        //GameManager.i.CanvasManager.OnCloseCanvas.AddListener(ExternalExitDialogue);
+        GameManager.i.DialogueEvents.OnDialoguePanelClose += ExternalExitDialogue;
+        GameManager.i.DialogueEvents.OnChoiceSelected += UpdateChoiceIndex;        
     }
 
     private void OnDisable()
     {
         GameManager.i.DialogueEvents.OnEnterDialogue -= EnterDialogue;
-        GameManager.i.DialogueEvents.OnDialoguePanelClose -= ExitDialogue;
+        //GameManager.i.CanvasManager.OnCloseCanvas.RemoveListener(ExternalExitDialogue);
+        GameManager.i.DialogueEvents.OnDialoguePanelClose -= ExternalExitDialogue;
+        GameManager.i.DialogueEvents.OnChoiceSelected -= UpdateChoiceIndex;
     }
+
+    #region Dialogue handling
     private void EnterDialogue(string knotName)
     {
+        Debug.Log(_dialoguePlaying);   
         if (_dialoguePlaying)
             return;
 
@@ -63,6 +77,8 @@ public class DialogueManager : MonoBehaviour
         //inform all other systems that we started our interaction
         GameManager.i.DialogueEvents.DialogueStarted();
 
+        //  _story.ResetState();
+        
         if (!knotName.Equals(""))
         {
             //start the dialogue from the knot corresponding with the object
@@ -76,14 +92,46 @@ public class DialogueManager : MonoBehaviour
         ContinueOrExitStory();
     }
 
+    private void UpdateChoiceIndex(int choiceIndex)
+    {
+        this._currentChoiceIndex = choiceIndex;
+    }
+
     private void ContinueOrExitStory()
     {
+        //if there are choices to make
+        if (_story.currentChoices.Count > 0 && _currentChoiceIndex != -1)
+        {
+            //continue on our choice path
+            _story.ChooseChoiceIndex(_currentChoiceIndex);
+            //reset the current choice to avoid carry over
+            _currentChoiceIndex = -1;
+        }
+
+        //otherwise if we can continue
         if (_story.canContinue)
         {
+            //get next line (with eventual choices)
             string dialogueLine = _story.Continue();
-            Debug.Log(dialogueLine);
-            GameManager.i.DialogueEvents.DisplayDialogue(dialogueLine);   
-        } else
+
+            //skip over all the blank lines
+            while (IsLineBlank(dialogueLine) && _story.canContinue)
+            {
+                dialogueLine = _story.Continue();
+            }
+            
+            //if last line is empty then exit automatically
+            if (IsLineBlank(dialogueLine) && !_story.canContinue)
+            {
+                ExitDialogue();
+            } else
+            {
+                GameManager.i.DialogueEvents.DisplayDialogue(dialogueLine, _story.currentChoices);       
+            }
+            
+        } 
+        //exit only if there are no choices left
+        else if (_story.currentChoices.Count == 0)
         {
             ExitDialogue();
         }
@@ -92,8 +140,6 @@ public class DialogueManager : MonoBehaviour
 
     private void ExitDialogue()
     {
-        Debug.Log("Exiting dialogue");
-
         _dialoguePlaying = false;
 
         //inform all other systems that we finished our interaction
@@ -102,4 +148,22 @@ public class DialogueManager : MonoBehaviour
         //reset the story to the start
         _story.ResetState();
     }
+
+    private void ExternalExitDialogue()
+    {
+         //Debug.Log("Exiting dialogue");
+
+        _dialoguePlaying = false;
+        //we do not want to inform other systems since this could cause an infinite loop
+
+        //reset the story to the start
+        _story.ResetState();
+    }
+
+    private bool IsLineBlank(string dialogueLine)
+    {
+        return dialogueLine.Trim().Equals("") || dialogueLine.Trim().Equals("\n");
+    }
+
+    #endregion
 }

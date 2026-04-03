@@ -25,6 +25,9 @@ public class GameManager
                 if (!GameObject.FindGameObjectWithTag("CineMachine").TryGetComponent(out instance._cinemachineController))
                     Debug.LogWarning("No CineMachine controller found.");
 
+                /*if (!GameObject.FindGameObjectWithTag("Canvas").TryGetComponent(out instance.CanvasManager))
+                    Debug.LogWarning("No CanvasManager controller found.");*/
+
                 GameManager.ChangeState(StateMachineStep.Free);
 
                 instance.DialogueEvents = new DialogueEvents();
@@ -38,7 +41,7 @@ public class GameManager
 
     public StateMachineStep State {get; protected set;}
     private CinemachineInputAxisController _cinemachineController;
-
+    //public CanvasManager CanvasManager;
     public UnityEvent<StateMachineStep> OnChangeState;
     public DialogueEvents DialogueEvents;
 

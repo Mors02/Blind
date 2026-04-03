@@ -1,5 +1,9 @@
+using System.Collections.Generic;
+using Ink.Runtime;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Rendering.Universal;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -9,12 +13,16 @@ public class CanvasManager : MonoBehaviour
 
     [SerializeField]
     private TMP_Text _text;
+
+    [SerializeField]
+    private DialogueChoiceButton[] _choiceButtons;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {   
         /*Debug.Log(GameManager.i.State);
         if (GameManager.i.State == StateMachineStep.Free)
             this.gameObject.SetActive(false);*/
+        
         StateChanged(GameManager.i.State);
 
         GameManager.i.DialogueEvents.OnDisplayDialogue += DisplayText;
@@ -22,12 +30,44 @@ public class CanvasManager : MonoBehaviour
         GameManager.i.DialogueEvents.OnDialogueFinished += CloseInspectMenu;
 
         GameManager.i.OnChangeState.AddListener(StateChanged);
+
+        //OnCloseCanvas.AddListener(Test);
+
+        
     }
 
-    public void DisplayText(string dialogueLine)
+    public void DisplayText(string dialogueLine, List<Choice> choices)
     {
         Debug.Log(dialogueLine);
         _text.text = dialogueLine;
+
+        if (choices.Count > _choiceButtons.Length)
+        {
+            Debug.LogWarning("You put too many options (Max 6), currently " + choices.Count);
+        }
+
+        //Reset the state of all the buttons
+        foreach (DialogueChoiceButton choiceButton in _choiceButtons)
+        {
+            choiceButton.gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < choices.Count; i++)
+        {
+            Choice choice = choices[i];
+            DialogueChoiceButton button = _choiceButtons[i];
+
+            button.gameObject.SetActive(true);
+            button.SetChoiceText(choice.text);
+            button.SetChoiceIndex(choice.index);
+
+            /*if (i == 0)
+            {
+                button.SelectButton();
+                GameManager.i.DialogueEvents.UpdateChoiceIndex(0);
+            }*/
+        }
+
     }
 
     private void ResetPanel()
@@ -37,11 +77,15 @@ public class CanvasManager : MonoBehaviour
 
     public void StateChanged(StateMachineStep newState)
     {
+        
         if (newState == StateMachineStep.Free)
         {
+            
             //this.gameObject.SetActive(false);
+            ResetPanel();
             ResetTriggers();
             _animator.SetTrigger("Hide");
+            GameManager.i.DialogueEvents.CloseDialoguePanel();
         }
             
         
