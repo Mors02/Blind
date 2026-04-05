@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c96b35664ac9c47841a0588b9422b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DynamicWorldText
-  _dynamicText: {fileID: 0}
+  _dynamicText: {fileID: 11400000, guid: cd33c6ffa65458c4dbe945bb279fb9ef, type: 2}
 --- !u!1 &8555086409561652435
 GameObject:
   m_ObjectHideFlags: 0

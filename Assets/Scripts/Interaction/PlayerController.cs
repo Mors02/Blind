@@ -1,5 +1,3 @@
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -31,7 +29,7 @@ public class PlayerController : MonoBehaviour
     private InputAction _lookAction;
 
     [SerializeField]
-    private LayerMask _touchLayer, _interactLayer;
+    private LayerMask _touchLayer, _interactLayer, _floorLayer;
 
 
     private Vector3 _from, _to, _normal;
@@ -141,7 +139,7 @@ public class PlayerController : MonoBehaviour
                 Vector3 from = _normal = this.transform.position;
                 //raycast bit in front to make it more visible
                 //if (Physics.Raycast(from, Vector3.ProjectOnPlane(_cameraTransform.forward*0.15f, -_cameraTransform.up), out RaycastHit hit, 3f, _touchLayer))
-                if (Physics.Raycast(from, -transform.up, out RaycastHit hit, 3f, _touchLayer))
+                if (Physics.Raycast(from, -transform.up, out RaycastHit hit, 3f, _floorLayer))
                 {   
                     //only if its walkable then create the footprint
                     if (hit.collider.CompareTag("Floor"))
@@ -219,7 +217,8 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
 
-        Gizmos.DrawRay(_from, _from + _cameraTransform.forward * 5f);
+        //Gizmos.DrawCube(_from, _from + _cameraTransform.forward * 5f);
+        Gizmos.DrawCube(_lastFootprint, new Vector3(0.5f, 0.5f, 0.5f));
     }
 
     #region Text instantiation section
