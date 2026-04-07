@@ -1,3 +1,4 @@
+using FMODUnity;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -13,6 +14,15 @@ public class MimicAI : MonoBehaviour
     private Transform _hidingSpotParent;
 
     private Renderer _renderer;
+
+    [SerializeField]
+    private StudioEventEmitter _eventEmitter;
+
+    [SerializeField]
+    private float _minStepTime = 0.25f, _maxStepTime = 0.4f;
+    private float _timePassed = 0, _randDuration = 0;
+
+    private bool _isMoving;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,12 +32,24 @@ public class MimicAI : MonoBehaviour
             Debug.LogWarning("No player found in the scene.");
         }
         _renderer = GetComponent<Renderer>();
+
+        _randDuration = Random.Range(_minStepTime, _maxStepTime);
     }
 
     // Update is called once per frame
     void Update()
     {   
-        Debug.Log(_renderer.isVisible);
+        //random time between steps
+        if (_isMoving && _timePassed >= _randDuration)
+        {
+            _timePassed = 0;
+            _randDuration = Random.Range(_minStepTime, _maxStepTime);
+            _eventEmitter.Play();
+        }
+
+        _timePassed += Time.deltaTime;
+        
+        //check if the mimic is visible and should move
         if (_renderer.isVisible)
         {
             _navmeshAgent.enabled = false;
@@ -35,6 +57,11 @@ public class MimicAI : MonoBehaviour
             HidingSpot nearest = GetNearestHidingSpot();
             //teleport to it
            this.transform.position = nearest.transform.position;
+           
+           
+           
+           _isMoving = false;
+           _timePassed = 0;
 
             //retrieve prefab form
 
@@ -44,6 +71,7 @@ public class MimicAI : MonoBehaviour
         {
             _navmeshAgent.enabled = true;
             _navmeshAgent.SetDestination(_player.transform.position);
+            _isMoving = true;
             //return to base form (remove any prefab instantiate under it)
         }
         // _navmeshAgent.SetDestination(_player.transform.position);
