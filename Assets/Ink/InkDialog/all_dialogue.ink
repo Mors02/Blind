@@ -1,4 +1,4 @@
-//->fridge
+->door
 
 === stoneWall ===
 A cold wall stands in you way, smooth as a tomb.

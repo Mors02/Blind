@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d049125c2b9984b89914cfa918561e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  _transformationObject: {fileID: 0}
+  _transformationObject: {fileID: 6762004930739346881, guid: 44b04b1337a0cc4489c03ef6a6143494, type: 3}

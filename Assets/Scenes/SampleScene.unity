@@ -1280,7 +1280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3279374789815980522, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: m_Name
-      value: DynamicWorldText (1)
+      value: Radio Text
       objectReference: {fileID: 0}
     - target: {fileID: 3279374789815980522, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: m_IsActive

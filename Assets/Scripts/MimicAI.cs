@@ -58,7 +58,9 @@ public class MimicAI : MonoBehaviour
             //teleport to it
            this.transform.position = nearest.transform.position;
            
-           
+           //create the object to transform to (only if it was moving and now not anymore)
+           if (_isMoving == true)           
+            Instantiate(nearest.GetObject(), this.transform);
            
            _isMoving = false;
            _timePassed = 0;
@@ -69,10 +71,23 @@ public class MimicAI : MonoBehaviour
             
         } else
         {
+            //if it was not moving then destroy (it should happen only the first time)
+            if (!_isMoving)
+            {
+                //return to base form (remove any prefab instantiate under it)
+                foreach (Transform child in this.transform.GetComponentsInChildren<Transform>())
+                {
+                    if (child.gameObject.GetEntityId() != this.gameObject.GetEntityId())
+                        Destroy(child.gameObject);
+                }    
+            }
+
             _navmeshAgent.enabled = true;
             _navmeshAgent.SetDestination(_player.transform.position);
             _isMoving = true;
-            //return to base form (remove any prefab instantiate under it)
+
+
+            
         }
         // _navmeshAgent.SetDestination(_player.transform.position);
     }
