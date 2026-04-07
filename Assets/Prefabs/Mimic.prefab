@@ -215,6 +215,26 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Mimic_Foley_Step
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: 1252098735
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1274264715
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: 396305030
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 1372313223
+      objectReference: {fileID: 0}
     - target: {fileID: 8555086409561652435, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: m_Layer
       value: 11

@@ -42,10 +42,10 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639108311491181032
+  lastModified: 639111836802670220
   FileSizes:
   - Name: 
-    Value: 820
+    Value: 880
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -65,13 +65,14 @@ MonoBehaviour:
   - {fileID: 2092651872394159158}
   EditorEvents:
   - {fileID: -6265335939139342852}
+  - {fileID: 6033409863159417467}
   EditorParameters: []
   MasterBanks:
   - {fileID: 1270085778224537807}
   StringsBanks:
   - {fileID: -1113815656613296301}
   cacheVersion: 131849
-  cacheTime: 639108311491191087
+  cacheTime: 639111836802670220
   SerializableEventsDict:
   - key: event:/ClockTicking
     index: 0
@@ -90,7 +91,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639108311491181032
+  lastModified: 639111836802660219
   FileSizes: []
   Exists: 1
 --- !u!114 &2092651872394159158
@@ -108,6 +109,33 @@ MonoBehaviour:
   Path: FMOD/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639108311491191087
+  lastModified: 639111830979733829
   FileSizes: []
   Exists: 1
+--- !u!114 &6033409863159417467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Mimic_Foley_Step
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Mimic_Foley_Step
+  Guid:
+    Data1: 1252098735
+    Data2: 1274264715
+    Data3: 396305030
+    Data4: 1372313223
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
