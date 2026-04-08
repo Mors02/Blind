@@ -1,4 +1,14 @@
-->door
+EXTERNAL PlaySound(SoundId)
+EXTERNAL CompleteAction(objectId, actionId)
+//LIST itemStateList = POSSESSED, NOT_POSSESSED
+//LIST interactableStateList = CLOSE, OPEN
+VAR drankBottle = false
+//VAR keyState = itemStateList.NOT_POSSESSED
+//VAR doorState = interactableStateList.CLOSE
+VAR keyState = "NOT_POSSESSED"
+VAR doorState = "CLOSE"
+
+->wardrobe
 
 === stoneWall ===
 A cold wall stands in you way, smooth as a tomb.
@@ -6,6 +16,21 @@ Nothing seems to pass through here.
 -> END
 
 === door ===
+{doorState:
+- "CLOSE": -> door.close
+- "OPEN": -> door.open
+- else: -> END
+}
+=open
+The door is waiting for you to pass.
++ - Close it.
+    The wooden door is closed shut. You rotate the key and lock it.
+    ~ doorState = "CLOSE"
+    ~ CompleteAction("door", "close")
+    -> door
++ - Go away.
+    ->END
+=close
 A wooden door, closed. The handle is slightly hot, like someone touched recently.
 A feint smell of chemicals pass through the door.
 -> doorOptions
@@ -17,6 +42,16 @@ A feint smell of chemicals pass through the door.
 + ?- It wasn't here before
     You're right, the door wasn't here last time you were here.
     -> doorOptions
++ - Open it.
+    {keyState == "POSSESSED":
+        The key rotates and the lock clicks. The door opens.
+        ~ doorState = "OPEN"
+        ~ CompleteAction("door", "open")
+        -> door
+    - else:
+        It's locked.
+        -> doorOptions
+    }
 * [- Go away]
     ->END
     
@@ -32,7 +67,6 @@ Your average metallic fridge.
 + - Go away
     -> END
 
-VAR drankBottle = false
 === openFridge ===
 {drankBottle:
     The empty bottle looks at you from the tray.
@@ -67,8 +101,40 @@ Your clock.
 ->END
 
 === wardrobe ===
-Your wardrobe.
--> END
+As always, your wardrobe is full of useless crap.
+{keyState:
+- "POSSESSED":
+    -> wardrobe.withKey
+- "NOT_POSSESSED": 
+    -> wardrobe.withoutKey
+- else:
+    -> END
+}
+
+= withKey
+    Better leave this here.
+    //-> door
+    -> END
+= withoutKey
++ ?- What am I looking at?
+    -> wardrobeOptions
++ - Go away
+    -> END
+=== wardrobeOptions ===
+    You see used clothes, an old hockey stick, some boxes and a small drawer.
+    ** - Look inside the boxes
+        A pile of underwater and some socks.
+        -> wardrobeOptions
+    ** - Look inside the drawer
+         You found a key, looks like the duplicate you made for your entrance.
+        *** - Take the key
+        You took the key and put it in your pocket.
+        ~ keyState = "POSSESSED"
+        -> wardrobeOptions
+    ++ - Close the wardrobe
+        -> wardrobe
+    //- -> wardrobe
+
 
 === chair ===
 Your chair.

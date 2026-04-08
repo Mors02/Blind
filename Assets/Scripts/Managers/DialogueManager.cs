@@ -19,6 +19,9 @@ public class DialogueManager : MonoBehaviour
     private InputAction _continueAction;
     private InputAction _exitAction;
 
+    private InkExternalFunctions _inkExternalFunctions;
+    private InkDialogueVariables _inkDialogueVariables;
+
     private int _currentChoiceIndex = -1;
     
     
@@ -34,7 +37,15 @@ public class DialogueManager : MonoBehaviour
         _exitAction = _playerControls.FindActionMap("Player").FindAction("Interact");
         _exitAction.performed += OnExit;
 
+        _inkExternalFunctions = new InkExternalFunctions();
+        _inkExternalFunctions.Bind(_story);
 
+        _inkDialogueVariables = new InkDialogueVariables(_story);   
+    }
+#region On called events
+    private void OnDestroy()
+    {
+        _inkExternalFunctions.Unbind(_story);
     }
 
     private void OnContinue(InputAction.CallbackContext context)
@@ -54,8 +65,9 @@ public class DialogueManager : MonoBehaviour
         GameManager.i.DialogueEvents.OnEnterDialogue += EnterDialogue;
         //GameManager.i.CanvasManager.OnCloseCanvas.AddListener(ExternalExitDialogue);
         GameManager.i.DialogueEvents.OnDialoguePanelClose += ExternalExitDialogue;
-        GameManager.i.DialogueEvents.OnChoiceSelected += UpdateChoiceIndex;        
-    }
+        GameManager.i.DialogueEvents.OnChoiceSelected += UpdateChoiceIndex;
+        GameManager.i.DialogueEvents.OnUpdateInkDialogueVariable += UpdateInkDialogueVariable;
+    } 
 
     private void OnDisable()
     {
@@ -63,8 +75,9 @@ public class DialogueManager : MonoBehaviour
         //GameManager.i.CanvasManager.OnCloseCanvas.RemoveListener(ExternalExitDialogue);
         GameManager.i.DialogueEvents.OnDialoguePanelClose -= ExternalExitDialogue;
         GameManager.i.DialogueEvents.OnChoiceSelected -= UpdateChoiceIndex;
+        GameManager.i.DialogueEvents.OnUpdateInkDialogueVariable -= UpdateInkDialogueVariable;
     }
-
+#endregion
     #region Dialogue handling
     private void EnterDialogue(string knotName)
     {
@@ -88,6 +101,9 @@ public class DialogueManager : MonoBehaviour
             Debug.LogWarning("Empty interaction dialogue");
         }
 
+        //sync off variables with ink
+        _inkDialogueVariables.SyncVariablesAndStartListening(_story);
+
         //proceed with the dialogue
         ContinueOrExitStory();
     }
@@ -96,6 +112,11 @@ public class DialogueManager : MonoBehaviour
     {
         this._currentChoiceIndex = choiceIndex;
         ContinueOrExitStory();
+    }
+
+    private void UpdateInkDialogueVariable(string name, Ink.Runtime.Object value)
+    {
+        _inkDialogueVariables.UpdateVariableState(name, value);
     }
 
     private void ContinueOrExitStory()
@@ -146,6 +167,8 @@ public class DialogueManager : MonoBehaviour
         //inform all other systems that we finished our interaction
         GameManager.i.DialogueEvents.DialogueFinished();
 
+        _inkDialogueVariables.StopListening(_story);
+
         //reset the story to the start
         _story.ResetState();
     }
@@ -156,6 +179,8 @@ public class DialogueManager : MonoBehaviour
 
         _dialoguePlaying = false;
         //we do not want to inform other systems since this could cause an infinite loop
+
+        _inkDialogueVariables.StopListening(_story);
 
         //reset the story to the start
         _story.ResetState();

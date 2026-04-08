@@ -53,4 +53,10 @@ public class DialogueEvents
     {
         OnChoiceSelected?.Invoke(choiceIndex);
     }
+
+    public event Action<string, Ink.Runtime.Object> OnUpdateInkDialogueVariable;
+    public void onUpdateInkDialogueVariable(string name, Ink.Runtime.Object value)
+    {
+        OnUpdateInkDialogueVariable?.Invoke(name, value);
+    }
 }

@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine.Events;
 using Unity.Cinemachine;
 using UnityEngine.InputSystem;
+using Ink.Parsed;
 
 
 public class GameManager
@@ -44,6 +45,42 @@ public class GameManager
     //public CanvasManager CanvasManager;
     public UnityEvent<StateMachineStep> OnChangeState;
     public DialogueEvents DialogueEvents;
+
+    /// <summary>
+    /// Dictionary that holds all the possible objects that interact with ink
+    /// </summary>
+    private Dictionary<string, IActionHandler> _actionHandlers = new();
+
+    /// <summary>
+    /// Add an object to the list of handlers
+    /// </summary>
+    /// <param name="id">Id of the object that is added to the handler</param>
+    /// <param name="handler">the handler of the object</param>
+    public static void RegisterObject(string id, IActionHandler handler)
+    {
+        i._actionHandlers[id] = handler;
+    }
+    
+    public static void UnregisterObject(string id)
+    {
+        i._actionHandlers.Remove(id);
+    }
+
+    /// <summary>
+    /// Called by InkExternalFunctions, it's the link between ink and the game world
+    /// </summary>
+    /// <param name="objectId">Object the player is interacting with</param>
+    /// <param name="actionId">Action on the object (optional based on the object)</param>
+    public static void CompleteAction(string objectId, string actionId = "")
+    {
+        if (i._actionHandlers.TryGetValue(objectId, out var handler))
+        {
+            handler.Execute(actionId);
+        } else
+        {
+            Debug.LogWarning("No handler registered for object: " + objectId);
+        }
+    }
 
     public InputActionAsset PlayerControls;
 
