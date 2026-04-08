@@ -2,12 +2,22 @@ using UnityEngine;
 
 public class Door : MonoBehaviour, IActionHandler
 {
+
+    [SerializeField]
+    private Animator _animator;
     public void Execute(string actionId)
     {
         if (actionId == "open")
+        {
             Debug.Log("Pierino has opened the door");
+            _animator.SetTrigger("Open");
+        }
         else
+        {
             Debug.Log("Pierino has closed the door");
+            _animator.SetTrigger("Open");
+        }
+            
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

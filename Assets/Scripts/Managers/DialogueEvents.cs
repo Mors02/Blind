@@ -55,7 +55,7 @@ public class DialogueEvents
     }
 
     public event Action<string, Ink.Runtime.Object> OnUpdateInkDialogueVariable;
-    public void onUpdateInkDialogueVariable(string name, Ink.Runtime.Object value)
+    public void UpdateInkDialogueVariable(string name, Ink.Runtime.Object value)
     {
         OnUpdateInkDialogueVariable?.Invoke(name, value);
     }
