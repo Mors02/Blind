@@ -16,7 +16,10 @@ public class InkExternalFunctions
 
     private void PlaySound(string soundId)
     {
-        
+        Debug.Log(AudioManager.Instance);
+        Debug.Log(GameAssets.i);
+        Debug.Log(GameAssets.i.InteractionSounds);
+        AudioManager.Instance.PlayOneShot(GameAssets.i.InteractionSounds.GetSound(soundId));
     }
 
     private void CompleteAction(string objectId, string actionId = "")

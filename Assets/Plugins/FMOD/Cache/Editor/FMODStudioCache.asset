@@ -1,5 +1,140 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8734127723583565802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Env/Level1/Env_Fridge_Open_Loop
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Env/Level1/Env_Fridge_Open_Loop
+  Guid:
+    Data1: 1561201056
+    Data2: 1098664380
+    Data3: -273584484
+    Data4: 660204590
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7506620128401012642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Env/Level1/Env_Lamp_Desk_TurnOff
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Env/Level1/Env_Lamp_Desk_TurnOff
+  Guid:
+    Data1: -382807077
+    Data2: 1296942907
+    Data3: 955047857
+    Data4: -980069708
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7451925601181677841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Env/Level1/Env_Lamp_Desk_TurnOn
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Env/Level1/Env_Lamp_Desk_TurnOn
+  Guid:
+    Data1: 1063058844
+    Data2: 1181574396
+    Data3: 631996859
+    Data4: -1118979498
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6494960191762655082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Foley/Player_Walk_Step_Concrete
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Player/Foley/Player_Walk_Step_Concrete
+  Guid:
+    Data1: -845305618
+    Data2: 1253423037
+    Data3: 1300335795
+    Data4: 1156410249
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6382560697597874278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Foley/Player_Walk_Step_Carpet
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Player/Foley/Player_Walk_Step_Carpet
+  Guid:
+    Data1: 1125188604
+    Data2: 1232999464
+    Data3: 708776098
+    Data4: -2073653106
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-6265335939139342852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27,6 +162,114 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-5515305662067597012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UX/UX_Interact_Dialogue
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/UX/UX_Interact_Dialogue
+  Guid:
+    Data1: 2095209012
+    Data2: 1204837274
+    Data3: 789101980
+    Data4: -1204391609
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5275120514950760746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UX/UX_Task_Low_Complete
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/UX/UX_Task_Low_Complete
+  Guid:
+    Data1: -1908429409
+    Data2: 1102798678
+    Data3: -2000535914
+    Data4: -1693336006
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-4832667541824331194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Env/Level1/Env_Fridge_Close_Loop
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Env/Level1/Env_Fridge_Close_Loop
+  Guid:
+    Data1: -1358926487
+    Data2: 1105967328
+    Data3: 1803386255
+    Data4: 1243139823
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3396165335399801535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Env/Level1/Env_Window_Open_Loop
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Env/Level1/Env_Window_Open_Loop
+  Guid:
+    Data1: -1281414308
+    Data2: 1268077645
+    Data3: 198030467
+    Data4: 284141564
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-1113815656613296301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,10 +285,10 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639114206189959636
+  lastModified: 639114341914647477
   FileSizes:
   - Name: 
-    Value: 932
+    Value: 1864
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -67,13 +310,30 @@ MonoBehaviour:
   - {fileID: -6265335939139342852}
   - {fileID: 4079964130681542976}
   - {fileID: 4701628659090733859}
+  - {fileID: 3916254334634241914}
+  - {fileID: -5515305662067597012}
+  - {fileID: 6676227290690849140}
+  - {fileID: -3396165335399801535}
+  - {fileID: -4832667541824331194}
+  - {fileID: 8948485713723447945}
+  - {fileID: 8310326948024417397}
+  - {fileID: 2542556811339600728}
+  - {fileID: -7451925601181677841}
+  - {fileID: -5275120514950760746}
+  - {fileID: -8734127723583565802}
+  - {fileID: 5103782817166389334}
+  - {fileID: 704908194894890674}
+  - {fileID: 6409334409586140402}
+  - {fileID: -7506620128401012642}
+  - {fileID: -6494960191762655082}
+  - {fileID: -6382560697597874278}
   EditorParameters: []
   MasterBanks:
   - {fileID: 1270085778224537807}
   StringsBanks:
   - {fileID: -1113815656613296301}
   cacheVersion: 131849
-  cacheTime: 639114206189961851
+  cacheTime: 639114341914647477
   SerializableEventsDict:
   - key: event:/ClockTicking
     index: 0
@@ -81,6 +341,67 @@ MonoBehaviour:
     index: 1
   - key: event:/Env_Radio_Static_Loop
     index: 2
+  - key: event:/SFX/Ambience/Amb_House_RoomTone_Main_Loop
+    index: 3
+  - key: event:/SFX/UX/UX_Interact_Dialogue
+    index: 4
+  - key: event:/SFX/Env/Level1/Env_Cabinet_Wood_Close
+    index: 5
+  - key: event:/SFX/Env/Level1/Env_Window_Open_Loop
+    index: 6
+  - key: event:/SFX/Env/Level1/Env_Fridge_Close_Loop
+    index: 7
+  - key: event:/SFX/Env/Level1/Env_Cabinet_Wood_Open
+    index: 8
+  - key: event:/SFX/Env/Level1/Env_Drawer_Wood_Medium_Close
+    index: 9
+  - key: event:/SFX/Env/Level1/Env_Drawer_Wood_Medium_Open
+    index: 10
+  - key: event:/SFX/Env/Level1/Env_Lamp_Desk_TurnOn
+    index: 11
+  - key: event:/SFX/UX/UX_Task_Low_Complete
+    index: 12
+  - key: event:/SFX/Env/Level1/Env_Fridge_Open_Loop
+    index: 13
+  - key: event:/SFX/UX/UX_Interact_Hint
+    index: 14
+  - key: event:/SFX/Env/Level1/Env_Clock_Wall_Loop_01
+    index: 15
+  - key: event:/SFX/Player/Foley/Player_Walk_Step_Wood
+    index: 16
+  - key: event:/SFX/Env/Level1/Env_Lamp_Desk_TurnOff
+    index: 17
+  - key: event:/SFX/Player/Foley/Player_Walk_Step_Concrete
+    index: 18
+  - key: event:/SFX/Player/Foley/Player_Walk_Step_Carpet
+    index: 19
+--- !u!114 &704908194894890674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Env/Level1/Env_Clock_Wall_Loop_01
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Env/Level1/Env_Clock_Wall_Loop_01
+  Guid:
+    Data1: 205857969
+    Data2: 1262509950
+    Data3: 1739144341
+    Data4: 1099120332
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1270085778224537807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +417,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639114206189954375
+  lastModified: 639114341914376604
   FileSizes: []
   Exists: 1
 --- !u!114 &2092651872394159158
@@ -117,6 +438,60 @@ MonoBehaviour:
   lastModified: 639114206189961851
   FileSizes: []
   Exists: 1
+--- !u!114 &2542556811339600728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Env/Level1/Env_Drawer_Wood_Medium_Open
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Env/Level1/Env_Drawer_Wood_Medium_Open
+  Guid:
+    Data1: -1091463552
+    Data2: 1241370690
+    Data3: 1271266698
+    Data4: -384336561
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3916254334634241914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Ambience/Amb_House_RoomTone_Main_Loop
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Ambience/Amb_House_RoomTone_Main_Loop
+  Guid:
+    Data1: -474996952
+    Data2: 1215905214
+    Data3: 130343588
+    Data4: 912279659
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &4079964130681542976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +546,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &6033409863159417467
+--- !u!114 &5103782817166389334
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,14 +556,122 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Mimic_Foley_Step
+  m_Name: event:/SFX/UX/UX_Interact_Hint
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/Mimic_Foley_Step
+  Path: event:/SFX/UX/UX_Interact_Hint
   Guid:
-    Data1: 1252098735
-    Data2: 1274264715
-    Data3: 396305030
-    Data4: 1372313223
+    Data1: -740839512
+    Data2: 1183321128
+    Data3: -242240088
+    Data4: -2101371991
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6409334409586140402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Foley/Player_Walk_Step_Wood
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Player/Foley/Player_Walk_Step_Wood
+  Guid:
+    Data1: 2095439028
+    Data2: 1163766526
+    Data3: 128025757
+    Data4: -854200841
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6676227290690849140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Env/Level1/Env_Cabinet_Wood_Close
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Env/Level1/Env_Cabinet_Wood_Close
+  Guid:
+    Data1: -1150592191
+    Data2: 1205074250
+    Data3: 1353193113
+    Data4: 161599752
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8310326948024417397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Env/Level1/Env_Drawer_Wood_Medium_Close
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Env/Level1/Env_Drawer_Wood_Medium_Close
+  Guid:
+    Data1: -163045512
+    Data2: 1311184038
+    Data3: -36214869
+    Data4: -1471478622
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8948485713723447945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Env/Level1/Env_Cabinet_Wood_Open
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Env/Level1/Env_Cabinet_Wood_Open
+  Guid:
+    Data1: -367992974
+    Data2: 1255386597
+    Data3: -672307564
+    Data4: 460792363
   Banks:
   - {fileID: 1270085778224537807}
   IsStream: 0

@@ -245,6 +245,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33931797}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &113871064 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8caaea4ff241c0047ac46bbcd82bc7c8, type: 3}
+  m_PrefabInstance: {fileID: 688651398}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &119026933
 GameObject:
   m_ObjectHideFlags: 0
@@ -2469,13 +2474,53 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8caaea4ff241c0047ac46bbcd82bc7c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 688651402}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8caaea4ff241c0047ac46bbcd82bc7c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 688651403}
   m_SourcePrefab: {fileID: 100100000, guid: 8caaea4ff241c0047ac46bbcd82bc7c8, type: 3}
 --- !u!4 &688651399 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8caaea4ff241c0047ac46bbcd82bc7c8, type: 3}
   m_PrefabInstance: {fileID: 688651398}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &688651402
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113871064}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0016893527, y: 0.0016893523, z: 0.004310009}
+  m_Center: {x: 0, y: -6.245058e-18, z: 0.0021625052}
+--- !u!114 &688651403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113871064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c133fb51e563d14d9512dc5cf2401b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldObject
+  _info: {fileID: 11400000, guid: 193627a2501034acaa082d59b385874d, type: 2}
 --- !u!224 &739770809 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2675348170822771156, guid: 6eb979724e24a6a429b20d9a3ae77cce, type: 3}

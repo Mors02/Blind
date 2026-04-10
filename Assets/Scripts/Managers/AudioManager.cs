@@ -9,12 +9,11 @@ public class AudioManager : MonoBehaviour
         if (Instance != null)
         {
             Debug.LogError("Found more than one Audio Manager in the scene");
-
-            Instance = this;
         }
+        Instance = this;
     }
 
-    public void PlayOneShot(EventReference sound, Vector3 worldPos)
+    public void PlayOneShot(EventReference sound)
     {
         //play a sound on the player position
         RuntimeManager.PlayOneShot(sound, GameManager.i.Player.transform.position);

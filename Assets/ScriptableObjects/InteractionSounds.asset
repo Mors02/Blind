@@ -15,9 +15,49 @@ MonoBehaviour:
   Sounds:
   - sound:
       Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
-    id: 
+        Data1: -1150592191
+        Data2: 1205074250
+        Data3: 1353193113
+        Data4: 161599752
+      Path: event:/SFX/Env/Level1/Env_Cabinet_Wood_Close
+    id: CabinetWoodClose
+  - sound:
+      Guid:
+        Data1: -367992974
+        Data2: 1255386597
+        Data3: -672307564
+        Data4: 460792363
+      Path: event:/SFX/Env/Level1/Env_Cabinet_Wood_Open
+    id: CabinetWoodOpen
+  - sound:
+      Guid:
+        Data1: -163045512
+        Data2: 1311184038
+        Data3: -36214869
+        Data4: -1471478622
+      Path: event:/SFX/Env/Level1/Env_Drawer_Wood_Medium_Close
+    id: DrawerMediumClose
+  - sound:
+      Guid:
+        Data1: -1091463552
+        Data2: 1241370690
+        Data3: 1271266698
+        Data4: -384336561
+      Path: event:/SFX/Env/Level1/Env_Drawer_Wood_Medium_Open
+    id: DrawerMediumOpen
+  - sound:
+      Guid:
+        Data1: -382807077
+        Data2: 1296942907
+        Data3: 955047857
+        Data4: -980069708
+      Path: event:/SFX/Env/Level1/Env_Lamp_Desk_TurnOff
+    id: LampDeskTurnoff
+  - sound:
+      Guid:
+        Data1: 1063058844
+        Data2: 1181574396
+        Data3: 631996859
+        Data4: -1118979498
+      Path: event:/SFX/Env/Level1/Env_Lamp_Desk_TurnOn
+    id: LampDeskTurnon

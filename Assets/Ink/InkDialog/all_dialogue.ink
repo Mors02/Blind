@@ -7,6 +7,7 @@ VAR drankBottle = false
 //VAR doorState = interactableStateList.CLOSE
 VAR keyState = "NOT_POSSESSED"
 VAR doorState = "CLOSE"
+VAR lampState = "OFF"
 
 ->wardrobe
 
@@ -116,7 +117,8 @@ As always, your wardrobe is full of useless crap.
     //-> door
     -> END
 = withoutKey
-+ ?- What am I looking at?
++ - Open the wardrobe
+    ~ PlaySound("CabinetWoodOpen")
     -> wardrobeOptions
 + - Go away
     -> END
@@ -126,12 +128,15 @@ As always, your wardrobe is full of useless crap.
         A pile of underwater and some socks.
         -> wardrobeOptions
     ** - Look inside the drawer
+        ~ PlaySound("DrawerMediumOpen")
          You found a key, looks like the duplicate you made for your entrance.
         *** - Take the key
         You took the key and put it in your pocket.
         ~ keyState = "POSSESSED"
+        ~ PlaySound("DrawerMediumClose")
         -> wardrobeOptions
     ++ - Close the wardrobe
+        ~ PlaySound("CabinetWoodOpen")
         -> wardrobe
     //- -> wardrobe
 
@@ -139,6 +144,35 @@ As always, your wardrobe is full of useless crap.
 === chair ===
 Your chair.
 -> END
+
+=== lamp ===
+A simple lamp.
+    {lampState:
+    - "ON":
+        -> lamp.on
+    - "OFF": 
+        -> lamp.off
+    - else:
+        -> END
+    }
+    
+= on
+    You feel the heat radiating from the lamp. You really are blind.
+    + - Turn off.
+        ~ lampState = "OFF"
+        ~ PlaySound("LampDeskTurnoff")
+        -> lamp
+    + - Go away.
+        -> END
+= off
+    It stands on the bedside table.
+    + - Turn on.
+        ~ lampState = "ON"
+        ~ PlaySound("LampDeskTurnon")
+        -> lamp
+    + - Go away.
+        -> END
+
 
 === kitchenWorktop ===
 Your kitchen.
