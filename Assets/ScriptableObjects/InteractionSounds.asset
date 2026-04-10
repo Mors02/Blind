@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f2d80dfdc894b93833d13cada73a10, type: 3}
   m_Name: InteractionSounds
   m_EditorClassIdentifier: Assembly-CSharp::SoundCollection
-  Sounds: []
+  Sounds:
+  - sound:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    id: 
