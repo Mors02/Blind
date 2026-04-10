@@ -22,10 +22,15 @@ public class GameManager
                 instance.PlayerControls = GameAssets.i.PlayerControls;
                 //event called every time the state machine changes state
                 instance.OnChangeState = new UnityEvent<StateMachineStep>();
-                
+
                 if (!GameObject.FindGameObjectWithTag("CineMachine").TryGetComponent(out instance._cinemachineController))
                     Debug.LogWarning("No CineMachine controller found.");
 
+                instance.Player = GameObject.FindGameObjectWithTag("Player");
+
+                if (instance.Player == null) {
+                    Debug.LogWarning("No player found in scene.");
+                }
                 /*if (!GameObject.FindGameObjectWithTag("Canvas").TryGetComponent(out instance.CanvasManager))
                     Debug.LogWarning("No CanvasManager controller found.");*/
 
@@ -45,6 +50,8 @@ public class GameManager
     //public CanvasManager CanvasManager;
     public UnityEvent<StateMachineStep> OnChangeState;
     public DialogueEvents DialogueEvents;
+
+    public GameObject Player;
 
     /// <summary>
     /// Dictionary that holds all the possible objects that interact with ink
