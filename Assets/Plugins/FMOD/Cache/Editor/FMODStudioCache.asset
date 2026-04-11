@@ -20,13 +20,13 @@ MonoBehaviour:
     Data4: 660204590
   Banks:
   - {fileID: 1270085778224537807}
-  IsStream: 1
+  IsStream: 0
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 20000
 --- !u!114 &-7506620128401012642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +162,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-5761520395420576335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Env/Level1/Env_Clock_Wall_Loop
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Env/Level1/Env_Clock_Wall_Loop
+  Guid:
+    Data1: 205857969
+    Data2: 1262509950
+    Data3: 1739144341
+    Data4: 1099120332
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &-5515305662067597012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,13 +263,13 @@ MonoBehaviour:
     Data4: 1243139823
   Banks:
   - {fileID: 1270085778224537807}
-  IsStream: 1
+  IsStream: 0
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 20000
 --- !u!114 &-3396165335399801535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,13 +290,13 @@ MonoBehaviour:
     Data4: 284141564
   Banks:
   - {fileID: 1270085778224537807}
-  IsStream: 1
+  IsStream: 0
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 33000
 --- !u!114 &-1113815656613296301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,10 +312,10 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639114479059793097
+  lastModified: 639115013320755602
   FileSizes:
   - Name: 
-    Value: 1864
+    Value: 1862
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -322,18 +349,18 @@ MonoBehaviour:
   - {fileID: -5275120514950760746}
   - {fileID: -8734127723583565802}
   - {fileID: 5103782817166389334}
-  - {fileID: 704908194894890674}
   - {fileID: 6409334409586140402}
   - {fileID: -7506620128401012642}
   - {fileID: -6494960191762655082}
   - {fileID: -6382560697597874278}
+  - {fileID: -5761520395420576335}
   EditorParameters: []
   MasterBanks:
   - {fileID: 1270085778224537807}
   StringsBanks:
   - {fileID: -1113815656613296301}
   cacheVersion: 131849
-  cacheTime: 639114479059793097
+  cacheTime: 639115013320755602
   SerializableEventsDict:
   - key: event:/ClockTicking
     index: 0
@@ -365,43 +392,16 @@ MonoBehaviour:
     index: 13
   - key: event:/SFX/UX/UX_Interact_Hint
     index: 14
-  - key: event:/SFX/Env/Level1/Env_Clock_Wall_Loop_01
-    index: 15
   - key: event:/SFX/Player/Foley/Player_Walk_Step_Wood
-    index: 16
+    index: 15
   - key: event:/SFX/Env/Level1/Env_Lamp_Desk_TurnOff
-    index: 17
+    index: 16
   - key: event:/SFX/Player/Foley/Player_Walk_Step_Concrete
-    index: 18
+    index: 17
   - key: event:/SFX/Player/Foley/Player_Walk_Step_Carpet
+    index: 18
+  - key: event:/SFX/Env/Level1/Env_Clock_Wall_Loop
     index: 19
---- !u!114 &704908194894890674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Env/Level1/Env_Clock_Wall_Loop_01
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/SFX/Env/Level1/Env_Clock_Wall_Loop_01
-  Guid:
-    Data1: 205857969
-    Data2: 1262509950
-    Data3: 1739144341
-    Data4: 1099120332
-  Banks:
-  - {fileID: 1270085778224537807}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &1270085778224537807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,7 +417,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639114479059783074
+  lastModified: 639115013320745602
   FileSizes: []
   Exists: 1
 --- !u!114 &2092651872394159158
@@ -435,7 +435,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639108311491191087
+  lastModified: 639111830979733829
   FileSizes: []
   Exists: 1
 --- !u!114 &2542556811339600728
@@ -487,11 +487,11 @@ MonoBehaviour:
   - {fileID: 1270085778224537807}
   IsStream: 1
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 80000
 --- !u!114 &4079964130681542976
 MonoBehaviour:
   m_ObjectHideFlags: 0
