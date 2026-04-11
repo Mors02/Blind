@@ -1,10 +1,13 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class WorldText : MonoBehaviour
 {
+    [SerializeField]
+    private WorldObjectInfo _objectInfo;
     private WorldObject _objectOrigin;
     public WorldObject ObjectInteracted {get {return _objectOrigin;}}
 
@@ -56,6 +59,8 @@ public class WorldText : MonoBehaviour
     public void FixedUpdate()
     {
         this._timePassed += Time.fixedDeltaTime;
+        if (_text == null)
+            return;
         //fast fade in, then slow fade out
         if (_timePassed < _fadeInTime)
         {
@@ -65,7 +70,7 @@ public class WorldText : MonoBehaviour
             this._text.color = new Color(1, 1, 1, 1f - (_timePassed / _life));    
         }
 
-        if (_timePassed >= _life)
+        if (_life > 0 && _timePassed >= _life)
             Destroy(this.gameObject);
     }
 
@@ -81,7 +86,13 @@ public class WorldText : MonoBehaviour
         if (Vector3.Dot(_decal.transform.up, cameraTransform.up) < 0)
             _decal.transform.Rotate(0, 0, 180f);
         } 
-
+    public string GetObjectKnot()
+    {
+        if (_objectOrigin == null)
+            return _objectInfo.knotId;
+        else
+            return _objectOrigin.InkKnot;
+    }
     private void HandlePrint(PrintType print)
     {
         /* CANVAS VERSION */

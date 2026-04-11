@@ -24,12 +24,12 @@ Nothing seems to pass through here.
 }
 =open
 The door is waiting for you to pass.
-+ - Close it.
++ [- Close it.]
     The wooden door is closed shut. You rotate the key and lock it.
     ~ doorState = "CLOSE"
     ~ CompleteAction("door", "close")
     -> door
-+ - Go away.
++ [- Go away.]
     ->END
 =close
 A wooden door, closed. The handle is slightly hot, like someone touched recently.
@@ -37,13 +37,13 @@ A feint smell of chemicals pass through the door.
 -> doorOptions
 
 === doorOptions ===
-+ - Define the smell
++ [- Define the smell]
     It's definetely gasoline. The whole door is covered in it.
     -> doorOptions
-+ ?- It wasn't here before
++ [?- It wasn't here before]
     You're right, the door wasn't here last time you were here.
     -> doorOptions
-+ - Open it.
++ [- Open it.]
     {keyState == "POSSESSED":
         The key rotates and the lock clicks. The door opens.
         ~ doorState = "OPEN"
@@ -62,10 +62,10 @@ A squeaky clean marble floor.
 
 === fridge ===
 Your average metallic fridge.
-+ - Open it
++ [- Open it]
     Cold air touches your face. It smells like rotten eggs.
     ->openFridge
-+ - Go away
++ [- Go away]
     -> END
 
 === openFridge ===
@@ -76,23 +76,23 @@ Your average metallic fridge.
 }
 
 {not drankBottle: 
-+ - Drink it
++ [- Drink it]
     The cap is loose, you pop it. Your lips touch the cold glass and a metallic taste feels your mouth. It's full of blood.
-    ** - Keep drinking
+    ** [- Keep drinking]
         Everything in your head knows that you shouldn't do it, but it's too late. The cold blood pours down your throat. You can barely hold the vomit.
         ~ drankBottle = true    
         ->openFridge
-    ++ - Put it back
+    ++ [- Put it back]
         You put the bottle back into the lower tray.
         ->openFridge
-    ++ ?- Why is there blood in my fridge
+    ++ [?- Why is there blood in my fridge]
         Are you asking me?
         -> openFridge
-* - Leave it be
+* [- Leave it be]
  You close the fridge.
  -> DONE
  - else:
-    * - Take the empty bottle
+    * [- Take the empty bottle]
     It could come in handy.
     ->END
 }
@@ -117,25 +117,25 @@ As always, your wardrobe is full of useless crap.
     //-> door
     -> END
 = withoutKey
-+ - Open the wardrobe
++ [- Open the wardrobe]
     ~ PlaySound("CabinetWoodOpen")
     -> wardrobeOptions
-+ - Go away
++ [- Go away]
     -> END
 === wardrobeOptions ===
     You see used clothes, an old hockey stick, some boxes and a small drawer.
-    ** - Look inside the boxes
+    ** [- Look inside the boxes]
         A pile of underwater and some socks.
         -> wardrobeOptions
-    ** - Look inside the drawer
+    ** [- Look inside the drawer]
         ~ PlaySound("DrawerMediumOpen")
          You found a key, looks like the duplicate you made for your entrance.
-        *** - Take the key
+        *** [- Take the key]
         You took the key and put it in your pocket.
         ~ keyState = "POSSESSED"
         ~ PlaySound("DrawerMediumClose")
         -> wardrobeOptions
-    ++ - Close the wardrobe
+    ++ [- Close the wardrobe]
         ~ PlaySound("CabinetWoodOpen")
         -> wardrobe
     //- -> wardrobe
@@ -158,19 +158,19 @@ A simple lamp.
     
 = on
     You feel the heat radiating from the lamp. You really are blind.
-    + - Turn off.
+    + [- Turn off.]
         ~ lampState = "OFF"
         ~ PlaySound("LampDeskTurnoff")
         -> lamp
-    + - Go away.
+    + [- Go away.]
         -> END
 = off
     It stands on the bedside table.
-    + - Turn on.
+    + [- Turn on.]
         ~ lampState = "ON"
         ~ PlaySound("LampDeskTurnon")
         -> lamp
-    + - Go away.
+    + [- Go away.]
         -> END
 
 
@@ -189,6 +189,14 @@ Your bedside table.
 === table ===
 Your table.
 -> END
-     
+
+=== reflect ===
+What a couple of days, uh?
+* [- What should I do...]
+    ->END
+* [- Check pockets]
+    ->END
+* [- Stop reflecting]
+    ->END
      
      

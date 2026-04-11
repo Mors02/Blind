@@ -30,7 +30,11 @@ public class GameManager
 
                 if (instance.Player == null) {
                     Debug.LogWarning("No player found in scene.");
+                } else
+                {
+                    instance._inventory = instance.Player.GetComponent<Inventory>();
                 }
+
                 /*if (!GameObject.FindGameObjectWithTag("Canvas").TryGetComponent(out instance.CanvasManager))
                     Debug.LogWarning("No CanvasManager controller found.");*/
 
@@ -48,11 +52,13 @@ public class GameManager
     public StateMachineStep State {get; protected set;}
     private CinemachineInputAxisController _cinemachineController;
     //public CanvasManager CanvasManager;
-    public UnityEvent<StateMachineStep> OnChangeState;
     public DialogueEvents DialogueEvents;
 
     public GameObject Player;
+    private Inventory _inventory;
+    public InputActionAsset PlayerControls;
 
+    #region Ink Functions
     /// <summary>
     /// Dictionary that holds all the possible objects that interact with ink
     /// </summary>
@@ -89,8 +95,26 @@ public class GameManager
         }
     }
 
-    public InputActionAsset PlayerControls;
+    /// <summary>
+    /// Update the inventory from ink
+    /// </summary>
+    /// <param name="itemId">item that should be added or removed</param>
+    /// <param name="added">if true it's added, removed otherwise</param>
+    public static void UpdateInventory(string itemId, bool added)
+    {
+        if (added)
+        {
+            instance._inventory.AddToInventory(GameAssets.i.ItemDatabase.GetItem(itemId));
+        } else
+        {
+            instance._inventory.RemoveFromInventory(itemId);
+        }
+    }
 
+    #endregion
+
+    #region State machine
+    public UnityEvent<StateMachineStep> OnChangeState;
     /// <summary>
     /// Used to handle all changes in the game state. Mostly to check what the player can do in the various states.
     /// </summary>
@@ -120,7 +144,7 @@ public class GameManager
 
         i.OnChangeState.Invoke(newState);
     }
-
+    #endregion
     
 
 }
