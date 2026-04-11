@@ -194,7 +194,7 @@ public class PlayerController : MonoBehaviour
                 {
                     Debug.Log("Hit: " + hit.collider.gameObject.name);
                     //enter inspect state in the stace machine
-                    GameManager.i.DialogueEvents.EnterDialogue(text.ObjectInteracted.InkKnot);
+                    GameManager.i.DialogueEvents.EnterDialogue(text.GetObjectKnot());
                     GameManager.ChangeState(StateMachineStep.Inspect);    
                 }
                 
@@ -217,8 +217,8 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
 
-        //Gizmos.DrawCube(_from, _from + _cameraTransform.forward * 5f);
-        Gizmos.DrawCube(_lastFootprint, new Vector3(0.5f, 0.5f, 0.5f));
+        Gizmos.DrawLine(_from, _from + _cameraTransform.forward * 5f);
+        //Gizmos.DrawCube(_lastFootprint, new Vector3(0.5f, 0.5f, 0.5f));
     }
 
     #region Text instantiation section
