@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8927210207145317077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI/UI_Open_Dialogue
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/UI/UI_Open_Dialogue
+  Guid:
+    Data1: -1624439134
+    Data2: 1284569847
+    Data3: 1848621440
+    Data4: -207464973
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-8734127723583565802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27,6 +54,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 20000
+--- !u!114 &-8541159251614056913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI/UI_Close_Dialogue
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/UI/UI_Close_Dialogue
+  Guid:
+    Data1: -41719927
+    Data2: 1245352516
+    Data3: -49966145
+    Data4: -594796198
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-7506620128401012642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +324,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 20000
+--- !u!114 &-3703253251767906770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Env/Level1/Env_Clock_Wall_Loop
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Env/Level1/Env_Clock_Wall_Loop
+  Guid:
+    Data1: 205857969
+    Data2: 1262509950
+    Data3: 1739144341
+    Data4: 1099120332
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &-3396165335399801535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,10 +393,10 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639115013320755602
+  lastModified: 639116729676251922
   FileSizes:
   - Name: 
-    Value: 1862
+    Value: 2096
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -353,14 +434,18 @@ MonoBehaviour:
   - {fileID: -7506620128401012642}
   - {fileID: -6494960191762655082}
   - {fileID: -6382560697597874278}
-  - {fileID: -5761520395420576335}
+  - {fileID: 9072850032463742686}
+  - {fileID: 4142237693475533294}
+  - {fileID: -8541159251614056913}
+  - {fileID: -8927210207145317077}
+  - {fileID: -3703253251767906770}
   EditorParameters: []
   MasterBanks:
   - {fileID: 1270085778224537807}
   StringsBanks:
   - {fileID: -1113815656613296301}
   cacheVersion: 131849
-  cacheTime: 639115013320755602
+  cacheTime: 639116729676251922
   SerializableEventsDict:
   - key: event:/ClockTicking
     index: 0
@@ -400,8 +485,16 @@ MonoBehaviour:
     index: 17
   - key: event:/SFX/Player/Foley/Player_Walk_Step_Carpet
     index: 18
-  - key: event:/SFX/Env/Level1/Env_Clock_Wall_Loop
+  - key: event:/SFX/UI/UI_Confirm_Dialogue_Tonal
     index: 19
+  - key: event:/SFX/UI/UI_Hover_Dialogue_Generic
+    index: 20
+  - key: event:/SFX/UI/UI_Close_Dialogue
+    index: 21
+  - key: event:/SFX/UI/UI_Open_Dialogue
+    index: 22
+  - key: event:/SFX/Env/Level1/Env_Clock_Wall_Loop
+    index: 23
 --- !u!114 &1270085778224537807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,7 +510,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639115013320745602
+  lastModified: 639116729676246264
   FileSizes: []
   Exists: 1
 --- !u!114 &2092651872394159158
@@ -435,7 +528,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639111830979733829
+  lastModified: 639114206189961851
   FileSizes: []
   Exists: 1
 --- !u!114 &2542556811339600728
@@ -514,6 +607,33 @@ MonoBehaviour:
   - {fileID: 1270085778224537807}
   IsStream: 0
   Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4142237693475533294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI/UI_Hover_Dialogue_Generic
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/UI/UI_Hover_Dialogue_Generic
+  Guid:
+    Data1: -708976764
+    Data2: 1185574377
+    Data3: 1017896859
+    Data4: -1170084987
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -676,6 +796,33 @@ MonoBehaviour:
   - {fileID: 1270085778224537807}
   IsStream: 0
   Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &9072850032463742686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI/UI_Confirm_Dialogue_Tonal
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/UI/UI_Confirm_Dialogue_Tonal
+  Guid:
+    Data1: 2057971254
+    Data2: 1295052404
+    Data3: -809914714
+    Data4: -1591019308
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1

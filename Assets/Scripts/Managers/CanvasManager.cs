@@ -35,8 +35,6 @@ public class CanvasManager : MonoBehaviour
         GameManager.i.OnChangeState.AddListener(StateChanged);
 
         //OnCloseCanvas.AddListener(Test);
-
-        
     }
 
     public void DisplayText(string dialogueLine, List<Choice> choices)
@@ -83,33 +81,31 @@ public class CanvasManager : MonoBehaviour
 
     public void StateChanged(StateMachineStep newState)
     {
-        
-        if (newState == StateMachineStep.Free)
+
+        switch (newState)
         {
-            
-            //this.gameObject.SetActive(false);
-            
-            ResetTriggers();
-            _animator.SetTrigger("Hide");
-            _textFade.FadeOut();
-            ResetPanel();
-            GameManager.i.DialogueEvents.CloseDialoguePanel();
+            case StateMachineStep.Free:
+                ResetTriggers();
+                _animator.SetTrigger("Hide");
+                _textFade.FadeOut();
+                ResetPanel();
+                GameManager.i.DialogueEvents.CloseDialoguePanel();
                 //Reset the state of all the buttons
-            foreach (DialogueChoiceButton choiceButton in _choiceButtons)
-            {
-                choiceButton.gameObject.SetActive(false);
-            }
-        }
-            
-        
-        if (newState == StateMachineStep.Inspect)
-        {
-          //  ResetPanel();
-            //this.gameObject.SetActive(true);
-            ResetTriggers();
-            _animator.SetTrigger("Show");
-        }
-            
+                foreach (DialogueChoiceButton choiceButton in _choiceButtons)
+                {
+                    choiceButton.gameObject.SetActive(false);
+                }
+                break;
+            case StateMachineStep.Inventory:
+                //ResetPanel();
+                //fallthrough to continue the same behaviour of inspect
+                //goto case StateMachineStep.Inspect;
+            case StateMachineStep.Inspect:
+                ResetTriggers();
+                _animator.SetTrigger("Show");
+                break;
+
+        }   
     }
 
     public void CloseInspectMenu()

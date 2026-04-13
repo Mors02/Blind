@@ -80,8 +80,7 @@ public class DialogueManager : MonoBehaviour
 #endregion
     #region Dialogue handling
     private void EnterDialogue(string knotName)
-    {
-        Debug.Log(_dialoguePlaying);   
+    { 
         if (_dialoguePlaying)
             return;
 
@@ -121,6 +120,7 @@ public class DialogueManager : MonoBehaviour
 
     private void ContinueOrExitStory()
     {
+        
         //if there are choices to make
         if (_story.currentChoices.Count > 0 && _currentChoiceIndex != -1)
         {

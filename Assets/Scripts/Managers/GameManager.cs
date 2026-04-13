@@ -32,8 +32,13 @@ public class GameManager
                     Debug.LogWarning("No player found in scene.");
                 } else
                 {
-                    instance._inventory = instance.Player.GetComponent<Inventory>();
+                    instance.Inventory = instance.Player.GetComponent<Inventory>();
                 }
+
+                /*if (!GameObject.FindGameObjectWithTag("Canvas").TryGetComponent(out instance.InventoryManager))
+                {
+                    Debug.LogWarning("No canvas found in scene.");
+                }*/
 
                 /*if (!GameObject.FindGameObjectWithTag("Canvas").TryGetComponent(out instance.CanvasManager))
                     Debug.LogWarning("No CanvasManager controller found.");*/
@@ -55,7 +60,8 @@ public class GameManager
     public DialogueEvents DialogueEvents;
 
     public GameObject Player;
-    private Inventory _inventory;
+    public Inventory Inventory;
+    //public InventoryManager InventoryManager;
     public InputActionAsset PlayerControls;
 
     #region Ink Functions
@@ -74,6 +80,10 @@ public class GameManager
         i._actionHandlers[id] = handler;
     }
     
+    /// <summary>
+    /// Unregister an object from the list of handlers. Should be called OnDestroy of relative object that registered.
+    /// </summary>
+    /// <param name="id">Id of the item that should be removed</param>
     public static void UnregisterObject(string id)
     {
         i._actionHandlers.Remove(id);
@@ -102,12 +112,15 @@ public class GameManager
     /// <param name="added">if true it's added, removed otherwise</param>
     public static void UpdateInventory(string itemId, bool added)
     {
+        Debug.Log(itemId);
+        Debug.Log(GameAssets.i.ItemDatabase);
         if (added)
         {
-            instance._inventory.AddToInventory(GameAssets.i.ItemDatabase.GetItem(itemId));
-        } else
+            instance.Inventory.AddToInventory(GameAssets.i.ItemDatabase.GetItem(itemId));
+        }
+        else
         {
-            instance._inventory.RemoveFromInventory(itemId);
+            instance.Inventory.RemoveFromInventory(itemId);
         }
     }
 
@@ -124,7 +137,7 @@ public class GameManager
         
         i.State = newState;
         switch(newState)
-        {
+        {            
             case StateMachineStep.Free:
                 Cursor.lockState = CursorLockMode.Locked;
                 instance._cinemachineController.enabled = true;
@@ -132,7 +145,7 @@ public class GameManager
                 //instance.PlayerControls.FindActionMap("Player").Enable();
                 //instance.PlayerControls.FindActionMap("Dialogue").Disable();
                 break;
-            
+            case StateMachineStep.Inventory:   
             case StateMachineStep.Inspect:
                 Cursor.lockState = CursorLockMode.None;
                 instance._cinemachineController.enabled = false;
@@ -156,4 +169,5 @@ public enum StateMachineStep
 {
     Free,
     Inspect,
+    Inventory,
 }

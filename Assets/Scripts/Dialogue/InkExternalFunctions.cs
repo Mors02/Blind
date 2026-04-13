@@ -28,6 +28,7 @@ public class InkExternalFunctions
     /// <param name="added">if true, it's addded otherwise it's removed</param>
     private void UpdateInventory(string itemId, bool added)
     {
+        //Debug.Log("INKEXTERNALFUNCTIONS: " + itemId);
         GameManager.UpdateInventory(itemId, added);
     }
 

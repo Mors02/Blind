@@ -194,8 +194,16 @@ public class PlayerController : MonoBehaviour
                 {
                     Debug.Log("Hit: " + hit.collider.gameObject.name);
                     //enter inspect state in the stace machine
-                    GameManager.i.DialogueEvents.EnterDialogue(text.GetObjectKnot());
-                    GameManager.ChangeState(StateMachineStep.Inspect);    
+                    if (hit.collider.gameObject.CompareTag("Reflect"))
+                    {
+                        GameManager.ChangeState(StateMachineStep.Inventory);
+                    }
+                    else
+                    {
+                        GameManager.i.DialogueEvents.EnterDialogue(text.GetObjectKnot());
+                        GameManager.ChangeState(StateMachineStep.Inspect);
+                    }
+                    
                 }
                 
             }

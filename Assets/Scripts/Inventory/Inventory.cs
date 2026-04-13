@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class Inventory : MonoBehaviour, IActionHandler
+
+public class Inventory : MonoBehaviour
 {
+    
     private List<Item> _items;
+
     public List<Item> Items => _items;
     /// <summary>
     /// Called when a new Item is added to the inventory
@@ -25,8 +28,7 @@ public class Inventory : MonoBehaviour, IActionHandler
     void Start()
     {
         _items = new List<Item>();
-        OnInventoryChanged.Invoke();
-
+        //OnInventoryChanged.Invoke();
     }
 
     /// <summary>
@@ -34,10 +36,14 @@ public class Inventory : MonoBehaviour, IActionHandler
     /// </summary>
     /// <param name="item"></param>
     public void AddToInventory(Item item)
-    {
+    {        
         this._items.Add(item);
-        OnItemAdded.Invoke(item);
-        OnInventoryChanged.Invoke();
+           this._items.Add(item);
+              this._items.Add(item);
+                 this._items.Add(item);
+                    this._items.Add(item);
+        OnItemAdded?.Invoke(item);
+        OnInventoryChanged?.Invoke();
     }
 
     /// <summary>
@@ -50,8 +56,8 @@ public class Inventory : MonoBehaviour, IActionHandler
 
         this._items.Remove(item);
 
-        OnItemRemoved.Invoke(item);
-        OnInventoryChanged.Invoke();
+        OnItemRemoved?.Invoke(item);
+        OnInventoryChanged?.Invoke();
     }
 
     /// <summary>
@@ -62,12 +68,7 @@ public class Inventory : MonoBehaviour, IActionHandler
     {
         this._items.Remove(item);
 
-        OnItemRemoved.Invoke(item);
-        OnInventoryChanged.Invoke();
-    }
-
-    public void Execute(string actionId)
-    {
-        throw new NotImplementedException();
+        OnItemRemoved?.Invoke(item);
+        OnInventoryChanged?.Invoke();
     }
 }

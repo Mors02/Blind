@@ -36,6 +36,7 @@ public class TextFadeTransition : MonoBehaviour
         SetAlpha(_next, 0f);
     }
 
+
     /// <summary>
     /// Fade in a text in the ui from left to right. To be used when it's the first text to be visualized
     /// </summary>
@@ -45,7 +46,7 @@ public class TextFadeTransition : MonoBehaviour
         //in case of spamming, only one transition at a time
         StopAllCoroutines();
         FinalizeState();
-
+        Debug.Log(_current);
         //changes text, starts fade in
         _current.text = newText;
         StartCoroutine(RunFadeIn());
@@ -184,14 +185,16 @@ public class TextFadeTransition : MonoBehaviour
     /// <returns></returns>
     private IEnumerator RunFadeOut()
     {   
+        Debug.Log(_current.text);
         //set the state
         _state = State.FadingOut;
         float elapsed = 0f;
 
         // forces the regeneration of the text object and applies the fade at the start
         _current.ForceMeshUpdate();
+        Debug.Log(_current.text);
         ApplyFade(_current, 0f, true);
-        
+        Debug.Log(_current.text);
         //while the duration is active
         while (elapsed < _fadeDuration)
         {

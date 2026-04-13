@@ -1,5 +1,6 @@
 EXTERNAL PlaySound(SoundId)
 EXTERNAL CompleteAction(objectId, actionId)
+EXTERNAL UpdateInventory(objectId, added)
 //LIST itemStateList = POSSESSED, NOT_POSSESSED
 //LIST interactableStateList = CLOSE, OPEN
 VAR drankBottle = false
@@ -9,7 +10,7 @@ VAR keyState = "NOT_POSSESSED"
 VAR doorState = "CLOSE"
 VAR lampState = "OFF"
 
-->wardrobe
+//->wardrobe
 
 === stoneWall ===
 A cold wall stands in you way, smooth as a tomb.
@@ -133,6 +134,7 @@ As always, your wardrobe is full of useless crap.
         *** [- Take the key]
         You took the key and put it in your pocket.
         ~ keyState = "POSSESSED"
+        ~ UpdateInventory("key", true)
         ~ PlaySound("DrawerMediumClose")
         -> wardrobeOptions
     ++ [- Close the wardrobe]
@@ -195,6 +197,7 @@ What a couple of days, uh?
 * [- What should I do...]
     ->END
 * [- Check pockets]
+    ~ CompleteAction("inventory", "open")
     ->END
 * [- Stop reflecting]
     ->END
