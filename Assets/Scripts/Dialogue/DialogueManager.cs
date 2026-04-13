@@ -86,6 +86,8 @@ public class DialogueManager : MonoBehaviour
 
         _dialoguePlaying = true;
 
+        AudioManager.Instance.PlayOneShot(GameAssets.i.UISounds.GetSound("UIOpen"));
+
         //inform all other systems that we started our interaction
         GameManager.i.DialogueEvents.DialogueStarted();
 
@@ -110,6 +112,7 @@ public class DialogueManager : MonoBehaviour
     private void UpdateChoiceIndex(int choiceIndex)
     {
         this._currentChoiceIndex = choiceIndex;
+        AudioManager.Instance.PlayOneShot(GameAssets.i.UISounds.GetSound("UIConfirmDialogue"));
         ContinueOrExitStory();
     }
 
@@ -160,30 +163,28 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-    private void ExitDialogue()
+    private void EndDialogue()
     {
         _dialoguePlaying = false;
-
-        //inform all other systems that we finished our interaction
-        GameManager.i.DialogueEvents.DialogueFinished();
 
         _inkDialogueVariables.StopListening(_story);
 
         //reset the story to the start
         _story.ResetState();
+
+        AudioManager.Instance.PlayOneShot(GameAssets.i.UISounds.GetSound("UIClose"));
+    }
+    private void ExitDialogue()
+    {
+
+        EndDialogue();
+        //inform all other systems that we finished our interaction
+        GameManager.i.DialogueEvents.DialogueFinished();
     }
 
     private void ExternalExitDialogue()
     {
-         //Debug.Log("Exiting dialogue");
-
-        _dialoguePlaying = false;
-        //we do not want to inform other systems since this could cause an infinite loop
-
-        _inkDialogueVariables.StopListening(_story);
-
-        //reset the story to the start
-        _story.ResetState();
+        EndDialogue();
     }
 
     private bool IsLineBlank(string dialogueLine)

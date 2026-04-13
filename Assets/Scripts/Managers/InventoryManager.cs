@@ -34,8 +34,11 @@ public class InventoryManager : MonoBehaviour, IActionHandler
     /// <summary>
     /// Default state when opening, the menu is open and the inventory is closed
     /// </summary>
-    public void ShowInventoryMenu()
-    {
+    public void ShowInventoryMenu(bool firstTime)
+    {   
+        //play the clip only the first time you open the inventory (not if you're closing the items section)
+        if (firstTime)
+            AudioManager.Instance.PlayOneShot(GameAssets.i.UISounds.GetSound("UIOpen"));
         _menuSection.SetActive(true);
         _itemsSection.SetActive(false);
         _textFade.FadeIn(_inputText);
@@ -121,7 +124,7 @@ public class InventoryManager : MonoBehaviour, IActionHandler
             case StateMachineStep.Inspect:
                 break;
             case StateMachineStep.Inventory:
-                ShowInventoryMenu();
+                ShowInventoryMenu(true);
                 break;
         }
     }

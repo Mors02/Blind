@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-public class DialogueChoiceButton : MonoBehaviour, ISelectHandler//  IPointerClickHandler 
+public class DialogueChoiceButton : MonoBehaviour, ISelectHandler, IPointerEnterHandler//  IPointerClickHandler 
 {
     [SerializeField]
     private Button _button;
@@ -10,12 +10,6 @@ public class DialogueChoiceButton : MonoBehaviour, ISelectHandler//  IPointerCli
     private TMP_Text _text;
 
     private int _choiceIndex = -1;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
     public void SetChoiceText(string choiceText)
     {
@@ -39,6 +33,11 @@ public class DialogueChoiceButton : MonoBehaviour, ISelectHandler//  IPointerCli
     public void OnSelect(BaseEventData eventData)
     {
         GameManager.i.DialogueEvents.UpdateChoiceIndex(_choiceIndex);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        AudioManager.Instance.PlayOneShot(GameAssets.i.UISounds.GetSound("MouseHover"));
     }
 
     /*public void OnPointerClick(PointerEventData eventData)

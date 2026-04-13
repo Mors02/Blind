@@ -52,5 +52,6 @@ MonoBehaviour:
   RightFootMaterial: {fileID: 2100000, guid: 2457f1c240dc1524591f00ea41849494, type: 2}
   PlayerControls: {fileID: -944628639613478452, guid: aa64f760f9820f648abef901d3de0e6f, type: 3}
   InteractionSounds: {fileID: 11400000, guid: cb78b0e5e2faf4ea0b747a927a391b8d, type: 2}
+  UISounds: {fileID: 11400000, guid: 09fafc536b35a42349b8dbaef61f3597, type: 2}
   ItemDatabase: {fileID: 11400000, guid: 724892f5ac65942f58b97aa3b17337d4, type: 2}
   InventoryItemPrefab: {fileID: 9086754227832174307, guid: 2d2c8d3ad8618f049b4817c629591014, type: 3}

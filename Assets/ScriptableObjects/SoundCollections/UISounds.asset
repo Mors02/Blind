@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f2d80dfdc894b93833d13cada73a10, type: 3}
+  m_Name: UISounds
+  m_EditorClassIdentifier: Assembly-CSharp::SoundCollection
+  Sounds:
+  - sound:
+      Guid:
+        Data1: -708976764
+        Data2: 1185574377
+        Data3: 1017896859
+        Data4: -1170084987
+      Path: event:/SFX/UI/UI_Hover_Dialogue_Generic
+    id: MouseHover
+  - sound:
+      Guid:
+        Data1: -1624439134
+        Data2: 1284569847
+        Data3: 1848621440
+        Data4: -207464973
+      Path: event:/SFX/UI/UI_Open_Dialogue
+    id: UIOpen
+  - sound:
+      Guid:
+        Data1: -41719927
+        Data2: 1245352516
+        Data3: -49966145
+        Data4: -594796198
+      Path: event:/SFX/UI/UI_Close_Dialogue
+    id: UIClose
+  - sound:
+      Guid:
+        Data1: 2057971254
+        Data2: 1295052404
+        Data3: -809914714
+        Data4: -1591019308
+      Path: event:/SFX/UI/UI_Confirm_Dialogue_Tonal
+    id: UIConfirmDialogue
