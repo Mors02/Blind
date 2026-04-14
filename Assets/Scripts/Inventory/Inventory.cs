@@ -7,6 +7,7 @@ using System.Linq;
 public class Inventory : MonoBehaviour
 {
     
+    [SerializeField]
     private List<Item> _items;
 
     public List<Item> Items => _items;
@@ -38,10 +39,6 @@ public class Inventory : MonoBehaviour
     public void AddToInventory(Item item)
     {        
         this._items.Add(item);
-           this._items.Add(item);
-              this._items.Add(item);
-                 this._items.Add(item);
-                    this._items.Add(item);
         OnItemAdded?.Invoke(item);
         OnInventoryChanged?.Invoke();
     }

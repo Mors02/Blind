@@ -129,7 +129,7 @@ public class InventoryManager : MonoBehaviour, IActionHandler
         switch (newState)
         {
             case StateMachineStep.Free:
-                CloseInventory();
+                HideInventory();
                 break;
             case StateMachineStep.Inspect:
                 HideInventory();

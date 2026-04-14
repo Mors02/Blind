@@ -4024,6 +4024,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dffa906a64a7a349b87c54373b65323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
+  _items:
+  - {fileID: 11400000, guid: 1f3cb4617e012450ab32b2859f82c7b6, type: 2}
 --- !u!1001 &1163045502
 PrefabInstance:
   m_ObjectHideFlags: 0

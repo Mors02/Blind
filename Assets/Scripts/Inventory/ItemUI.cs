@@ -40,8 +40,8 @@ public class ItemUI : MonoBehaviour, IPointerClickHandler
     /// <param name="id">item that should be removed</param>
     public void RemoveItem(string id)
     {
-        //GameManager.i.Inventory.RemoveFromInventory(id);
-        Debug.Log("Removed item: " + id);
+        GameManager.i.Inventory.RemoveFromInventory(id);
+        //Debug.Log("Removed item: " + id);
     }
 
     /// <summary>

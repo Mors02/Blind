@@ -205,9 +205,9 @@ Your table.
 
 === key ===
 you key.  It opens the front door.
-+ - Check it closer.
++ [- Check it closer.]
     You let the metal teeth on you fingers. This really seems the same key you always had.
     -> key
-+ - Put away.
++ [- Put away.]
 -> END
      

@@ -55,6 +55,7 @@ public class GameManager
     }
 
     public StateMachineStep State {get; protected set;}
+    public StateMachineStep PreviousState { get; protected set; }
     private CinemachineInputAxisController _cinemachineController;
     //public CanvasManager CanvasManager;
     public DialogueEvents DialogueEvents;
@@ -134,7 +135,7 @@ public class GameManager
     /// <param name="newState">the new state it's entering</param>
     public static void ChangeState(StateMachineStep newState)
     {
-        StateMachineStep oldState = i.State;
+        i.PreviousState = i.State;
         i.State = newState;
         switch(newState)
         {            
@@ -154,8 +155,7 @@ public class GameManager
                 //instance.PlayerControls.FindActionMap("Dialogue").Enable();
                 break;
         }
-
-        i.OnChangeState.Invoke(newState, oldState);
+        i.OnChangeState.Invoke(newState, i.PreviousState);
     }
     #endregion
     

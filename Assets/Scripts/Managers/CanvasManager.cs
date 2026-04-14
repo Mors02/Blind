@@ -2,8 +2,7 @@ using System.Collections.Generic;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.Rendering.Universal;
+
 
 public class CanvasManager : MonoBehaviour
 {
@@ -81,13 +80,12 @@ public class CanvasManager : MonoBehaviour
 
     public void StateChanged(StateMachineStep newState, StateMachineStep oldState)
     {
-
         switch (newState)
         {
             case StateMachineStep.Free:
                 ResetTriggers();
                 _animator.SetTrigger("Hide");
-                if (oldState == StateMachineStep.Inventory)
+                if (oldState == StateMachineStep.Inspect)
                     _textFade.FadeOut();
                 ResetPanel();
                 GameManager.i.DialogueEvents.CloseDialoguePanel();
@@ -98,23 +96,34 @@ public class CanvasManager : MonoBehaviour
                 }
                 break;
             case StateMachineStep.Inventory:
-                //ResetPanel();
-                //fallthrough to continue the same behaviour of inspect
-                //goto case StateMachineStep.Inspect;
+                if (oldState == StateMachineStep.Free)
+                    {
+                        ResetTriggers();
+                        _animator.SetTrigger("Show");    
+                    }
+
+                _textFade.FadeOut();
+
+                //Reset the state of all the buttons
+                foreach (DialogueChoiceButton choiceButton in _choiceButtons)
+                {
+                    choiceButton.gameObject.SetActive(false);
+                }
+                break;
             case StateMachineStep.Inspect:
-              //  if (oldState == StateMachineStep.Free)
-              //  {
-                    ResetTriggers();
-                    _animator.SetTrigger("Show");    
-              //  }
+                if (oldState == StateMachineStep.Free)
+                    {
+                        ResetTriggers();
+                        _animator.SetTrigger("Show");    
+                    }
                 break;
 
         }   
     }
 
     public void CloseInspectMenu()
-    {
-        GameManager.ChangeState(StateMachineStep.Free);
+    {        
+        GameManager.ChangeState(GameManager.i.PreviousState);
     }
 
     private void ResetTriggers()
