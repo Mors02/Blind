@@ -21,7 +21,7 @@ public class GameManager
                 //retrieve the actions from the gameassets
                 instance.PlayerControls = GameAssets.i.PlayerControls;
                 //event called every time the state machine changes state
-                instance.OnChangeState = new UnityEvent<StateMachineStep>();
+                instance.OnChangeState = new UnityEvent<StateMachineStep, StateMachineStep>();
 
                 if (!GameObject.FindGameObjectWithTag("CineMachine").TryGetComponent(out instance._cinemachineController))
                     Debug.LogWarning("No CineMachine controller found.");
@@ -127,14 +127,14 @@ public class GameManager
     #endregion
 
     #region State machine
-    public UnityEvent<StateMachineStep> OnChangeState;
+    public UnityEvent<StateMachineStep, StateMachineStep> OnChangeState;
     /// <summary>
     /// Used to handle all changes in the game state. Mostly to check what the player can do in the various states.
     /// </summary>
     /// <param name="newState">the new state it's entering</param>
     public static void ChangeState(StateMachineStep newState)
     {
-        
+        StateMachineStep oldState = i.State;
         i.State = newState;
         switch(newState)
         {            
@@ -155,7 +155,7 @@ public class GameManager
                 break;
         }
 
-        i.OnChangeState.Invoke(newState);
+        i.OnChangeState.Invoke(newState, oldState);
     }
     #endregion
     

@@ -98,6 +98,15 @@ public class InventoryManager : MonoBehaviour, IActionHandler
         _itemsSection.SetActive(false);
         _menuSection.SetActive(false);
         _textFade.FadeOut();
+       
+    }
+
+    /// <summary>
+    /// Hides the inventory and goes back to free mode
+    /// </summary>
+    public void CloseInventory()
+    {
+        HideInventory();
         //makes the inventory close
         GameManager.ChangeState(StateMachineStep.Free);
     }
@@ -115,13 +124,15 @@ public class InventoryManager : MonoBehaviour, IActionHandler
 
     }
 
-    private void ChangeState(StateMachineStep newState)
+    private void ChangeState(StateMachineStep newState, StateMachineStep oldState)
     {
         switch (newState)
         {
             case StateMachineStep.Free:
+                CloseInventory();
                 break;
             case StateMachineStep.Inspect:
+                HideInventory();
                 break;
             case StateMachineStep.Inventory:
                 ShowInventoryMenu(true);

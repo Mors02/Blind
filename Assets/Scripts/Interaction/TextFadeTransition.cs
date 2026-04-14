@@ -185,16 +185,13 @@ public class TextFadeTransition : MonoBehaviour
     /// <returns></returns>
     private IEnumerator RunFadeOut()
     {   
-        Debug.Log(_current.text);
         //set the state
         _state = State.FadingOut;
         float elapsed = 0f;
 
         // forces the regeneration of the text object and applies the fade at the start
         _current.ForceMeshUpdate();
-        Debug.Log(_current.text);
         ApplyFade(_current, 0f, true);
-        Debug.Log(_current.text);
         //while the duration is active
         while (elapsed < _fadeDuration)
         {

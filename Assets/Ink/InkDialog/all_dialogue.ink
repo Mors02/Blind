@@ -192,14 +192,22 @@ Your bedside table.
 Your table.
 -> END
 
-=== reflect ===
-What a couple of days, uh?
-* [- What should I do...]
-    ->END
-* [- Check pockets]
-    ~ CompleteAction("inventory", "open")
-    ->END
-* [- Stop reflecting]
-    ->END
-     
+
+//=== reflect ===
+//What a couple of days, uh?
+//* [- What should I do...]
+//    ->END
+//* [- Check pockets]
+//    ~ CompleteAction("inventory", "open")
+//    ->END
+//* [- Stop reflecting]
+//    ->END
+
+=== key ===
+you key.  It opens the front door.
++ - Check it closer.
+    You let the metal teeth on you fingers. This really seems the same key you always had.
+    -> key
++ - Put away.
+-> END
      

@@ -1,8 +1,9 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ItemUI : MonoBehaviour
+public class ItemUI : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField]
     private TMP_Text _text;
@@ -19,7 +20,7 @@ public class ItemUI : MonoBehaviour
     {
         this._text.text = name;
         this._itemId = id;
-        this._button.onClick.AddListener(delegate { RemoveItem(_itemId); });
+       // this._button.onClick.AddListener(delegate { RemoveItem(_itemId); });
     }
     
     /// <summary>
@@ -30,7 +31,7 @@ public class ItemUI : MonoBehaviour
     {
         this._text.text = item.ObjectName;
         this._itemId = item.ObjectId;
-        this._button.onClick.AddListener(delegate { RemoveItem(_itemId); });
+       // this._button.onClick.AddListener(delegate { RemoveItem(_itemId); });
     }
 
     /// <summary>
@@ -41,5 +42,26 @@ public class ItemUI : MonoBehaviour
     {
         //GameManager.i.Inventory.RemoveFromInventory(id);
         Debug.Log("Removed item: " + id);
+    }
+
+    /// <summary>
+    /// Interact with item in the inventory
+    /// </summary>
+    public void Interact()
+    {
+        GameManager.ChangeState(StateMachineStep.Inspect);
+        GameManager.i.DialogueEvents.EnterDialogue(_itemId);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            RemoveItem(_itemId);
+        } else if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            Interact();
+           // Debug.Log("Interaction with " + this._itemId);
+        }
     }
 }

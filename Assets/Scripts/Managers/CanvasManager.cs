@@ -26,7 +26,7 @@ public class CanvasManager : MonoBehaviour
         if (GameManager.i.State == StateMachineStep.Free)
             this.gameObject.SetActive(false);*/
         
-        StateChanged(GameManager.i.State);
+        StateChanged(GameManager.i.State, StateMachineStep.Free);
 
         GameManager.i.DialogueEvents.OnDisplayDialogue += DisplayText;
 
@@ -79,7 +79,7 @@ public class CanvasManager : MonoBehaviour
         _text.text = "";
     }
 
-    public void StateChanged(StateMachineStep newState)
+    public void StateChanged(StateMachineStep newState, StateMachineStep oldState)
     {
 
         switch (newState)
@@ -87,7 +87,8 @@ public class CanvasManager : MonoBehaviour
             case StateMachineStep.Free:
                 ResetTriggers();
                 _animator.SetTrigger("Hide");
-                _textFade.FadeOut();
+                if (oldState == StateMachineStep.Inventory)
+                    _textFade.FadeOut();
                 ResetPanel();
                 GameManager.i.DialogueEvents.CloseDialoguePanel();
                 //Reset the state of all the buttons
@@ -101,8 +102,11 @@ public class CanvasManager : MonoBehaviour
                 //fallthrough to continue the same behaviour of inspect
                 //goto case StateMachineStep.Inspect;
             case StateMachineStep.Inspect:
-                ResetTriggers();
-                _animator.SetTrigger("Show");
+              //  if (oldState == StateMachineStep.Free)
+              //  {
+                    ResetTriggers();
+                    _animator.SetTrigger("Show");    
+              //  }
                 break;
 
         }   
