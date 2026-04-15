@@ -15,3 +15,5 @@ MonoBehaviour:
   ObjectId: key
   ObjectName: Key
   Id: 0
+  PrefabWhenDropped: {fileID: 8794356244921676070, guid: 9134f965ed2d21e4db3d5388230f3870, type: 3}
+  InkVariable: keyState

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Ink.Runtime;
 
 
 public class Inventory : MonoBehaviour
@@ -24,6 +25,9 @@ public class Inventory : MonoBehaviour
     /// Called whenever the inventory changes (both add and remove)
     /// </summary>
     public Action OnInventoryChanged;
+
+    [SerializeField]
+    private LayerMask floorMask;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -52,6 +56,19 @@ public class Inventory : MonoBehaviour
         Item item = this._items.Find(item => item.ObjectId == itemId);
 
         this._items.Remove(item);
+
+        //All items should have the state POSSESSED and NOT_POSSESSED
+        GameManager.i.DialogueEvents.UpdateInkDialogueVariable(item.InkVariable, new StringValue("NOT_POSSESSED"));
+
+        if (Physics.Raycast(transform.position, -Vector3.up, out RaycastHit hit, 5f, floorMask))
+        {            
+            if (hit.collider.gameObject != null)
+            {
+                GameObject obj = Instantiate(item.PrefabWhenDropped, hit.point, Quaternion.Euler(90, 0, 0));
+            }
+                 
+        }
+        
 
         OnItemRemoved?.Invoke(item);
         OnInventoryChanged?.Invoke();

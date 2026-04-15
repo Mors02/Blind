@@ -32,6 +32,10 @@ public class DynamicText : ScriptableObject
     /// <returns></returns>
     public string GetText(float deltaTime)
     {
+        //if the duration is 0 then the text is static
+        if (_states[_currentState].Duration <= 0)
+            return _states[_currentState].Text;
+
         _passedTime += deltaTime;
         //if enough time has passed in the state
         if (_passedTime >= _states[_currentState].Duration)

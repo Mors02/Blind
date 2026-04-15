@@ -46,7 +46,6 @@ public class TextFadeTransition : MonoBehaviour
         //in case of spamming, only one transition at a time
         StopAllCoroutines();
         FinalizeState();
-        Debug.Log(_current);
         //changes text, starts fade in
         _current.text = newText;
         StartCoroutine(RunFadeIn());
