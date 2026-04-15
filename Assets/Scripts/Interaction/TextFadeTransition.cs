@@ -73,6 +73,7 @@ public class TextFadeTransition : MonoBehaviour
     {
         //in case of spamming, only one transition at a time
         StopAllCoroutines();
+        Debug.Log(_state);
         FinalizeState();
 
         //changes text, starts fade out
@@ -204,6 +205,8 @@ public class TextFadeTransition : MonoBehaviour
 
         //at the end make the whole text statically hidden
         SetAlpha(_current, 0f);
+        SetAlpha(_next, 0f);
+        _current.text = "";
         _current.ForceMeshUpdate();
         _state = State.Idle;
     }
