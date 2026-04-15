@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 
 [CreateAssetMenu(fileName = "WorldObjectInfo", menuName = "Scriptable Objects/WorldObjectInfo")]
 public class WorldObjectInfo : ScriptableObject
@@ -13,5 +14,9 @@ public class WorldObjectInfo : ScriptableObject
     /// </summary>
     public string knotId;
 
+    /// <summary>
+    /// Sound played when touching with the object
+    /// </summary>
+    public EventReference SoundOnTouch;
 
 }

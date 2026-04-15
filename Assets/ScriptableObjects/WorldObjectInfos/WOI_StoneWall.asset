@@ -14,3 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WorldObjectInfo
   ObjectName: Stone Wall
   knotId: stoneWall
+  SoundOnTouch:
+    Guid:
+      Data1: -845305618
+      Data2: 1253423037
+      Data3: 1300335795
+      Data4: 1156410249
+    Path: event:/SFX/Player/Foley/Player_Walk_Step_Concrete

@@ -239,6 +239,9 @@ public class PlayerController : MonoBehaviour
     {
         WorldObject obj = hit.collider.gameObject.GetComponent<WorldObject>();
 
+        //play the sound of the touch based on how it is touched
+        obj.PlayTouchSound(type);
+
         GameObject worldText = Instantiate(_worldTextPrefab, hit.point, Quaternion.identity);
         worldText.GetComponent<WorldText>().Setup(obj, type);
         //Vector3 normal = hit.normal; // always points toward camera

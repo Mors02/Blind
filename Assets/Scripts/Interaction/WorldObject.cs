@@ -5,10 +5,10 @@ public class WorldObject : MonoBehaviour
     [SerializeField]
     private WorldObjectInfo _info;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void PlayTouchSound(PrintType printType)
     {
-        
+        if (!_info.SoundOnTouch.IsNull)
+            AudioManager.Instance.PlayOneShot(_info.SoundOnTouch, transform.position);
     }
 
     /// <summary>

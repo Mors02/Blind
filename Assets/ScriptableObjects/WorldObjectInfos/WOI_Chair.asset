@@ -14,3 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WorldObjectInfo
   ObjectName: Chair
   knotId: chair
+  SoundOnTouch:
+    Guid:
+      Data1: 2095439028
+      Data2: 1163766526
+      Data3: 128025757
+      Data4: -854200841
+    Path: event:/SFX/Player/Foley/Player_Walk_Step_Wood

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56158d93e6a8cfe4ab929c5c0eadcffa, type: 3}
-  m_Name: WOI_Wardrobe
+  m_Name: WOI_Carpet
   m_EditorClassIdentifier: Assembly-CSharp::WorldObjectInfo
-  ObjectName: Wardrobe
-  knotId: wardrobe
+  ObjectName: Carpet
+  knotId: carpet
   SoundOnTouch:
     Guid:
-      Data1: 2095439028
-      Data2: 1163766526
-      Data3: 128025757
-      Data4: -854200841
-    Path: event:/SFX/Player/Foley/Player_Walk_Step_Wood
+      Data1: 1125188604
+      Data2: 1232999464
+      Data3: 708776098
+      Data4: -2073653106
+    Path: event:/SFX/Player/Foley/Player_Walk_Step_Carpet
