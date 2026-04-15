@@ -30,6 +30,16 @@ public class WorldText : MonoBehaviour
 
     private PrintType _printType;
 
+    [SerializeField]
+    [Range(0f, 5f)]
+    private float _noRepeatRadius;
+
+    [SerializeField]
+    private bool Active = true;
+
+    [SerializeField]
+    private LayerMask _textMask;
+
     /// <summary>
     /// I'd like to use the fucking game assets but right now it's not working
     /// </summary>
@@ -42,6 +52,28 @@ public class WorldText : MonoBehaviour
     void Start()
     {
         _timePassed = 0;
+
+        this.Active = true;
+
+        Collider[] colliders = Physics.OverlapSphere(transform.position, _noRepeatRadius, _textMask);
+        Debug.Log(colliders.Length);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.TryGetComponent(out WorldText text) && collider.gameObject != this.gameObject)
+            {
+                Debug.Log(text.Active + " " + text.ObjectInteracted);
+                Debug.Log(this.Active + " " + this.ObjectInteracted);
+                //if another text is active in the zone of the same object then do not show
+                if (text.Active && text.ObjectInteracted == this.ObjectInteracted)
+                    this.Active = false;
+            }
+        }
+
+        //set the text visible or invisible
+        if (_text != null)
+            this._text.gameObject.SetActive(Active);
+        else
+            Debug.LogWarning(name + " has no text selected");
     }
 
     /// <summary>

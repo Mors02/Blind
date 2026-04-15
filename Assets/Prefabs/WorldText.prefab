@@ -230,11 +230,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d3e1f3a8be49444b9f49b3637c473d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldText
+  _objectInfo: {fileID: 0}
   _decal: {fileID: 8633545463358391542}
   _life: 30
   _timePassed: 0
   _fadeInTime: 0.3
   _print: {fileID: 1403369943073103787}
+  _noRepeatRadius: 2
+  Active: 1
+  _textMask:
+    serializedVersion: 2
+    m_Bits: 512
   _text: {fileID: 8310755405160587213}
 --- !u!95 &7479651301017964147
 Animator:
