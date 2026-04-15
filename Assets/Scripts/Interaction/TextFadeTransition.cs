@@ -204,6 +204,7 @@ public class TextFadeTransition : MonoBehaviour
 
         //at the end make the whole text statically hidden
         SetAlpha(_current, 0f);
+        _current.ForceMeshUpdate();
         _state = State.Idle;
     }
 

@@ -138,7 +138,7 @@ As always, your wardrobe is full of useless crap.
         ~ PlaySound("DrawerMediumClose")
         -> wardrobeOptions
     ++ [- Close the wardrobe]
-        ~ PlaySound("CabinetWoodOpen")
+        ~ PlaySound("CabinetWoodClose")
         -> wardrobe
     //- -> wardrobe
 

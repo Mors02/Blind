@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56158d93e6a8cfe4ab929c5c0eadcffa, type: 3}
   m_Name: WOI_Floor
   m_EditorClassIdentifier: Assembly-CSharp::WorldObjectInfo
-  ObjectName: Floor
+  ObjectName: 
   knotId: floor
