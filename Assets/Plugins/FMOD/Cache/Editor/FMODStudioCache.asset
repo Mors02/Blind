@@ -378,6 +378,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 33000
+--- !u!114 &-2078331415047384139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Env/Level1/Env_Elevator_Ride_Loop
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Env/Level1/Env_Elevator_Ride_Loop
+  Guid:
+    Data1: 795263279
+    Data2: 1092002342
+    Data3: -1142946371
+    Data4: 1499018766
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 20000
 --- !u!114 &-1113815656613296301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,11 +420,38 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639118715814868020
+  lastModified: 639119277189525752
   FileSizes:
   - Name: 
-    Value: 2096
+    Value: 2266
   Exists: 1
+--- !u!114 &-415077690380576858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Env/Level1/Env_Elevator_Door_Close
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Env/Level1/Env_Elevator_Door_Close
+  Guid:
+    Data1: 856786176
+    Data2: 1243819668
+    Data3: 1981412498
+    Data4: 725475508
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,13 +493,16 @@ MonoBehaviour:
   - {fileID: -8541159251614056913}
   - {fileID: -8927210207145317077}
   - {fileID: -3703253251767906770}
+  - {fileID: -415077690380576858}
+  - {fileID: -2078331415047384139}
+  - {fileID: 507566576965657486}
   EditorParameters: []
   MasterBanks:
   - {fileID: 1270085778224537807}
   StringsBanks:
   - {fileID: -1113815656613296301}
   cacheVersion: 131849
-  cacheTime: 639118715814868020
+  cacheTime: 639119277189525752
   SerializableEventsDict:
   - key: event:/ClockTicking
     index: 0
@@ -495,6 +552,39 @@ MonoBehaviour:
     index: 22
   - key: event:/SFX/Env/Level1/Env_Clock_Wall_Loop
     index: 23
+  - key: event:/SFX/Env/Level1/Env_Elevator_Door_Close
+    index: 24
+  - key: event:/SFX/Env/Level1/Env_Elevator_Ride_Loop
+    index: 25
+  - key: event:/SFX/Event/Event_Elevator_Crash
+    index: 26
+--- !u!114 &507566576965657486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Event/Event_Elevator_Crash
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Event/Event_Elevator_Crash
+  Guid:
+    Data1: -587344539
+    Data2: 1245847689
+    Data3: -470506594
+    Data4: 207892325
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1270085778224537807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,7 +600,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639118715814848194
+  lastModified: 639119277189519115
   FileSizes: []
   Exists: 1
 --- !u!114 &2092651872394159158
@@ -528,7 +618,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639108311491191087
+  lastModified: 639114206189961851
   FileSizes: []
   Exists: 1
 --- !u!114 &2542556811339600728
