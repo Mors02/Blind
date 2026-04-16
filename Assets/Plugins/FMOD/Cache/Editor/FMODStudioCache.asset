@@ -420,7 +420,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639119277189525752
+  lastModified: 639119340132160084
   FileSizes:
   - Name: 
     Value: 2266
@@ -502,7 +502,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -1113815656613296301}
   cacheVersion: 131849
-  cacheTime: 639119277189525752
+  cacheTime: 639119340132160084
   SerializableEventsDict:
   - key: event:/ClockTicking
     index: 0
@@ -600,7 +600,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639119277189519115
+  lastModified: 639119340132137559
   FileSizes: []
   Exists: 1
 --- !u!114 &2092651872394159158
