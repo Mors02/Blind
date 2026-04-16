@@ -192,16 +192,9 @@ Your bedside table.
 Your table.
 -> END
 
-
-//=== reflect ===
-//What a couple of days, uh?
-//* [- What should I do...]
-//    ->END
-//* [- Check pockets]
-//    ~ CompleteAction("inventory", "open")
-//    ->END
-//* [- Stop reflecting]
-//    ->END
+=== carpet ===
+Your carpet.
+-> END
 
 === key ===
 Your key.  It opens the front door.

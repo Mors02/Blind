@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e4156a03a9ab50945a7897f000fc73fa
+guid: fc2ec079473d8423e9bc80ea5c2c32b4
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Mountains of Christmas
+  - Crimson Text
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

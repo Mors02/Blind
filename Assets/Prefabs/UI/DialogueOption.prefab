@@ -203,8 +203,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '- Go away'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8646cdb47d8a10342ba9a8cd755292b1, type: 2}
-  m_sharedMaterial: {fileID: 9074292738877754972, guid: 8646cdb47d8a10342ba9a8cd755292b1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 71ddb645b86cc40aa936d8042d1ef5e5, type: 2}
+  m_sharedMaterial: {fileID: -232220159073605219, guid: 71ddb645b86cc40aa936d8042d1ef5e5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
