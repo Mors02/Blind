@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     private Animator _animator;
+    [SerializeField]
+    private AnimationClip _startClip;
     
     public void Start()
     {
@@ -28,7 +30,7 @@ public class MainMenuManager : MonoBehaviour
 
     public IEnumerator ChangeScene()
     {
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(_startClip.length - 0.02f);
         SceneManager.LoadScene("Level1");
     }
 }
