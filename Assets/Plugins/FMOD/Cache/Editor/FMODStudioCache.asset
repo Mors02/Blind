@@ -135,6 +135,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-6808062825575689830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Touch/Player_Touch_Default
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Player/Touch/Player_Touch_Default
+  Guid:
+    Data1: 1330295702
+    Data2: 1150024428
+    Data3: 893405854
+    Data4: -1423863980
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-6494960191762655082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +237,33 @@ MonoBehaviour:
   Banks:
   - {fileID: 1270085778224537807}
   IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6248337899635422902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Touch/Player_Touch_Stone
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Player/Touch/Player_Touch_Stone
+  Guid:
+    Data1: -1899838503
+    Data2: 1135530126
+    Data3: 1166780344
+    Data4: 1384923260
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
@@ -420,10 +474,10 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639119340132160084
+  lastModified: 639120192901670584
   FileSizes:
   - Name: 
-    Value: 2266
+    Value: 2580
   Exists: 1
 --- !u!114 &-415077690380576858
 MonoBehaviour:
@@ -496,13 +550,19 @@ MonoBehaviour:
   - {fileID: -415077690380576858}
   - {fileID: -2078331415047384139}
   - {fileID: 507566576965657486}
+  - {fileID: -6808062825575689830}
+  - {fileID: 8198471062911288340}
+  - {fileID: 1109301547438510769}
+  - {fileID: -6248337899635422902}
+  - {fileID: 7522428731516294049}
+  - {fileID: 6983582036561945710}
   EditorParameters: []
   MasterBanks:
   - {fileID: 1270085778224537807}
   StringsBanks:
   - {fileID: -1113815656613296301}
   cacheVersion: 131849
-  cacheTime: 639119340132160084
+  cacheTime: 639120192901687014
   SerializableEventsDict:
   - key: event:/ClockTicking
     index: 0
@@ -558,6 +618,18 @@ MonoBehaviour:
     index: 25
   - key: event:/SFX/Event/Event_Elevator_Crash
     index: 26
+  - key: event:/SFX/Player/Touch/Player_Touch_Default
+    index: 27
+  - key: event:/SFX/Player/Touch/Player_Touch_Ceramic
+    index: 28
+  - key: event:/SFX/Player/Touch/Player_Touch_Glass
+    index: 29
+  - key: event:/SFX/Player/Touch/Player_Touch_Stone
+    index: 30
+  - key: event:/SFX/Player/Touch/Player_Touch_Wood
+    index: 31
+  - key: event:/Music/Diegetic/Elevator_Jingle_PlaceHolder_01
+    index: 32
 --- !u!114 &507566576965657486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,6 +657,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &1109301547438510769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Touch/Player_Touch_Glass
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Player/Touch/Player_Touch_Glass
+  Guid:
+    Data1: -76172354
+    Data2: 1263625065
+    Data3: 90191540
+    Data4: -1226087904
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1270085778224537807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,7 +699,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639119340132137559
+  lastModified: 639120192901627425
   FileSizes: []
   Exists: 1
 --- !u!114 &2092651872394159158
@@ -618,7 +717,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639114206189961851
+  lastModified: 639120192901687014
   FileSizes: []
   Exists: 1
 --- !u!114 &2542556811339600728
@@ -828,6 +927,87 @@ MonoBehaviour:
     Data2: 1205074250
     Data3: 1353193113
     Data4: 161599752
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6983582036561945710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Diegetic/Elevator_Jingle_PlaceHolder_01
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Music/Diegetic/Elevator_Jingle_PlaceHolder_01
+  Guid:
+    Data1: -809517554
+    Data2: 1322070341
+    Data3: -1263342416
+    Data4: -1602208878
+  Banks:
+  - {fileID: 2092651872394159158}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 12513
+--- !u!114 &7522428731516294049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Touch/Player_Touch_Wood
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Player/Touch/Player_Touch_Wood
+  Guid:
+    Data1: -432909861
+    Data2: 1304060874
+    Data3: 1391934873
+    Data4: 564269347
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8198471062911288340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Touch/Player_Touch_Ceramic
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Player/Touch/Player_Touch_Ceramic
+  Guid:
+    Data1: 810731166
+    Data2: 1218775466
+    Data3: -980586615
+    Data4: -1822694369
   Banks:
   - {fileID: 1270085778224537807}
   IsStream: 0
