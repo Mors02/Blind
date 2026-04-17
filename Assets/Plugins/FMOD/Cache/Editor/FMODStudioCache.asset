@@ -501,7 +501,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639120377443031799
+  lastModified: 639120396158979514
   FileSizes:
   - Name: 
     Value: 2580
@@ -589,7 +589,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -1113815656613296301}
   cacheVersion: 131849
-  cacheTime: 639120377443057191
+  cacheTime: 639120396158999564
   SerializableEventsDict:
   - key: event:/ClockTicking
     index: 0
@@ -645,6 +645,18 @@ MonoBehaviour:
     index: 25
   - key: event:/SFX/Event/Event_Elevator_Crash
     index: 26
+  - key: event:/SFX/Player/Touch/Player_Touch_Default
+    index: 27
+  - key: event:/SFX/Player/Touch/Player_Touch_Ceramic
+    index: 28
+  - key: event:/SFX/Player/Touch/Player_Touch_Glass
+    index: 29
+  - key: event:/SFX/Player/Touch/Player_Touch_Stone
+    index: 30
+  - key: event:/SFX/Player/Touch/Player_Touch_Wood
+    index: 31
+  - key: event:/Music/Diegetic/Elevator_Jingle_PlaceHolder_01
+    index: 32
 --- !u!114 &507566576965657486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,7 +699,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639120377443016696
+  lastModified: 639120396158969523
   FileSizes: []
   Exists: 1
 --- !u!114 &2092651872394159158
@@ -705,7 +717,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639120377443057191
+  lastModified: 639120396158999564
   FileSizes: []
   Exists: 1
 --- !u!114 &2542556811339600728
