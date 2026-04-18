@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -9,7 +10,12 @@ public class Gaze : MonoBehaviour
     private NoiseSettings _scaredNoise;
     [SerializeField]
     private NoiseSettings _baseNoise;
-    
+
+    [SerializeField]
+    private NoiseSettings _strongNoise;
+
+    [SerializeField]
+    private float _timeToCalm;
 
     [SerializeField]
     private CinemachineBasicMultiChannelPerlin _cinemachine;
@@ -28,13 +34,19 @@ public class Gaze : MonoBehaviour
 
     void OnBecameVisible()
     {
-        Debug.Log("Rendered");
+        StopAllCoroutines();
         _cinemachine.NoiseProfile = _scaredNoise;
     }
 
     void OnBecameInvisible()
+    {        
+        _cinemachine.NoiseProfile = _strongNoise;
+        StartCoroutine("Calm");
+    }
+
+    public IEnumerator Calm()
     {
-        Debug.Log("Not rendered");
+        yield return new WaitForSeconds(_timeToCalm);
         _cinemachine.NoiseProfile = _baseNoise;
     }
 
