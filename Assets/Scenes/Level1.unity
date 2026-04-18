@@ -4347,6 +4347,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gaze
   _scaredNoise: {fileID: 11400000, guid: 91a1de39214eaaf44b40713af2e5ce0a, type: 2}
   _baseNoise: {fileID: 11400000, guid: 46965f9cbaf525742a6da4c2172a99cd, type: 2}
+  _strongNoise: {fileID: 11400000, guid: b241f91b9ccf8ff489abf204b30d3112, type: 2}
+  _timeToCalm: 3
   _cinemachine: {fileID: 202375385}
 --- !u!1 &1132490382
 GameObject:
