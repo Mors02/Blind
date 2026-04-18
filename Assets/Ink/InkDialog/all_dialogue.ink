@@ -208,6 +208,11 @@ Your key.  It opens the front door.
 
 + {keyState == "POSSESSED"} [- Put away.]
     -> END
+    
+=== elevator ===
+Let's get the fuck out of here.
++ - Press button
+-> END
 
 
      

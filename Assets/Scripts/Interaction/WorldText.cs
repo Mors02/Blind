@@ -55,14 +55,11 @@ public class WorldText : MonoBehaviour
 
         this.Active = true;
 
-        Collider[] colliders = Physics.OverlapSphere(transform.position, _noRepeatRadius, _textMask);
-        Debug.Log(colliders.Length);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, _noRepeatRadius, _textMask);        
         foreach (Collider collider in colliders)
         {
             if (collider.TryGetComponent(out WorldText text) && collider.gameObject != this.gameObject)
             {
-                Debug.Log(text.Active + " " + text.ObjectInteracted);
-                Debug.Log(this.Active + " " + this.ObjectInteracted);
                 //if another text is active in the zone of the same object then do not show
                 if (text.Active && text.ObjectInteracted == this.ObjectInteracted)
                     this.Active = false;
