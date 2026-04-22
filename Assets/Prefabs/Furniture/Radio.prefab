@@ -205,19 +205,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data1
-      value: 661560347
+      value: -474996952
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data2
-      value: 1204482333
+      value: 1215905214
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data3
-      value: -707959121
+      value: 130343588
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data4
-      value: 1358645093
+      value: 912279659
       objectReference: {fileID: 0}
     - target: {fileID: 5926339805739565987, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: _dynamicText

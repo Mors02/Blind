@@ -170,10 +170,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1252098735
-      Data2: 1274264715
-      Data3: 396305030
-      Data4: 1372313223
+      Data1: 661560347
+      Data2: 1204482333
+      Data3: -707959121
+      Data4: 1358645093
     Path: event:/Mimic_Foley_Step
   Event: 
   EventPlayTrigger: 0
@@ -260,19 +260,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data1
-      value: 1252098735
+      value: 661560347
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data2
-      value: 1274264715
+      value: 1204482333
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data3
-      value: 396305030
+      value: -707959121
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data4
-      value: 1372313223
+      value: 1358645093
       objectReference: {fileID: 0}
     - target: {fileID: 8555086409561652435, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: m_Layer

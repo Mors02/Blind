@@ -501,7 +501,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639124475693764532
+  lastModified: 639124477644742656
   FileSizes:
   - Name: 
     Value: 2844
@@ -594,74 +594,84 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -1113815656613296301}
   cacheVersion: 131849
-  cacheTime: 639124475693764532
+  cacheTime: 639124477644742656
   SerializableEventsDict:
-  - key: event:/ClockTicking
-    index: 0
   - key: event:/Mimic_Foley_Step
-    index: 1
+    index: 0
   - key: event:/Env_Radio_Static_Loop
-    index: 2
+    index: 1
   - key: event:/SFX/Ambience/Amb_House_RoomTone_Main_Loop
-    index: 3
+    index: 2
   - key: event:/SFX/UX/UX_Interact_Dialogue
-    index: 4
-  - key: event:/SFX/Env/Level1/Env_Cabinet_Wood_Close
-    index: 5
+    index: 3
   - key: event:/SFX/Env/Level1/Env_Window_Open_Loop
-    index: 6
+    index: 4
   - key: event:/SFX/Env/Level1/Env_Fridge_Close_Loop
-    index: 7
-  - key: event:/SFX/Env/Level1/Env_Cabinet_Wood_Open
-    index: 8
+    index: 5
   - key: event:/SFX/Env/Level1/Env_Drawer_Wood_Medium_Close
-    index: 9
+    index: 6
   - key: event:/SFX/Env/Level1/Env_Drawer_Wood_Medium_Open
-    index: 10
+    index: 7
   - key: event:/SFX/Env/Level1/Env_Lamp_Desk_TurnOn
-    index: 11
+    index: 8
   - key: event:/SFX/UX/UX_Task_Low_Complete
-    index: 12
+    index: 9
   - key: event:/SFX/Env/Level1/Env_Fridge_Open_Loop
-    index: 13
+    index: 10
   - key: event:/SFX/UX/UX_Interact_Hint
-    index: 14
-  - key: event:/SFX/Player/Foley/Player_Walk_Step_Wood
-    index: 15
+    index: 11
   - key: event:/SFX/Env/Level1/Env_Lamp_Desk_TurnOff
-    index: 16
-  - key: event:/SFX/Player/Foley/Player_Walk_Step_Concrete
-    index: 17
-  - key: event:/SFX/Player/Foley/Player_Walk_Step_Carpet
-    index: 18
+    index: 12
   - key: event:/SFX/UI/UI_Confirm_Dialogue_Tonal
-    index: 19
+    index: 13
   - key: event:/SFX/UI/UI_Hover_Dialogue_Generic
-    index: 20
+    index: 14
   - key: event:/SFX/UI/UI_Close_Dialogue
-    index: 21
+    index: 15
   - key: event:/SFX/UI/UI_Open_Dialogue
-    index: 22
+    index: 16
   - key: event:/SFX/Env/Level1/Env_Clock_Wall_Loop
-    index: 23
+    index: 17
   - key: event:/SFX/Env/Level1/Env_Elevator_Door_Close
-    index: 24
+    index: 18
   - key: event:/SFX/Env/Level1/Env_Elevator_Ride_Loop
-    index: 25
+    index: 19
   - key: event:/SFX/Event/Event_Elevator_Crash
-    index: 26
+    index: 20
   - key: event:/SFX/Player/Touch/Player_Touch_Default
-    index: 27
+    index: 21
   - key: event:/SFX/Player/Touch/Player_Touch_Ceramic
-    index: 28
+    index: 22
   - key: event:/SFX/Player/Touch/Player_Touch_Glass
-    index: 29
+    index: 23
   - key: event:/SFX/Player/Touch/Player_Touch_Stone
-    index: 30
+    index: 24
   - key: event:/SFX/Player/Touch/Player_Touch_Wood
-    index: 31
+    index: 25
   - key: event:/Music/Diegetic/Elevator_Jingle_PlaceHolder_01
+    index: 26
+  - key: event:/SFX/Interaction/Level1/Int_Window_Open
+    index: 27
+  - key: event:/SFX/Interaction/Level1/Int_Cabinet_Wood_Close
+    index: 28
+  - key: event:/SFX/Interaction/Level1/Int_Door_Unlock
+    index: 29
+  - key: event:/SFX/Interaction/Level1/Int_Bed
+    index: 30
+  - key: event:/SFX/Player/Foley/Player_Foley_Interact
+    index: 31
+  - key: event:/SFX/Interaction/Level1/Int_Cabinet_Wood_Open
     index: 32
+  - key: event:/SFX/Interaction/Level1/Int_Door_Open
+    index: 33
+  - key: event:/SFX/Player/Footsteps/Player_Walk_Step_Wood
+    index: 34
+  - key: event:/SFX/Player/Foley/Player_Foley_Walk
+    index: 35
+  - key: event:/SFX/Player/Footsteps/Player_Walk_Step_Concrete
+    index: 36
+  - key: event:/SFX/Player/Footsteps/Player_Walk_Step_Carpet
+    index: 37
 --- !u!114 &507566576965657486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,7 +741,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639124475693630637
+  lastModified: 639124477644734592
   FileSizes: []
   Exists: 1
 --- !u!114 &2092651872394159158

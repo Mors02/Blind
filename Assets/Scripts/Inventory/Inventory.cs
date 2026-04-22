@@ -29,6 +29,11 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private LayerMask floorMask;
 
+
+    void Awake()
+    {
+        GameManager.i.Inventory = this;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

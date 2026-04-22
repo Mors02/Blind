@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,6 +7,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private float _speed = 5f, _mouseSensitivity = 4f;
+
+    private CinemachineInputAxisController _cinemachineController;
 
     [SerializeField]
     private Camera _mainCamera;
@@ -49,25 +52,28 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _cc = GetComponent<CharacterController>();
-        
+
         _moveAction = _playerControls.FindActionMap("Player").FindAction("Move");
         _moveAction.performed += OnMove;
         _moveAction.canceled += StopMovement;
 
         _touchAction = _playerControls.FindActionMap("Player").FindAction("Touch");
         _touchAction.performed += OnTouch;
-        
+
         _interactAction = _playerControls.FindActionMap("Player").FindAction("Interact");
         _interactAction.performed += OnInteract;
-        
-        /*_lookAction = _playerControls.FindActionMap("Player").FindAction("Look");
-        _lookAction.performed += OnLook;
-        _lookAction.canceled += StopLook;*/
+
+
+        if (!GameObject.FindGameObjectWithTag("CineMachine").TryGetComponent(out _cinemachineController))
+            Debug.LogWarning("No CineMachine controller found.");
 
         _whichFoot = PrintType.Left;
         _lastFootprint = this.transform.position;
 
         //Debug.Log(GameManager.i.State);
+        GameManager.i.PlayerController = this;
+        GameManager.i.CinemachineController = _cinemachineController;
+        
     }
 
     private void OnEnable()
@@ -113,7 +119,8 @@ public class PlayerController : MonoBehaviour
             GameManager.ChangeState(StateMachineStep.Free);
         }
 
-        _cc.Move(_currentMovement * Time.fixedDeltaTime);
+        if (_cc.enabled)
+            _cc.Move(_currentMovement * Time.fixedDeltaTime);
         
     }
 

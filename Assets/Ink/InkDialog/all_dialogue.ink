@@ -211,7 +211,10 @@ Your key.  It opens the front door.
     
 === elevator ===
 Let's get the fuck out of here.
-+ - Press button
++ [- Press button.]
+    ~ CompleteAction("elevator", "down")
+    -> END
++ [- Go away.]
 -> END
 
 

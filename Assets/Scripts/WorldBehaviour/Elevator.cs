@@ -1,19 +1,30 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Elevator : MonoBehaviour
+public class Elevator : MonoBehaviour, IActionHandler
 {
 
-
-    private void OnTriggerExit(Collider other)
+    private float _transitionDuration;
+    private void Start()
     {
-        Debug.Log(other.transform.name);
-        other.transform.SetParent(null);
+        GameManager.RegisterObject("elevator", this);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnDestroy()
     {
-         Debug.Log(other.transform.name);
-        other.transform.SetParent(transform); 
+        GameManager.UnregisterObject("elevator");
     }
 
+    public void Execute(string actionId)
+    {
+        StartCoroutine("StartTransition");
+        GameManager.ChangeState(StateMachineStep.Cutscene);
+    }
+
+    private IEnumerator StartTransition()
+    {
+        yield return new WaitForSeconds(_transitionDuration);
+        SceneManager.LoadScene("Level2");
+    }
 }

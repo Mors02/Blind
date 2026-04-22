@@ -81,7 +81,8 @@ public class CanvasManager : MonoBehaviour
     public void StateChanged(StateMachineStep newState, StateMachineStep oldState)
     {
         switch (newState)
-        {
+        {   
+            case StateMachineStep.Cutscene:
             case StateMachineStep.Free:
                 ResetTriggers();
                 _animator.SetTrigger("Hide");

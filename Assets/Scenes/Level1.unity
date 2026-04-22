@@ -569,19 +569,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data1
-      value: -1358926487
+      value: -1091463552
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data2
-      value: 1105967328
+      value: 1241370690
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data3
-      value: 1803386255
+      value: 1271266698
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data4
-      value: 1243139823
+      value: -384336561
       objectReference: {fileID: 0}
     - target: {fileID: 5926339805739565987, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: _dynamicText
@@ -2686,7 +2686,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &612490997
 Transform:
   m_ObjectHideFlags: 0
@@ -3434,10 +3434,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -474996952
-      Data2: 1215905214
-      Data3: 130343588
-      Data4: 912279659
+      Data1: 2095209012
+      Data2: 1204837274
+      Data3: 789101980
+      Data4: -1204391609
     Path: event:/SFX/Ambience/Amb_House_RoomTone_Main_Loop
   Event: 
   EventPlayTrigger: 1
@@ -4912,19 +4912,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data1
-      value: -809517554
+      value: -367992974
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data2
-      value: 1322070341
+      value: 1255386597
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data3
-      value: -1263342416
+      value: -672307564
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data4
-      value: -1602208878
+      value: 460792363
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9502,19 +9502,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data1
-      value: 205857969
+      value: -76172354
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data2
-      value: 1262509950
+      value: 1263625065
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data3
-      value: 1739144341
+      value: 90191540
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data4
-      value: 1099120332
+      value: -1226087904
       objectReference: {fileID: 0}
     - target: {fileID: 5926339805739565987, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: _dynamicText

@@ -408,11 +408,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 284815682}
+  - {fileID: 399960008}
   - {fileID: 799706760}
   - {fileID: 334131288}
   - {fileID: 1092507906}
   - {fileID: 909835678}
-  - {fileID: 399960008}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -490,8 +490,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -309.75, y: -14.9}
-  m_SizeDelta: {x: 1180, y: 884.8}
+  m_AnchoredPosition: {x: 0.024979, y: 0.000030518}
+  m_SizeDelta: {x: 1920.1, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!328 &399960009
 VideoPlayer:
@@ -501,7 +501,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 399960007}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: ada2ada9d8c5541689393a52eac7a00b, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: dcbdc0fe4ebe747448ae049c3dbb4391, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -621,7 +621,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Decay
+  m_text: The Gaze
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6f6e12964f3bd4b0299b055f8b02b95e, type: 2}
   m_sharedMaterial: {fileID: -232220159073605219, guid: 6f6e12964f3bd4b0299b055f8b02b95e, type: 2}

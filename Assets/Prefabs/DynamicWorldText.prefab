@@ -151,10 +151,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -717779820
-      Data2: 1107435319
-      Data3: 1941961866
-      Data4: -1597677533
+      Data1: 1252098735
+      Data2: 1274264715
+      Data3: 396305030
+      Data4: 1372313223
     Path: event:/ClockTicking
   Event: 
   EventPlayTrigger: 1

@@ -19,20 +19,23 @@ public class GameManager
             {
                 instance = new GameManager();
                 //retrieve the actions from the gameassets
-                instance.PlayerControls = GameAssets.i.PlayerControls;
+                //instance.PlayerControls = GameAssets.i.PlayerControls;
                 //event called every time the state machine changes state
                 instance.OnChangeState = new UnityEvent<StateMachineStep, StateMachineStep>();
 
-                if (!GameObject.FindGameObjectWithTag("CineMachine").TryGetComponent(out instance._cinemachineController))
+                if (!GameObject.FindGameObjectWithTag("CineMachine").TryGetComponent(out i.CinemachineController))
                     Debug.LogWarning("No CineMachine controller found.");
 
                 instance.Player = GameObject.FindGameObjectWithTag("Player");
 
-                if (instance.Player == null) {
+                if (instance.Player == null)
+                {
                     Debug.LogWarning("No player found in scene.");
-                } else
+                }
+                else
                 {
                     instance.Inventory = instance.Player.GetComponent<Inventory>();
+                    instance.PlayerController = instance.Player.GetComponent<PlayerController>();
                 }
 
                 /*if (!GameObject.FindGameObjectWithTag("Canvas").TryGetComponent(out instance.InventoryManager))
@@ -46,7 +49,7 @@ public class GameManager
                 GameManager.ChangeState(StateMachineStep.Free);
 
                 instance.DialogueEvents = new DialogueEvents();
-                
+
             }
 
 
@@ -54,16 +57,17 @@ public class GameManager
         }
     }
 
-    public StateMachineStep State {get; protected set;}
+    public StateMachineStep State { get; protected set; }
     public StateMachineStep PreviousState { get; protected set; }
-    private CinemachineInputAxisController _cinemachineController;
+    public CinemachineInputAxisController CinemachineController;
     //public CanvasManager CanvasManager;
     public DialogueEvents DialogueEvents;
 
     public GameObject Player;
     public Inventory Inventory;
+    public PlayerController PlayerController;
     //public InventoryManager InventoryManager;
-    public InputActionAsset PlayerControls;
+    //public InputActionAsset PlayerControls;
 
     #region Ink Functions
     /// <summary>
@@ -80,7 +84,7 @@ public class GameManager
     {
         i._actionHandlers[id] = handler;
     }
-    
+
     /// <summary>
     /// Unregister an object from the list of handlers. Should be called OnDestroy of relative object that registered.
     /// </summary>
@@ -100,7 +104,8 @@ public class GameManager
         if (i._actionHandlers.TryGetValue(objectId, out var handler))
         {
             handler.Execute(actionId);
-        } else
+        }
+        else
         {
             Debug.LogWarning("No handler registered for object: " + objectId);
         }
@@ -137,28 +142,32 @@ public class GameManager
     {
         i.PreviousState = i.State;
         i.State = newState;
-        switch(newState)
-        {            
+        switch (newState)
+        {
             case StateMachineStep.Free:
+                instance.PlayerController.enabled = true;
                 Cursor.lockState = CursorLockMode.Locked;
-                instance._cinemachineController.enabled = true;
+                instance.CinemachineController.enabled = true;
                 //switch on and off the correct action bindings
                 //instance.PlayerControls.FindActionMap("Player").Enable();
                 //instance.PlayerControls.FindActionMap("Dialogue").Disable();
                 break;
-            case StateMachineStep.Inventory:   
+            case StateMachineStep.Inventory:
             case StateMachineStep.Inspect:
                 Cursor.lockState = CursorLockMode.None;
-                instance._cinemachineController.enabled = false;
+                instance.CinemachineController.enabled = false;
                 //cute solution but I can't walk away from interactions so discarded
                 //instance.PlayerControls.FindActionMap("Player").Disable();
                 //instance.PlayerControls.FindActionMap("Dialogue").Enable();
                 break;
+            case StateMachineStep.Cutscene:
+                instance.PlayerController.enabled = false;
+                break;
+
         }
         i.OnChangeState.Invoke(newState, i.PreviousState);
     }
     #endregion
-    
 
 }
 
@@ -170,4 +179,5 @@ public enum StateMachineStep
     Free,
     Inspect,
     Inventory,
+    Cutscene
 }
