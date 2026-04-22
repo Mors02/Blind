@@ -9476,7 +9476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Path
-      value: event:/SFX/Env/Level1/Env_Clock_Wall_Loop_01
+      value: event:/SFX/Env/Level1/Env_Clock_Wall_Loop
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data1

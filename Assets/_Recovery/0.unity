@@ -4024,6 +4024,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dffa906a64a7a349b87c54373b65323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
+  _items: []
+  floorMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &1163045502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5654,6 +5658,11 @@ MonoBehaviour:
   _timePassed: 0
   _fadeInTime: 0.3
   _print: {fileID: 0}
+  _noRepeatRadius: 0
+  Active: 1
+  _textMask:
+    serializedVersion: 2
+    m_Bits: 0
   _text: {fileID: 0}
 --- !u!1 &1424689059
 GameObject:
@@ -8498,7 +8507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Path
-      value: event:/SFX/Env/Level1/Env_Clock_Wall_Loop_01
+      value: event:/SFX/Env/Level1/Env_Clock_Wall_Loop
       objectReference: {fileID: 0}
     - target: {fileID: 5677285480103202096, guid: 7bdad617d719ec141a6fadf1f78fc488, type: 3}
       propertyPath: EventReference.Guid.Data1
