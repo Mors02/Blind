@@ -216,7 +216,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-6494960191762655082
+--- !u!114 &-5920621324914051933
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,71 +226,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/Foley/Player_Walk_Step_Concrete
+  m_Name: event:/SFX/Interaction/Level1/Int_Cabinet_Wood_Close
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/SFX/Player/Foley/Player_Walk_Step_Concrete
+  Path: event:/SFX/Interaction/Level1/Int_Cabinet_Wood_Close
   Guid:
-    Data1: -845305618
-    Data2: 1253423037
-    Data3: 1300335795
-    Data4: 1156410249
+    Data1: -1150592191
+    Data2: 1205074250
+    Data3: 1353193113
+    Data4: 161599752
   Banks:
   - {fileID: 1270085778224537807}
   IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-6382560697597874278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/Foley/Player_Walk_Step_Carpet
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/SFX/Player/Foley/Player_Walk_Step_Carpet
-  Guid:
-    Data1: 1125188604
-    Data2: 1232999464
-    Data3: 708776098
-    Data4: -2073653106
-  Banks:
-  - {fileID: 1270085778224537807}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-6265335939139342852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ClockTicking
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/ClockTicking
-  Guid:
-    Data1: -717779820
-    Data2: 1107435319
-    Data3: 1941961866
-    Data4: -1597677533
-  Banks:
-  - {fileID: 1270085778224537807}
-  IsStream: 1
   Is3D: 1
   IsOneShot: 1
   Parameters: []
@@ -324,6 +270,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &-5758915761461732455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Interaction/Level1/Int_Door_Unlock
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Interaction/Level1/Int_Door_Unlock
+  Guid:
+    Data1: -1837042873
+    Data2: 1234163894
+    Data3: -62634618
+    Data4: -2084364087
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-5515305662067597012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,6 +432,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 33000
+--- !u!114 &-2460180067987173401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Interaction/Level1/Int_Window_Open
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Interaction/Level1/Int_Window_Open
+  Guid:
+    Data1: -1760825809
+    Data2: 1215514723
+    Data3: -1460010612
+    Data4: 275572557
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2078331415047384139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,10 +501,10 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639120396158979514
+  lastModified: 639124475693764532
   FileSizes:
   - Name: 
-    Value: 2580
+    Value: 2844
   Exists: 1
 --- !u!114 &-415077690380576858
 MonoBehaviour:
@@ -550,25 +550,19 @@ MonoBehaviour:
   - {fileID: 1270085778224537807}
   - {fileID: 2092651872394159158}
   EditorEvents:
-  - {fileID: -6265335939139342852}
   - {fileID: 4079964130681542976}
   - {fileID: 4701628659090733859}
   - {fileID: 3916254334634241914}
   - {fileID: -5515305662067597012}
-  - {fileID: 6676227290690849140}
   - {fileID: -3396165335399801535}
   - {fileID: -4832667541824331194}
-  - {fileID: 8948485713723447945}
   - {fileID: 8310326948024417397}
   - {fileID: 2542556811339600728}
   - {fileID: -7451925601181677841}
   - {fileID: -5275120514950760746}
   - {fileID: -8734127723583565802}
   - {fileID: 5103782817166389334}
-  - {fileID: 6409334409586140402}
   - {fileID: -7506620128401012642}
-  - {fileID: -6494960191762655082}
-  - {fileID: -6382560697597874278}
   - {fileID: 9072850032463742686}
   - {fileID: 4142237693475533294}
   - {fileID: -8541159251614056913}
@@ -583,13 +577,24 @@ MonoBehaviour:
   - {fileID: -8903866302973374144}
   - {fileID: 6848494767682748795}
   - {fileID: 7148597836489106998}
+  - {fileID: -2460180067987173401}
+  - {fileID: -5920621324914051933}
+  - {fileID: -5758915761461732455}
+  - {fileID: 6401079081553669877}
+  - {fileID: 3847869716116591595}
+  - {fileID: 6303611876705668564}
+  - {fileID: 5637485947218126421}
+  - {fileID: 3977140458088335628}
+  - {fileID: 6550702428049889664}
+  - {fileID: 4870581683527054511}
+  - {fileID: 655759826282265076}
   EditorParameters: []
   MasterBanks:
   - {fileID: 1270085778224537807}
   StringsBanks:
   - {fileID: -1113815656613296301}
   cacheVersion: 131849
-  cacheTime: 639120396158999564
+  cacheTime: 639124475693764532
   SerializableEventsDict:
   - key: event:/ClockTicking
     index: 0
@@ -684,6 +689,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &655759826282265076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Footsteps/Player_Walk_Step_Carpet
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Player/Footsteps/Player_Walk_Step_Carpet
+  Guid:
+    Data1: 1125188604
+    Data2: 1232999464
+    Data3: 708776098
+    Data4: -2073653106
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1270085778224537807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -699,7 +731,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639120396158969523
+  lastModified: 639124475693630637
   FileSizes: []
   Exists: 1
 --- !u!114 &2092651872394159158
@@ -717,7 +749,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639120396158999564
+  lastModified: 639120192901687014
   FileSizes: []
   Exists: 1
 --- !u!114 &2542556811339600728
@@ -774,6 +806,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &3847869716116591595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Foley/Player_Foley_Interact
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Player/Foley/Player_Foley_Interact
+  Guid:
+    Data1: -1794295714
+    Data2: 1184555967
+    Data3: 989491331
+    Data4: 627020296
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &3916254334634241914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -801,6 +860,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 80000
+--- !u!114 &3977140458088335628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Footsteps/Player_Walk_Step_Wood
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Player/Footsteps/Player_Walk_Step_Wood
+  Guid:
+    Data1: 2095439028
+    Data2: 1163766526
+    Data3: 128025757
+    Data4: -854200841
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &4079964130681542976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -882,6 +968,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &4870581683527054511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Footsteps/Player_Walk_Step_Concrete
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Player/Footsteps/Player_Walk_Step_Concrete
+  Guid:
+    Data1: -845305618
+    Data2: 1253423037
+    Data3: 1300335795
+    Data4: 1156410249
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &5103782817166389334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -909,7 +1022,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &6409334409586140402
+--- !u!114 &5637485947218126421
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -919,14 +1032,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/Foley/Player_Walk_Step_Wood
+  m_Name: event:/SFX/Interaction/Level1/Int_Door_Open
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/SFX/Player/Foley/Player_Walk_Step_Wood
+  Path: event:/SFX/Interaction/Level1/Int_Door_Open
   Guid:
-    Data1: 2095439028
-    Data2: 1163766526
-    Data3: 128025757
-    Data4: -854200841
+    Data1: -675996754
+    Data2: 1083294216
+    Data3: 1319502479
+    Data4: 2050512944
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6303611876705668564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Interaction/Level1/Int_Cabinet_Wood_Open
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Interaction/Level1/Int_Cabinet_Wood_Open
+  Guid:
+    Data1: -367992974
+    Data2: 1255386597
+    Data3: -672307564
+    Data4: 460792363
   Banks:
   - {fileID: 1270085778224537807}
   IsStream: 0
@@ -936,7 +1076,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &6676227290690849140
+--- !u!114 &6401079081553669877
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -946,18 +1086,45 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Env/Level1/Env_Cabinet_Wood_Close
+  m_Name: event:/SFX/Interaction/Level1/Int_Bed
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/SFX/Env/Level1/Env_Cabinet_Wood_Close
+  Path: event:/SFX/Interaction/Level1/Int_Bed
   Guid:
-    Data1: -1150592191
-    Data2: 1205074250
-    Data3: 1353193113
-    Data4: 161599752
+    Data1: -1011909551
+    Data2: 1114298832
+    Data3: -1715860294
+    Data4: 1703054209
   Banks:
   - {fileID: 1270085778224537807}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6550702428049889664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Foley/Player_Foley_Walk
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Player/Foley/Player_Foley_Walk
+  Guid:
+    Data1: -730523937
+    Data2: 1117623350
+    Data3: 501980805
+    Data4: 1082615133
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -1035,33 +1202,6 @@ MonoBehaviour:
     Data2: 1311184038
     Data3: -36214869
     Data4: -1471478622
-  Banks:
-  - {fileID: 1270085778224537807}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &8948485713723447945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Env/Level1/Env_Cabinet_Wood_Open
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/SFX/Env/Level1/Env_Cabinet_Wood_Open
-  Guid:
-    Data1: -367992974
-    Data2: 1255386597
-    Data3: -672307564
-    Data4: 460792363
   Banks:
   - {fileID: 1270085778224537807}
   IsStream: 0

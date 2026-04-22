@@ -20,4 +20,4 @@ MonoBehaviour:
       Data2: 1253423037
       Data3: 1300335795
       Data4: 1156410249
-    Path: event:/SFX/Player/Foley/Player_Walk_Step_Concrete
+    Path: event:/SFX/Player/Footsteps/Player_Walk_Step_Concrete
