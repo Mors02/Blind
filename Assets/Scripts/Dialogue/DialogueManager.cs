@@ -36,8 +36,6 @@ public class DialogueManager : MonoBehaviour
 
         _exitAction = _playerControls.FindActionMap("Player").FindAction("Interact");
         _exitAction.performed += OnExit;
-
-        GameManager.i.DialogueEvents = new DialogueEvents();
         
         _inkExternalFunctions = new InkExternalFunctions();
         _inkExternalFunctions.Bind(_story);
@@ -186,6 +184,7 @@ public class DialogueManager : MonoBehaviour
 
     private void ExternalExitDialogue()
     {
+        Debug.Log("Closed dialogue");
         EndDialogue();
     }
 

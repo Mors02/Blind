@@ -18,43 +18,38 @@ public class GameManager
             if (instance == null)
             {
                 instance = new GameManager();
-                //retrieve the actions from the gameassets
-                //instance.PlayerControls = GameAssets.i.PlayerControls;
-                //event called every time the state machine changes state
-                instance.OnChangeState = new UnityEvent<StateMachineStep, StateMachineStep>();
-
-                if (!GameObject.FindGameObjectWithTag("CineMachine").TryGetComponent(out i.CinemachineController))
-                    Debug.LogWarning("No CineMachine controller found.");
-
-                instance.Player = GameObject.FindGameObjectWithTag("Player");
-
-                if (instance.Player == null)
-                {
-                    Debug.LogWarning("No player found in scene.");
-                }
-                else
-                {
-                    instance.Inventory = instance.Player.GetComponent<Inventory>();
-                    instance.PlayerController = instance.Player.GetComponent<PlayerController>();
-                }
-
-                /*if (!GameObject.FindGameObjectWithTag("Canvas").TryGetComponent(out instance.InventoryManager))
-                {
-                    Debug.LogWarning("No canvas found in scene.");
-                }*/
-
-                /*if (!GameObject.FindGameObjectWithTag("Canvas").TryGetComponent(out instance.CanvasManager))
-                    Debug.LogWarning("No CanvasManager controller found.");*/
-
-                GameManager.ChangeState(StateMachineStep.Free);
-
-                instance.DialogueEvents = new DialogueEvents();
-
+                RefreshGameManager();
             }
-
 
             return instance;
         }
+    }
+
+    public static void RefreshGameManager()
+    {
+        //retrieve the actions from the gameassets
+        //instance.PlayerControls = GameAssets.i.PlayerControls;
+        //event called every time the state machine changes state
+        instance.OnChangeState = new UnityEvent<StateMachineStep, StateMachineStep>();
+
+        if (!GameObject.FindGameObjectWithTag("CineMachine").TryGetComponent(out i.CinemachineController))
+            Debug.LogWarning("No CineMachine controller found.");
+
+        instance.Player = GameObject.FindGameObjectWithTag("Player");
+
+        if (instance.Player == null)
+        {
+            Debug.LogWarning("No player found in scene.");
+        }
+        else
+        {
+            instance.Inventory = instance.Player.GetComponent<Inventory>();
+            instance.PlayerController = instance.Player.GetComponent<PlayerController>();
+        }
+
+        GameManager.ChangeState(GameManager.i.State);
+
+        instance.DialogueEvents = new DialogueEvents();
     }
 
     public StateMachineStep State { get; protected set; }
@@ -138,8 +133,9 @@ public class GameManager
     /// Used to handle all changes in the game state. Mostly to check what the player can do in the various states.
     /// </summary>
     /// <param name="newState">the new state it's entering</param>
-    public static void ChangeState(StateMachineStep newState)
+    public static void ChangeState(StateMachineStep newState, GameObject from = null)
     {
+        Debug.Log("Changed to " + newState + " from " + (from? from.name : "N/A"));
         i.PreviousState = i.State;
         i.State = newState;
         switch (newState)
@@ -162,6 +158,7 @@ public class GameManager
                 break;
             case StateMachineStep.Cutscene:
                 instance.PlayerController.enabled = false;
+                instance.CinemachineController.enabled = false;
                 break;
 
         }

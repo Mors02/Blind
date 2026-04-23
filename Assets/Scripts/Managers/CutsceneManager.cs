@@ -16,7 +16,8 @@ public class CutsceneManager : MonoBehaviour
     {
         if (_playOnStart)
             StartCountdown();
-            Debug.Log(_director.playableAsset.duration);
+
+        //Debug.Log(_director.playableAsset.duration);
     }
 
     /// <summary>
@@ -27,7 +28,7 @@ public class CutsceneManager : MonoBehaviour
         StartCoroutine("ChangeState");
     }
 
-    private IEnumerator ChangeState(float time)
+    private IEnumerator ChangeState()
     {
         yield return new WaitForSeconds((float)(_director.playableAsset.duration+0.5f));
         GameManager.ChangeState(StateMachineStep.Free);

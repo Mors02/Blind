@@ -73,7 +73,6 @@ public class TextFadeTransition : MonoBehaviour
     {
         //in case of spamming, only one transition at a time
         StopAllCoroutines();
-        Debug.Log(_state);
         FinalizeState();
 
         //changes text, starts fade out

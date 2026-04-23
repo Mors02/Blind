@@ -49,7 +49,7 @@ public class ItemUI : MonoBehaviour, IPointerClickHandler
     /// </summary>
     public void Interact()
     {
-        GameManager.ChangeState(StateMachineStep.Inspect);
+        GameManager.ChangeState(StateMachineStep.Inspect, gameObject);
         GameManager.i.DialogueEvents.EnterDialogue(_itemId);
     }
 

@@ -1,4 +1,3 @@
-using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float _speed = 5f, _mouseSensitivity = 4f;
 
-    private CinemachineInputAxisController _cinemachineController;
+    
 
     [SerializeField]
     private Camera _mainCamera;
@@ -64,15 +63,17 @@ public class PlayerController : MonoBehaviour
         _interactAction.performed += OnInteract;
 
 
-        if (!GameObject.FindGameObjectWithTag("CineMachine").TryGetComponent(out _cinemachineController))
-            Debug.LogWarning("No CineMachine controller found.");
+
 
         _whichFoot = PrintType.Left;
         _lastFootprint = this.transform.position;
 
         //Debug.Log(GameManager.i.State);
         GameManager.i.PlayerController = this;
-        GameManager.i.CinemachineController = _cinemachineController;
+
+
+        /*if (GameManager.i.State == StateMachineStep.Cutscene)
+            this.enabled = false;*/
         
     }
 
@@ -116,7 +117,7 @@ public class PlayerController : MonoBehaviour
         if (_currentMovement.magnitude > 0 && GameManager.i.State == StateMachineStep.Inspect)
         {   
             //close all menus
-            GameManager.ChangeState(StateMachineStep.Free);
+            GameManager.ChangeState(StateMachineStep.Free, gameObject);
         }
 
         if (_cc.enabled)
@@ -179,9 +180,9 @@ public class PlayerController : MonoBehaviour
    public void OnTouch(InputAction.CallbackContext context)
     {
         //_from = new Vector3(transform.position.x, transform.position.y + transform.localScale.y/2, transform.position.z);
-        _from = _cameraTransform.position;
+        _from = Camera.main.gameObject.transform.position;
         //Check that the ray hits and we are free to move
-        if (Physics.Raycast(_from, _cameraTransform.forward, out RaycastHit hit, 5f, _touchLayer) && GameManager.i.State == StateMachineStep.Free)
+        if (GameManager.i.State == StateMachineStep.Free && Physics.Raycast(_from, Camera.main.gameObject.transform.forward, out RaycastHit hit, 5f, _touchLayer))
         {   
             InstantiateText(hit);
         }
@@ -203,12 +204,12 @@ public class PlayerController : MonoBehaviour
                     //enter inspect state in the stace machine
                     if (hit.collider.gameObject.CompareTag("Reflect"))
                     {
-                        GameManager.ChangeState(StateMachineStep.Inventory);
+                        GameManager.ChangeState(StateMachineStep.Inventory, gameObject);
                     }
                     else
                     {
                         GameManager.i.DialogueEvents.EnterDialogue(text.GetObjectKnot());
-                        GameManager.ChangeState(StateMachineStep.Inspect);
+                        GameManager.ChangeState(StateMachineStep.Inspect, gameObject);
                     }
                     
                 }

@@ -80,8 +80,9 @@ public class CanvasManager : MonoBehaviour
 
     public void StateChanged(StateMachineStep newState, StateMachineStep oldState)
     {
+        Debug.Log(oldState + " -> " + newState);
         switch (newState)
-        {   
+        {
             case StateMachineStep.Cutscene:
             case StateMachineStep.Free:
                 ResetTriggers();
@@ -90,6 +91,7 @@ public class CanvasManager : MonoBehaviour
                     _textFade.FadeOut();
                 ResetPanel();
                 GameManager.i.DialogueEvents.CloseDialoguePanel();
+
                 //Reset the state of all the buttons
                 foreach (DialogueChoiceButton choiceButton in _choiceButtons)
                 {
@@ -98,10 +100,10 @@ public class CanvasManager : MonoBehaviour
                 break;
             case StateMachineStep.Inventory:
                 if (oldState == StateMachineStep.Free)
-                    {
-                        ResetTriggers();
-                        _animator.SetTrigger("Show");    
-                    }
+                {
+                    ResetTriggers();
+                    _animator.SetTrigger("Show");
+                }
 
                 _textFade.FadeOut();
 
@@ -113,18 +115,18 @@ public class CanvasManager : MonoBehaviour
                 break;
             case StateMachineStep.Inspect:
                 if (oldState == StateMachineStep.Free)
-                    {
-                        ResetTriggers();
-                        _animator.SetTrigger("Show");    
-                    }
+                {
+                    ResetTriggers();
+                    _animator.SetTrigger("Show");
+                }
                 break;
 
         }   
     }
 
     public void CloseInspectMenu()
-    {        
-        GameManager.ChangeState(GameManager.i.PreviousState);
+    {
+        GameManager.ChangeState(GameManager.i.PreviousState, gameObject);
     }
 
     private void ResetTriggers()
