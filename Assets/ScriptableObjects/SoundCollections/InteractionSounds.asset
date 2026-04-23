@@ -61,3 +61,19 @@ MonoBehaviour:
         Data4: -1118979498
       Path: event:/SFX/Env/Level1/Env_Lamp_Desk_TurnOn
     id: LampDeskTurnon
+  - sound:
+      Guid:
+        Data1: 856786176
+        Data2: 1243819668
+        Data3: 1981412498
+        Data4: 725475508
+      Path: event:/SFX/Env/Level1/Env_Elevator_Door_Close
+    id: ElevatorDoorClose
+  - sound:
+      Guid:
+        Data1: 795263279
+        Data2: 1092002342
+        Data3: -1142946371
+        Data4: 1499018766
+      Path: event:/SFX/Env/Level1/Env_Elevator_Ride_Loop
+    id: ElevatorRideLoop
