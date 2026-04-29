@@ -18,14 +18,49 @@ public class GameManager
             if (instance == null)
             {
                 instance = new GameManager();
-                RefreshGameManager();
+                instance.Initialize();
             }
 
             return instance;
         }
     }
 
-    public static void RefreshGameManager()
+    private void Initialize()
+    {
+        OnChangeState = new UnityEvent<StateMachineStep, StateMachineStep>();
+        DialogueEvents = new DialogueEvents();   // ← creato UNA SOLA VOLTA
+
+        if (!GameObject.FindGameObjectWithTag("CineMachine").TryGetComponent(out CinemachineController))
+            Debug.LogWarning("No CineMachine controller found.");
+
+        Player = GameObject.FindGameObjectWithTag("Player");
+        if (Player != null)
+        {
+            Inventory = Player.GetComponent<Inventory>();
+            PlayerController = Player.GetComponent<PlayerController>();
+        }
+
+        ChangeState(State);
+    }
+
+    // Se SceneSetup ha bisogno di un "reset" per cambio scena, fai un metodo separato
+    // che NON ricrei DialogueEvents (o se proprio devi, sostituiscilo sapendo che 
+    // poi devi reiscrivere tutti i listener)
+    public static void RefreshSceneReferences()
+    {
+        if (!GameObject.FindGameObjectWithTag("CineMachine").TryGetComponent(out i.CinemachineController))
+            Debug.LogWarning("No CineMachine controller found.");
+
+        i.Player = GameObject.FindGameObjectWithTag("Player");
+        if (i.Player != null)
+        {
+            i.Inventory = i.Player.GetComponent<Inventory>();
+            i.PlayerController = i.Player.GetComponent<PlayerController>();
+        }
+        // NON ricreare OnChangeState e DialogueEvents
+    }
+
+    /*public static void RefreshGameManager()
     {
         //retrieve the actions from the gameassets
         //instance.PlayerControls = GameAssets.i.PlayerControls;
@@ -50,7 +85,7 @@ public class GameManager
         GameManager.ChangeState(GameManager.i.State);
 
         instance.DialogueEvents = new DialogueEvents();
-    }
+    }*/
 
     public StateMachineStep State { get; protected set; }
     public StateMachineStep PreviousState { get; protected set; }

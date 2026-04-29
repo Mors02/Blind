@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
     private InputAction _moveAction;
     private InputAction _touchAction;
     private InputAction _interactAction;
-    private InputAction _lookAction;
 
     [SerializeField]
     private LayerMask _touchLayer, _interactLayer, _floorLayer;
@@ -61,8 +60,6 @@ public class PlayerController : MonoBehaviour
 
         _interactAction = _playerControls.FindActionMap("Player").FindAction("Interact");
         _interactAction.performed += OnInteract;
-
-
 
 
         _whichFoot = PrintType.Left;

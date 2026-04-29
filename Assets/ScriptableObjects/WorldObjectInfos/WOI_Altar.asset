@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56158d93e6a8cfe4ab929c5c0eadcffa, type: 3}
-  m_Name: WOI_Table
+  m_Name: WOI_Altar
   m_EditorClassIdentifier: Assembly-CSharp::WorldObjectInfo
-  ObjectName: Table
-  knotId: table
+  ObjectName: Altar
+  knotId: altar
   SoundOnTouch:
     Guid:
-      Data1: -432909861
-      Data2: 1304060874
-      Data3: 1391934873
-      Data4: 564269347
-    Path: event:/SFX/Player/Touch/Player_Touch_Wood
+      Data1: -1899838503
+      Data2: 1135530126
+      Data3: 1166780344
+      Data4: 1384923260
+    Path: event:/SFX/Player/Touch/Player_Touch_Stone

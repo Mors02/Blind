@@ -16,8 +16,8 @@ MonoBehaviour:
   knotId: stoneWall
   SoundOnTouch:
     Guid:
-      Data1: -845305618
-      Data2: 1253423037
-      Data3: 1300335795
-      Data4: 1156410249
-    Path: event:/SFX/Player/Footsteps/Player_Walk_Step_Concrete
+      Data1: -1899838503
+      Data2: 1135530126
+      Data3: 1166780344
+      Data4: 1384923260
+    Path: event:/SFX/Player/Touch/Player_Touch_Stone

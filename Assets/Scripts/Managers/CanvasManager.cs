@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -18,13 +18,23 @@ public class CanvasManager : MonoBehaviour
 
     [SerializeField]
     private TextFadeTransition _textFade;
+
+    [SerializeField]
+    private InputActionAsset _playerControls;
+
+    private InputAction _exitAction;
+
+    [SerializeField]
+    private GameObject _exitMenuSection;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {   
+    {
         /*Debug.Log(GameManager.i.State);
         if (GameManager.i.State == StateMachineStep.Free)
             this.gameObject.SetActive(false);*/
-        
+
         StateChanged(GameManager.i.State, StateMachineStep.Free);
 
         GameManager.i.DialogueEvents.OnDisplayDialogue += DisplayText;
@@ -32,6 +42,11 @@ public class CanvasManager : MonoBehaviour
         GameManager.i.DialogueEvents.OnDialogueFinished += CloseInspectMenu;
 
         GameManager.i.OnChangeState.AddListener(StateChanged);
+
+        _exitAction = _playerControls.FindActionMap("Player").FindAction("Exit");
+        _exitAction.performed += ChangeStateExitMenu;
+
+        _exitMenuSection.SetActive(false);
 
         //OnCloseCanvas.AddListener(Test);
     }
@@ -71,6 +86,20 @@ public class CanvasManager : MonoBehaviour
             }*/
         }
 
+    }
+
+    private void ChangeStateExitMenu(InputAction.CallbackContext context)
+    {
+
+        if (_exitMenuSection.activeSelf) {
+            GameManager.ChangeState(StateMachineStep.Free);
+            _exitMenuSection.SetActive(false);
+        }
+        else {
+            _exitMenuSection.SetActive(true);
+            GameManager.ChangeState(StateMachineStep.Inspect);
+        }
+            
     }
 
     private void ResetPanel()
@@ -129,9 +158,15 @@ public class CanvasManager : MonoBehaviour
         GameManager.ChangeState(GameManager.i.PreviousState, gameObject);
     }
 
+    public void CloseGame()
+    {
+        Debug.LogWarning("Only works with built game.");
+        Application.Quit();
+    }
+
     private void ResetTriggers()
     {
-       _animator.ResetTrigger("Show");
-       _animator.ResetTrigger("Hide"); 
+        _animator.ResetTrigger("Show");
+        _animator.ResetTrigger("Hide");
     }
 }

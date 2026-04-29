@@ -217,5 +217,12 @@ Let's get the fuck out of here.
 + [- Go away.]
 -> END
 
+=== grate ===
+An heavy metal grate. The rust sticks to your hand, covering them in a fine dust.
+-> END
+
+=== altar ===
+Made of stone and cold as a tomb. The air around it is rotten, like something died near it long time ago.
+-> END
 
      

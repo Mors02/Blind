@@ -29,7 +29,9 @@ public class DialogueManager : MonoBehaviour
     private void Awake()
     {
         //instantiate the story from the json
+         Debug.Log("[DialogueManager] Awake start");
         _story = new Story(_inkJson.text);
+        Debug.Log($"[DialogueManager] Story created. canContinue={_story.canContinue}");
         //use the Dialogue actions for the dialogue
         _continueAction = _playerControls.FindActionMap("Player").FindAction("Touch");
         _continueAction.performed += OnContinue;
@@ -62,6 +64,7 @@ public class DialogueManager : MonoBehaviour
 
     private void OnEnable()
     {
+        Debug.Log($"[DialogueManager] OnEnable. GameManager.i = {GameManager.i != null}, DialogueEvents = {GameManager.i?.DialogueEvents != null}");
         GameManager.i.DialogueEvents.OnEnterDialogue += EnterDialogue;
         //GameManager.i.CanvasManager.OnCloseCanvas.AddListener(ExternalExitDialogue);
         GameManager.i.DialogueEvents.OnDialoguePanelClose += ExternalExitDialogue;
@@ -81,6 +84,7 @@ public class DialogueManager : MonoBehaviour
     #region Dialogue handling
     private void EnterDialogue(string knotName)
     { 
+            Debug.Log($"[DialogueManager] EnterDialogue called with knot='{knotName}', _dialoguePlaying={_dialoguePlaying}");
         if (_dialoguePlaying)
             return;
 
@@ -123,7 +127,7 @@ public class DialogueManager : MonoBehaviour
 
     private void ContinueOrExitStory()
     {
-        
+         Debug.Log($"[Dialogue] canContinue={_story.canContinue}, choices={_story.currentChoices.Count}, currentChoiceIndex={_currentChoiceIndex}");
         //if there are choices to make
         if (_story.currentChoices.Count > 0 && _currentChoiceIndex != -1)
         {

@@ -16,8 +16,8 @@ MonoBehaviour:
   knotId: wardrobe
   SoundOnTouch:
     Guid:
-      Data1: 2095439028
-      Data2: 1163766526
-      Data3: 128025757
-      Data4: -854200841
-    Path: event:/SFX/Player/Footsteps/Player_Walk_Step_Wood
+      Data1: -432909861
+      Data2: 1304060874
+      Data3: 1391934873
+      Data4: 564269347
+    Path: event:/SFX/Player/Touch/Player_Touch_Wood
