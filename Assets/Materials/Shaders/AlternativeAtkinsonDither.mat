@@ -43,8 +43,8 @@ Material:
     m_Floats:
     - _Contrast: 1.1
     - _DepthFalloffDistance: 8
-    - _PatternScale: 1.5
-    - _PixelSize: 3
+    - _PatternScale: 1
+    - _PixelSize: 3.5
     - _Threshold: 0.1
     - _Tiling: 192
     - _UseColorRamp: 0
