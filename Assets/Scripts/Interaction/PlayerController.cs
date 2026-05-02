@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,7 +6,16 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField]
-    private float _speed = 5f, _mouseSensitivity = 4f;
+    private float _speed = 5f, _gravity = 9.81f, _jumpHeight = 2;
+
+    [Range(1f, 10f)]
+    [SerializeField]
+    private float _touchDistance = 5f;
+    
+    [Range(0f, 1f)]
+    [SerializeField]
+    private float _touchCooldown = 0.45f;
+    private bool _canTouch = true;
 
     
 
@@ -20,7 +30,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private Transform _cameraTransform;
-    private Vector2 _moveInput, _lookInput;
+    private Vector2 _moveInput;
+    private float _verticalVelocity;
 
     [SerializeField]
     private InputActionAsset _playerControls;
@@ -28,6 +39,7 @@ public class PlayerController : MonoBehaviour
     private InputAction _moveAction;
     private InputAction _touchAction;
     private InputAction _interactAction;
+    private InputAction _jumpAction;
 
     [SerializeField]
     private LayerMask _touchLayer, _interactLayer, _floorLayer;
@@ -61,12 +73,16 @@ public class PlayerController : MonoBehaviour
         _interactAction = _playerControls.FindActionMap("Player").FindAction("Interact");
         _interactAction.performed += OnInteract;
 
+        _jumpAction = _playerControls.FindActionMap("Player").FindAction("Jump");
+       // _jumpAction.performed += OnJump;
+
 
         _whichFoot = PrintType.Left;
         _lastFootprint = this.transform.position;
 
         //Debug.Log(GameManager.i.State);
         GameManager.i.PlayerController = this;
+        _canTouch = true;
 
 
         /*if (GameManager.i.State == StateMachineStep.Cutscene)
@@ -79,7 +95,7 @@ public class PlayerController : MonoBehaviour
         _moveAction.Enable();
         _touchAction.Enable();
         _interactAction.Enable();
-//        _lookAction.Enable();
+        _jumpAction.Enable();
     }
 
     private void OnDisable()
@@ -87,7 +103,7 @@ public class PlayerController : MonoBehaviour
         _moveAction.Disable();
         _touchAction.Disable();
         _interactAction.Disable();
-      //  _lookAction.Disable();
+        _jumpAction.Disable();
     }
 
     public void FixedUpdate()
@@ -109,6 +125,7 @@ public class PlayerController : MonoBehaviour
 
         horizontalMovement = _cameraTransform.rotation * horizontalMovement;
         _currentMovement.x = horizontalMovement.x;
+        _currentMovement.y = VerticalForceCalculation();
         _currentMovement.z = horizontalMovement.z;
         //if the player is moving
         if (_currentMovement.magnitude > 0 && GameManager.i.State == StateMachineStep.Inspect)
@@ -118,24 +135,29 @@ public class PlayerController : MonoBehaviour
         }
 
         if (_cc.enabled)
-            _cc.Move(_currentMovement * Time.fixedDeltaTime);
-        
+            _cc.Move(_currentMovement * Time.fixedDeltaTime);   
     }
 
-    private void HandleLook()
+    private float VerticalForceCalculation()
     {
-        float mouseXRotation = _lookInput.x;
-        transform.Rotate(0, mouseXRotation, 0);
+        if (_cc.isGrounded)
+        {
+            _verticalVelocity = -1f;
 
-        _verticalRotation -= _lookInput.y;
-        
-        this.transform.localRotation = Quaternion.Euler(_verticalRotation, 0, 0);
+            if (_jumpAction.triggered)
+                 _verticalVelocity = Mathf.Sqrt(_jumpHeight * _gravity * 2);       
+        } else
+        {
+            _verticalVelocity -= _gravity * Time.fixedDeltaTime;
+        }
+
+        return _verticalVelocity;
     }
 
     private void HandleFootprints()
     {
         //if it's moving
-        if (_currentMovement.magnitude > 0)
+        if (_currentMovement.magnitude > 0 && _cc.isGrounded)
         {
             float distanceSinceLastFootprint = Vector3.Distance(_lastFootprint, this.transform.position);
             //Debug.Log(distanceSinceLastFootprint);
@@ -176,13 +198,28 @@ public class PlayerController : MonoBehaviour
 
    public void OnTouch(InputAction.CallbackContext context)
     {
+        if (!_canTouch)
+            return;
         //_from = new Vector3(transform.position.x, transform.position.y + transform.localScale.y/2, transform.position.z);
         _from = Camera.main.gameObject.transform.position;
         //Check that the ray hits and we are free to move
-        if (GameManager.i.State == StateMachineStep.Free && Physics.Raycast(_from, Camera.main.gameObject.transform.forward, out RaycastHit hit, 5f, _touchLayer))
+        if (GameManager.i.State == StateMachineStep.Free && Physics.Raycast(_from, Camera.main.gameObject.transform.forward, out RaycastHit hit, _touchDistance, _touchLayer))
         {   
             InstantiateText(hit);
+            //start cool down on touch
+            _canTouch = false;
+            StartCoroutine("TouchCooldown");
         }
+    }
+
+    /// <summary>
+    /// After _touchCooldown it resets _canTouch and can touch again
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator TouchCooldown()
+    {
+        yield return new WaitForSeconds(_touchCooldown);
+        _canTouch = true;
     }
 
     public void OnInteract(InputAction.CallbackContext context)
@@ -215,16 +252,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnLook(InputAction.CallbackContext context)
+    /*private void OnJump(InputAction.CallbackContext context)
     {
-        _lookInput = context.ReadValue<Vector2>();
-    }
-
-    public void StopLook(InputAction.CallbackContext context)
-    {
-        _lookInput = Vector2.zero;
-    }
-    #endregion
+        Debug.Log("Jumped");
+        if (_cc.isGrounded)
+        {
+            _verticalVelocity = Mathf.Sqrt(_jumpHeight * _gravity * 2);       
+        }
+     
+    }*/
 
     private void OnDrawGizmos()
     {
@@ -233,6 +269,7 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawLine(_from, _from + _cameraTransform.forward * 5f);
         //Gizmos.DrawCube(_lastFootprint, new Vector3(0.5f, 0.5f, 0.5f));
     }
+    #endregion
 
     #region Text instantiation section
     /// <summary>
