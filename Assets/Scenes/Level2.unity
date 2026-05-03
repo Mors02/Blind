@@ -388,7 +388,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 0}
+    TrackingTarget: {fileID: 1439719689}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -420,7 +420,7 @@ Transform:
   m_GameObject: {fileID: 202375379}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.66, y: 2.6, z: 4.62}
+  m_LocalPosition: {x: -7.552, y: 1.77, z: 4.786}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1011,7 +1011,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.66, y: 2.6, z: 4.62}
+  m_LocalPosition: {x: -7.552, y: 1.77, z: 4.786}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2160,6 +2160,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3589889657528473648, guid: 0c1070e222eee094787af5a97d45bd79, type: 3}
+      propertyPath: _mainCamera
+      value: 
+      objectReference: {fileID: 330585545}
+    - target: {fileID: 3589889657528473648, guid: 0c1070e222eee094787af5a97d45bd79, type: 3}
       propertyPath: _cameraTransform
       value: 
       objectReference: {fileID: 330585546}
@@ -2989,6 +2993,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldObject
   _info: {fileID: 11400000, guid: 366202fcca24b3942b13c666628296e4, type: 2}
+--- !u!4 &1439719689 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1366915339095504028, guid: 0c1070e222eee094787af5a97d45bd79, type: 3}
+  m_PrefabInstance: {fileID: 939646714}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1471476522
 GameObject:
   m_ObjectHideFlags: 0
