@@ -128,7 +128,9 @@ public class PlayerController : MonoBehaviour
         _currentMovement.y = VerticalForceCalculation();
         _currentMovement.z = horizontalMovement.z;
         //if the player is moving
-        if (_currentMovement.magnitude > 0 && GameManager.i.State == StateMachineStep.Inspect)
+
+        //calculate if it's moving only from the ground movement, not the vertical movement
+        if (horizontalMovement.magnitude > 0 && GameManager.i.State == StateMachineStep.Inspect)
         {   
             //close all menus
             GameManager.ChangeState(StateMachineStep.Free, gameObject);

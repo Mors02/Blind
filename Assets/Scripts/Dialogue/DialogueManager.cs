@@ -136,7 +136,7 @@ public class DialogueManager : MonoBehaviour
             //reset the current choice to avoid carry over
             _currentChoiceIndex = -1;
         }
-
+        Debug.Log("CAN CONTINUE:" + _story.canContinue);
         //otherwise if we can continue
         if (_story.canContinue)
         {
@@ -148,13 +148,14 @@ public class DialogueManager : MonoBehaviour
             {
                 dialogueLine = _story.Continue();
             }
-            
+            Debug.Log("CAN CONTINUE:" + _story.canContinue);
             //if last line is empty then exit automatically
             if (IsLineBlank(dialogueLine) && !_story.canContinue)
             {
                 ExitDialogue();
             } else
             {
+                Debug.Log("Piero");
                 GameManager.i.DialogueEvents.DisplayDialogue(dialogueLine, _story.currentChoices);       
             }
             

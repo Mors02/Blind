@@ -18,7 +18,13 @@ public class GameManager
             if (instance == null)
             {
                 instance = new GameManager();
+                
+                instance.OnChangeState = new UnityEvent<StateMachineStep, StateMachineStep>();
+                instance.DialogueEvents = new DialogueEvents();
+
                 instance.Initialize();
+
+                
             }
 
             return instance;
@@ -27,19 +33,10 @@ public class GameManager
 
     private void Initialize()
     {
-        OnChangeState = new UnityEvent<StateMachineStep, StateMachineStep>();
-        DialogueEvents = new DialogueEvents();   // ← creato UNA SOLA VOLTA
+       
 
-        if (!GameObject.FindGameObjectWithTag("CineMachine").TryGetComponent(out CinemachineController))
-            Debug.LogWarning("No CineMachine controller found.");
-
-        Player = GameObject.FindGameObjectWithTag("Player");
-        if (Player != null)
-        {
-            Inventory = Player.GetComponent<Inventory>();
-            PlayerController = Player.GetComponent<PlayerController>();
-        }
-
+        RefreshSceneReferences();
+        
         ChangeState(State);
     }
 

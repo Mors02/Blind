@@ -53,6 +53,7 @@ public class CanvasManager : MonoBehaviour
 
     public void DisplayText(string dialogueLine, List<Choice> choices)
     {
+        Debug.Log("Shoudl display: " + dialogueLine);
         //_text.text = dialogueLine;
         if (_textFade.IsFirstText())
             _textFade.FadeIn(dialogueLine);
@@ -109,7 +110,7 @@ public class CanvasManager : MonoBehaviour
 
     public void StateChanged(StateMachineStep newState, StateMachineStep oldState)
     {
-        Debug.Log(oldState + " -> " + newState);
+        Debug.Log("CANVAS CHANGED STATE:" + oldState + " -> " + newState);
         switch (newState)
         {
             case StateMachineStep.Cutscene:
