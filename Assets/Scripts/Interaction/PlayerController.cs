@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     private LayerMask _touchLayer, _interactLayer, _floorLayer;
 
 
-    private Vector3 _from, _to, _normal;
+    private Vector3 _from, _drawVector, _fromVector, _normal, _normalVector, _adjVector;
 
     [SerializeField]
     private GameObject _worldTextPrefab;
@@ -268,7 +268,19 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
 
-        Gizmos.DrawLine(_from, _from + _cameraTransform.forward * 5f);
+        Gizmos.DrawRay(_fromVector, _drawVector);
+
+        Gizmos.color = Color.blue;
+
+        Gizmos.DrawRay(_fromVector, _normalVector);
+
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawRay(_fromVector, _adjVector);
+
+        Gizmos.color = Color.blueViolet;
+
+        Gizmos.DrawLine(_fromVector, _fromVector + _cameraTransform.forward);
         //Gizmos.DrawCube(_lastFootprint, new Vector3(0.5f, 0.5f, 0.5f));
     }
     #endregion
@@ -305,8 +317,8 @@ public class PlayerController : MonoBehaviour
         if (Vector3.Dot(worldText.transform.up, _cameraTransform.up) < 0)
             worldText.transform.Rotate(0, 0, 180f);
 
-        Vector3 decalNormal = GetDecalNormal(hit);
-        worldText.GetComponent<WorldText>().ApplyDecalRotation(decalNormal, _cameraTransform);
+        Vector3 decalNormal = GetDecalNormal(hit, out bool isConvexCorner);
+        worldText.GetComponent<WorldText>().ApplyDecalRotation(decalNormal, _cameraTransform, isConvexCorner);
 
         return worldText;
     }
@@ -316,45 +328,60 @@ public class PlayerController : MonoBehaviour
     /// in which case returns the normalised average of the two face normals,
     /// so the decal bisects the corner cleanly.
     /// </summary>
-    private Vector3 GetDecalNormal(RaycastHit hit)
+    private Vector3 GetDecalNormal(RaycastHit hit, out bool isCorner)
     {
         const float halfSize = 0.5f;   // must match DecalProjector m_Size / 2
         const float epsilon  = 0.03f;
         int mask = Physics.DefaultRaycastLayers;
+        isCorner = false;
 
-        Vector3 n = hit.normal;
+        Vector3 hitNormal = hit.normal;
+        
+        _fromVector = hit.point;
 
-        Vector3 t = Vector3.Cross(n, Vector3.up).normalized;
+        Vector3 t = Vector3.Cross(hitNormal, Vector3.up).normalized;
         if (t.sqrMagnitude < 0.001f)
-            t = Vector3.Cross(n, Vector3.forward).normalized;
-        Vector3 b = Vector3.Cross(t, n).normalized;
+            t = Vector3.Cross(hitNormal, Vector3.forward).normalized;
+        Vector3 b = Vector3.Cross(t, hitNormal).normalized;
 
         foreach (Vector3 dir in new[] { t, -t, b, -b })
         {
             // Probe at the decal boundary — if nothing below, we're past an edge
-            Vector3 probe = hit.point + n * epsilon + dir * halfSize;
-            if (Physics.Raycast(probe, -n, halfSize, mask, QueryTriggerInteraction.Ignore))
+            Vector3 probe = hit.point + hitNormal * epsilon + dir * halfSize;
+           // _drawVector = probe;
+            if (Physics.Raycast(probe, -hitNormal, halfSize, mask, QueryTriggerInteraction.Ignore))
                 continue;
 
             // Find the adjacent face
-            Vector3 searchOrigin = hit.point + dir * (halfSize + epsilon) - n * epsilon;
+            Vector3 searchOrigin = hit.point + dir * (halfSize + epsilon) - hitNormal * epsilon;
             if (!Physics.Raycast(searchOrigin, -dir, out RaycastHit adj,
                     halfSize + 0.5f, mask, QueryTriggerInteraction.Ignore))
                 continue;
 
-            bool isConvex = Vector3.Dot(adj.normal, n) < 0;
-            // Confirm it's a genuine 90° edge (normals are perpendicular)
-            // if (Vector3.Dot(adj.normal, n) > 0.1f)
-            //    continue;
-            Debug.Log(isConvex);
-            Debug.Log(
-                adj.normal);
-            Vector3 adjNormal = new Vector3(Mathf.Abs(adj.normal.x), Mathf.Abs(adj.normal.y), Mathf.Abs(adj.normal.z));//Vector3.Dot(adj.normal, n) < 0 ? -adj.normal : adj.normal;
+            bool isConvex = Vector3.Dot(adj.normal, _cameraTransform.forward.normalized) > 0;
+            
+            
+            Debug.Log(Vector3.Dot(adj.normal, _cameraTransform.forward.normalized));
+       
+            Vector3 adjNormal = new Vector3(Mathf.Abs(adj.normal.x), Mathf.Abs(adj.normal.y), Mathf.Abs(adj.normal.z));
+            Vector3 resultVector = (hitNormal + adjNormal).normalized;
+            if (isConvex)
+            {
+                resultVector = -resultVector;
+                isCorner = true;
+            }
+                
+            _adjVector = adjNormal;
+            _normalVector = hitNormal;
+            _drawVector = resultVector;
             // ← Blend and return; no second decal needed
-            return (n + adjNormal).normalized;
-        }
 
-        return n; // no edge nearby, use surface normal as-is
+            //is corner is used to make the print closer if its on a wall and further if its on a corner
+            
+            return resultVector;
+        }
+        //is corner is used to make the print closer if its on a wall and further if its on a corner
+        return hitNormal; // no edge nearby, use surface normal as-is
     }
     #endregion
 }
