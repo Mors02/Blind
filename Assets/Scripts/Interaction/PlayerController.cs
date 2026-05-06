@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -44,8 +45,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private LayerMask _touchLayer, _interactLayer, _floorLayer;
 
-
-    private Vector3 _from, _drawVector, _fromVector, _normal, _normalVector, _adjVector;
+    private Vector3 _from, _normal;
+    
 
     [SerializeField]
     private GameObject _worldTextPrefab;
@@ -57,9 +58,14 @@ public class PlayerController : MonoBehaviour
     private float _footSpacer = 4f;
     private PrintType _whichFoot;
 
+    //DEBUG
+    private Vector3 _drawVector, _fromVector, _normalVector, _adjVector, _searchOrigin;
+    private List<Vector3> _directions;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        _directions = new List<Vector3>();
         _rb = GetComponent<Rigidbody>();
         _cc = GetComponent<CharacterController>();
 
@@ -266,7 +272,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
+        /*Gizmos.color = Color.yellow;
 
         Gizmos.DrawRay(_fromVector, _drawVector);
 
@@ -280,8 +286,19 @@ public class PlayerController : MonoBehaviour
 
         Gizmos.color = Color.blueViolet;
 
-        Gizmos.DrawLine(_fromVector, _fromVector + _cameraTransform.forward);
-        //Gizmos.DrawCube(_lastFootprint, new Vector3(0.5f, 0.5f, 0.5f));
+        Gizmos.DrawLine(_fromVector, _fromVector + _cameraTransform.forward);*/
+        List<Color> colors = new List<Color>
+        {
+            Color.blue, Color.red, Color.yellow, Color.blueViolet
+        };
+
+        Gizmos.DrawCube(_searchOrigin, new Vector3(0.2f, 0.2f, 0.2f));
+
+        /*for (int i = 0; i < _directions.Count; i++)
+        {
+            Gizmos.color = colors[i];
+            Gizmos.DrawRay(_searchOrigin, _directions[i]);
+        }*/
     }
     #endregion
 
@@ -344,25 +361,31 @@ public class PlayerController : MonoBehaviour
             t = Vector3.Cross(hitNormal, Vector3.forward).normalized;
         Vector3 b = Vector3.Cross(t, hitNormal).normalized;
 
+        _directions = new List<Vector3>();
         foreach (Vector3 dir in new[] { t, -t, b, -b })
         {
+            
             // Probe at the decal boundary — if nothing below, we're past an edge
             Vector3 probe = hit.point + hitNormal * epsilon + dir * halfSize;
-           // _drawVector = probe;
+
+            _searchOrigin = probe;
+            _directions.Add(-hitNormal);
+
             if (Physics.Raycast(probe, -hitNormal, halfSize, mask, QueryTriggerInteraction.Ignore))
                 continue;
-
             // Find the adjacent face
             Vector3 searchOrigin = hit.point + dir * (halfSize + epsilon) - hitNormal * epsilon;
+
+            _searchOrigin = searchOrigin;
+            _directions.Add(dir);
             if (!Physics.Raycast(searchOrigin, -dir, out RaycastHit adj,
                     halfSize + 0.5f, mask, QueryTriggerInteraction.Ignore))
                 continue;
-
             bool isConvex = Vector3.Dot(adj.normal, _cameraTransform.forward.normalized) > 0;
-            
-            
+
+
             Debug.Log(Vector3.Dot(adj.normal, _cameraTransform.forward.normalized));
-       
+
             Vector3 adjNormal = new Vector3(Mathf.Abs(adj.normal.x), Mathf.Abs(adj.normal.y), Mathf.Abs(adj.normal.z));
             Vector3 resultVector = (hitNormal + adjNormal).normalized;
             if (isConvex)
@@ -370,16 +393,17 @@ public class PlayerController : MonoBehaviour
                 resultVector = -resultVector;
                 isCorner = true;
             }
-                
+
             _adjVector = adjNormal;
             _normalVector = hitNormal;
             _drawVector = resultVector;
             // ← Blend and return; no second decal needed
 
             //is corner is used to make the print closer if its on a wall and further if its on a corner
-            
+
             return resultVector;
         }
+        Debug.Log("NOT A CORNER");
         //is corner is used to make the print closer if its on a wall and further if its on a corner
         return hitNormal; // no edge nearby, use surface normal as-is
     }

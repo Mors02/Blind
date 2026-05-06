@@ -105,8 +105,10 @@ public class WorldText : MonoBehaviour
 
     public void ApplyDecalRotation(Vector3 decalNormal, Transform cameraTransform, bool isCorner)
     {
+        //in case of convex corner I need to change the distance from the text (positive instead of negative)
         if (isCorner)
             _decal.transform.localPosition = new Vector3(0, 0, 0.3f);
+
         Vector3 decalUp = Vector3.ProjectOnPlane(Vector3.up, decalNormal).normalized;
         if (decalUp.sqrMagnitude < 0.001f)
             decalUp = Vector3.ProjectOnPlane(cameraTransform.forward, decalNormal).normalized;
