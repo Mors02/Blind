@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MimicAI : MonoBehaviour
+public class MimicAI_V1 : MonoBehaviour
 {
 
     private GameObject _player;
