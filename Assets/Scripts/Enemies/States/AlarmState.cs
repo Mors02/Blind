@@ -4,7 +4,30 @@ using UnityHFSM;
 
 public class AlarmState : EnemyStateBase
 {
-    public AlarmState(bool needsExitTime, Enemy enemy, float exitTime = 0.1F, Action<State<EnemyState, StateEvent>> onEnter = null, Action<State<EnemyState, StateEvent>> onLogic = null, Action<State<EnemyState, StateEvent>> onExit = null, Func<State<EnemyState, StateEvent>, bool> canExit = null) : base(needsExitTime, enemy, exitTime, onEnter, onLogic, onExit, canExit)
+    private Transform _target;
+
+    public AlarmState(bool needsExitTime, Enemy enemy, Transform target) : base(needsExitTime, enemy)
     {
+        this._target = target;
+    }
+
+    public override void OnEnter()
+    {
+        base.OnEnter();
+        _agent.enabled = true;
+        _agent.isStopped = false;
+
+    }
+
+    public override void OnLogic()
+    {
+        base.OnLogic();
+        if (!_requestedExit)
+        {
+            _agent.SetDestination(_target.position);
+        } else if (_agent.remainingDistance <= _agent.stoppingDistance)
+        {
+            fsm.StateCanExit();
+        }
     }
 }

@@ -12,5 +12,6 @@ public enum EnemyState
 public enum StateEvent
 {
     DetectPlayer,
-    LostPlayer
+    LostPlayer,
+    SoundHeard
 }

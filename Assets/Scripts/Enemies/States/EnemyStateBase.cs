@@ -58,6 +58,7 @@ public abstract class EnemyStateBase : State<EnemyState, StateEvent>
         } else
         {
             _requestedExit = false;
+            
         }
     }
 
