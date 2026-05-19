@@ -21,3 +21,4 @@ MonoBehaviour:
       Data3: 1166780344
       Data4: 1384923260
     Path: event:/SFX/Player/Touch/Player_Touch_Stone
+  SoundMultiplier: 0.3

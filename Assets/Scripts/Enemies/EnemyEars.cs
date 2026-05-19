@@ -6,7 +6,7 @@ public class EnemyEars : MonoBehaviour
 
     public UnityEvent<Vector3> OnSoundHeard;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         OnSoundHeard = new UnityEvent<Vector3>();
     }
@@ -18,6 +18,7 @@ public class EnemyEars : MonoBehaviour
     public void Heard(Vector3 position)
     {
         OnSoundHeard?.Invoke(position);
+        
     }
 
 }

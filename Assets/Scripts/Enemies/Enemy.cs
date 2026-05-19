@@ -19,9 +19,12 @@ public class Enemy : MonoBehaviour {
     [Header("Debug")]
     [SerializeField]
     private bool _isInAlarmRange;
+    [SerializeField]
+    private string _activeState;
 
     [Header("State infos")]
     public Vector3 LastPlayerPosition;
+    public bool CheckedPlace = false;
 
     private void Awake()
     {
@@ -29,6 +32,7 @@ public class Enemy : MonoBehaviour {
         _player = GameObject.FindGameObjectWithTag("Player");
         //_animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
+        _enemyFSM = new StateMachine<EnemyState, StateEvent>();
 
         //add states to the state machine
         _enemyFSM.AddState(EnemyState.Idle, new IdleState(false, this));
@@ -38,13 +42,15 @@ public class Enemy : MonoBehaviour {
 
         //add transitions that are triggered from events
         _enemyFSM.AddTriggerTransition(StateEvent.SoundHeard, new Transition<EnemyState>(EnemyState.Idle, EnemyState.Seek));
+        
+        
 
        // _enemyFSM.AddTriggerTransition(StateEvent.DetectPlayer, new Transition<EnemyState>(EnemyState.Idle, EnemyState.Alarm));
        // _enemyFSM.AddTriggerTransition(StateEvent.DetectPlayer, new Transition<EnemyState>(EnemyState.Patrol, EnemyState.Alarm));
        // _enemyFSM.AddTriggerTransition(StateEvent.LostPlayer, new Transition<EnemyState>(EnemyState.Alarm, EnemyState.Patrol));
 
         //add transitions that are checked every call on _enemyFSM.OnLogic()
-       // _enemyFSM.AddTransition(new Transition<EnemyState>(EnemyState.Seek, EnemyState.Patrol, (transition) => false));
+        _enemyFSM.AddTransition(new Transition<EnemyState>(EnemyState.Seek, EnemyState.Idle, (transition) => CheckedPlace));
 
 
 
@@ -75,7 +81,7 @@ public class Enemy : MonoBehaviour {
     }
 
     private void SoundHeard(Vector3 position)
-    {
+    {        
         LastPlayerPosition = position;
         _enemyFSM.Trigger(StateEvent.SoundHeard);
     }
@@ -83,6 +89,7 @@ public class Enemy : MonoBehaviour {
     private void Update()
     {
         _enemyFSM.OnLogic();
+        this._activeState = _enemyFSM.ActiveStateName.ToString();
     }
 
 

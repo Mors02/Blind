@@ -1,11 +1,13 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class WorldText : MonoBehaviour
-{
+{   
+    /// <summary>
+    /// Used only by Reflect text, otherwise use ObjectInteracted
+    /// </summary>
     [SerializeField]
     private WorldObjectInfo _objectInfo;
     private WorldObject _objectOrigin;
@@ -48,6 +50,17 @@ public class WorldText : MonoBehaviour
 
     [SerializeField]
     private TMP_Text _text;
+    /// <summary>
+    /// base radius for the loudness
+    /// </summary>
+    [SerializeField]
+    private float _baseSoundRadius;
+    [SerializeField]
+    private bool _showGizmos = true;
+
+    [SerializeField]
+    private LayerMask _listenerMask;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -71,6 +84,8 @@ public class WorldText : MonoBehaviour
             this._text.gameObject.SetActive(Active);
         else
             Debug.LogWarning(name + " has no text selected");
+
+        CalculateLoudness();
     }
 
     /// <summary>
@@ -145,6 +160,53 @@ public class WorldText : MonoBehaviour
         this._decal.material = print == PrintType.Left? GameAssets.i.LeftFootMaterial : (print == PrintType.Right? GameAssets.i.RightFootMaterial : GameAssets.i.HandMaterial);
       //  if (print == PrintType.Hand)
       //      this._decal.transform.Rotate(Vector3.forward, Random.Range(-100, 100));
+        
+    }
+
+    /// <summary>
+    /// Used to calculate if the action resulted in someone hearing the player
+    /// </summary>
+    private void CalculateLoudness()
+    {
+        if (!ObjectInteracted)
+            return;
+
+        Collider[] _colliders = Physics.OverlapSphere(transform.position, _baseSoundRadius * ObjectInteracted.Loudness, _listenerMask);
+        foreach (Collider collider in _colliders)
+        {   
+            // all that are listening recieve the position of the sound
+            if (collider.TryGetComponent(out EnemyEars enemyEars))
+            {
+                enemyEars.Heard(this.transform.position);
+            }
+        }
+
+        if (_showGizmos)
+            Invoke("StopGizmo", 0.3f);
+    }
+
+    private void StopGizmo()
+    {
+        this._baseSoundRadius = 0;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!ObjectInteracted)
+            return;
+
+
+        if (_showGizmos)
+        {
+            Gizmos.color = Color.yellow;
+            if (ObjectInteracted.Loudness < 1)
+                Gizmos.color = Color.green;
+            
+            if (ObjectInteracted.Loudness > 1)
+                Gizmos.color = Color.red;
+            //Debug.Log(ObjectInteracted? ObjectInteracted.name + " " +_objectInfo.SoundMultiplier : 0);
+            Gizmos.DrawSphere(transform.position, _baseSoundRadius * ObjectInteracted.Loudness);    
+        }
         
     }
 }

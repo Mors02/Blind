@@ -243,6 +243,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _text: {fileID: 8310755405160587213}
+  _baseSoundRadius: 10
+  _showGizmos: 1
+  _listenerMask:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!95 &7479651301017964147
 Animator:
   serializedVersion: 7

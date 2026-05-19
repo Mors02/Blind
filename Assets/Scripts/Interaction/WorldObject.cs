@@ -28,4 +28,9 @@ public class WorldObject : MonoBehaviour
     {
         get {return this._info.knotId;}
     }
+
+    public float Loudness
+    {
+        get {return this._info.SoundMultiplier;}
+    }
 }

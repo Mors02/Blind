@@ -16,8 +16,9 @@ MonoBehaviour:
   knotId: grate
   SoundOnTouch:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 2095439028
+      Data2: 1163766526
+      Data3: 128025757
+      Data4: -854200841
+    Path: event:/SFX/Player/Footsteps/Player_Walk_Step_Wood
+  SoundMultiplier: 1.5

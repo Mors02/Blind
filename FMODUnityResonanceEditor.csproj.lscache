@@ -352,9 +352,7 @@ Library/ScriptAssemblies/
  UnityEditor.UI.dll
  UnityEngine.TestRunner.dll
  UnityEngine.UI.dll
-Temp/bin/Debug/
- FMODUnity.dll
- FMODUnityResonance.dll
+Temp/bin/Debug/FMODUnityResonance.dll
 
 [analyzerReferences]
 C:/Users/morse/.vscode/extensions/visualstudiotoolsforunity.vstuc-1.2.2/Analyzers/Microsoft.Unity.Analyzers.dll

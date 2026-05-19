@@ -19,4 +19,8 @@ public class WorldObjectInfo : ScriptableObject
     /// </summary>
     public EventReference SoundOnTouch;
 
+    /// <summary>
+    /// Defines if touching or walking on the designed object is louder or softer
+    /// </summary>
+    public float SoundMultiplier = 1;
 }

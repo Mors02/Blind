@@ -403,7 +403,6 @@ public class PlayerController : MonoBehaviour
 
             return resultVector;
         }
-        Debug.Log("NOT A CORNER");
         //is corner is used to make the print closer if its on a wall and further if its on a corner
         return hitNormal; // no edge nearby, use surface normal as-is
     }
