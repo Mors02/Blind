@@ -6,7 +6,8 @@ public enum EnemyState
     Seek,
     Alarm,
     Patrol,
-    Attack
+    Attack,
+    Wait
 }
 
 public enum StateEvent

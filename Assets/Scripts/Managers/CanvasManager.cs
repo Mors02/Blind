@@ -110,7 +110,7 @@ public class CanvasManager : MonoBehaviour
 
     public void StateChanged(StateMachineStep newState, StateMachineStep oldState)
     {
-        Debug.Log("CANVAS CHANGED STATE:" + oldState + " -> " + newState);
+//        Debug.Log("CANVAS CHANGED STATE:" + oldState + " -> " + newState);
         switch (newState)
         {
             case StateMachineStep.Cutscene:

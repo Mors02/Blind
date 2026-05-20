@@ -25,6 +25,9 @@ public class Enemy : MonoBehaviour {
     [Header("State infos")]
     public Vector3 LastPlayerPosition;
     public bool CheckedPlace = false;
+    public Transform[] PatrolPoints;
+    [SerializeField]
+    private float _waitStateTime;
 
     private void Awake()
     {
@@ -37,20 +40,31 @@ public class Enemy : MonoBehaviour {
         //add states to the state machine
         _enemyFSM.AddState(EnemyState.Idle, new IdleState(false, this));
         _enemyFSM.AddState(EnemyState.Seek, new SeekState(false, this));
+        _enemyFSM.AddState(EnemyState.Wait, new WaitState(true, this, _waitStateTime));
         _enemyFSM.AddState(EnemyState.Patrol, new PatrolState(false, this));
         _enemyFSM.AddState(EnemyState.Alarm, new AlarmState(false, this, _player.transform));
 
         //add transitions that are triggered from events
         _enemyFSM.AddTriggerTransition(StateEvent.SoundHeard, new Transition<EnemyState>(EnemyState.Idle, EnemyState.Seek));
-        
-        
+        _enemyFSM.AddTriggerTransition(StateEvent.SoundHeard, new Transition<EnemyState>(EnemyState.Patrol, EnemyState.Seek));
+        _enemyFSM.AddTriggerTransition(StateEvent.SoundHeard, new Transition<EnemyState>(EnemyState.Wait, EnemyState.Seek, forceInstantly: true));
 
-       // _enemyFSM.AddTriggerTransition(StateEvent.DetectPlayer, new Transition<EnemyState>(EnemyState.Idle, EnemyState.Alarm));
-       // _enemyFSM.AddTriggerTransition(StateEvent.DetectPlayer, new Transition<EnemyState>(EnemyState.Patrol, EnemyState.Alarm));
-       // _enemyFSM.AddTriggerTransition(StateEvent.LostPlayer, new Transition<EnemyState>(EnemyState.Alarm, EnemyState.Patrol));
+        _enemyFSM.AddTriggerTransition(StateEvent.DetectPlayer, new Transition<EnemyState>(EnemyState.Seek, EnemyState.Alarm, forceInstantly: true));
+        _enemyFSM.AddTriggerTransition(StateEvent.DetectPlayer, new Transition<EnemyState>(EnemyState.Wait, EnemyState.Alarm, forceInstantly: true));
 
-        //add transitions that are checked every call on _enemyFSM.OnLogic()
-        _enemyFSM.AddTransition(new Transition<EnemyState>(EnemyState.Seek, EnemyState.Idle, (transition) => CheckedPlace));
+        _enemyFSM.AddTriggerTransition(StateEvent.LostPlayer, new Transition<EnemyState>(EnemyState.Alarm, EnemyState.Seek));
+
+        //add transitions that are checked every call on _enemyFSM.OnLogic()       
+        _enemyFSM.AddTransition(new Transition<EnemyState>(EnemyState.Seek, EnemyState.Wait, (transition) => CheckedPlace));
+        _enemyFSM.AddTransition(new Transition<EnemyState>(EnemyState.Wait, EnemyState.Patrol));
+        //Failsafe transiton if the patrol path is not configured
+        _enemyFSM.AddTransition(new Transition<EnemyState>(EnemyState.Patrol, EnemyState.Idle, (transition) => PatrolPoints.Length <= 0));
+
+        // _enemyFSM.AddTriggerTransition(StateEvent.DetectPlayer, new Transition<EnemyState>(EnemyState.Idle, EnemyState.Alarm));
+        // _enemyFSM.AddTriggerTransition(StateEvent.DetectPlayer, new Transition<EnemyState>(EnemyState.Patrol, EnemyState.Alarm));
+        // _enemyFSM.AddTriggerTransition(StateEvent.LostPlayer, new Transition<EnemyState>(EnemyState.Alarm, EnemyState.Patrol));
+
+
 
 
 

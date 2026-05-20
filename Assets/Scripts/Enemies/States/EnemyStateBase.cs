@@ -46,6 +46,7 @@ public abstract class EnemyStateBase : State<EnemyState, StateEvent>
         base.OnLogic();
         if (_requestedExit && timer.Elapsed >= _exitTime)
         {
+            Debug.Log("State can exit from time");
             fsm.StateCanExit();
         }
     }
@@ -57,7 +58,7 @@ public abstract class EnemyStateBase : State<EnemyState, StateEvent>
             fsm.StateCanExit();
         } else
         {
-            _requestedExit = false;
+            _requestedExit = true;
             
         }
     }

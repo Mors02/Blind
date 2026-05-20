@@ -9,10 +9,9 @@ public class SeekState : EnemyStateBase
     Vector3 _targetPosition;
     public SeekState(bool needsExitTime, Enemy enemy) : base(needsExitTime, enemy)
     {
-        
     }
 
-    
+
     public override void OnEnter()
     {
         base.OnEnter();
@@ -28,18 +27,19 @@ public class SeekState : EnemyStateBase
     public override void OnLogic()
     {
         base.OnLogic();
-        
-        
+
+
         if (Vector3.Distance(this._enemy.transform.position, _targetPosition) <= 2f)
         {
-            _timer += Time.deltaTime;
-            if (_timer >= _timeToWait)
-            {
-                _enemy.CheckedPlace = true;
-                Debug.Log("Can exit");
-                fsm.StateCanExit();     
-            }
-           
+            /* _timer += Time.deltaTime;
+
+             if (_timer >= _timeToWait)
+             {
+                 _enemy.CheckedPlace = true;
+                 fsm.StateCanExit();
+             }*/
+            _enemy.CheckedPlace = true;
+            fsm.StateCanExit();
         }
     }
 }
