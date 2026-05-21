@@ -5,10 +5,11 @@ using UnityHFSM;
 public class AlarmState : EnemyStateBase
 {
     private Transform _target;
-
-    public AlarmState(bool needsExitTime, Enemy enemy, Transform target) : base(needsExitTime, enemy)
+    private float _speed;
+    public AlarmState(bool needsExitTime, Enemy enemy, Transform target, Action<State<EnemyState, StateEvent>> onEnter, float speed) : base(needsExitTime, enemy, onEnter: onEnter)
     {
         this._target = target;
+        this._speed = speed;
     }
 
     public override void OnEnter()
@@ -16,6 +17,7 @@ public class AlarmState : EnemyStateBase
         base.OnEnter();
         _agent.enabled = true;
         _agent.isStopped = false;
+        this._agent.speed = _speed;
 
     }
 

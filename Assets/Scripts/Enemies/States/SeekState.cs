@@ -7,8 +7,10 @@ public class SeekState : EnemyStateBase
 {
     float _timer, _timeToWait = 5f;
     Vector3 _targetPosition;
-    public SeekState(bool needsExitTime, Enemy enemy) : base(needsExitTime, enemy)
+    float _speed;
+    public SeekState(bool needsExitTime, Enemy enemy, Action<State<EnemyState, StateEvent>> onEnter, float speed) : base(needsExitTime, enemy, onEnter: onEnter)
     {
+        this._speed = speed;
     }
 
 
@@ -22,6 +24,7 @@ public class SeekState : EnemyStateBase
         _targetPosition = _enemy.LastPlayerPosition;
         _agent.SetDestination(_targetPosition);
         _timer = 0;
+        this._agent.speed = _speed;
     }
 
     public override void OnLogic()

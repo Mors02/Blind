@@ -81,10 +81,9 @@ GameObject:
   - component: {fileID: 184008595689468926}
   - component: {fileID: 1320421308918355551}
   - component: {fileID: 5826259850508807697}
-  - component: {fileID: 5855489930041696014}
   - component: {fileID: 3765543498920153378}
-  - component: {fileID: 4394064989350466885}
   - component: {fileID: 100038903726692885}
+  - component: {fileID: 2897867882926417724}
   m_Layer: 11
   m_Name: Seeker
   m_TagString: Untagged
@@ -187,21 +186,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5855489930041696014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4533075986926824267}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98b77d490ffc5ea409318db307c853ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyEars
-  OnSoundHeard:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &3765543498920153378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,28 +206,8 @@ MonoBehaviour:
   CheckedPlace: 0
   PatrolPoints: []
   _waitStateTime: 5
---- !u!95 &4394064989350466885
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4533075986926824267}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  _baseSpeed: 2.5
+  _alarmSpeed: 4
 --- !u!195 &100038903726692885
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -266,6 +230,22 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2897867882926417724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533075986926824267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a94841bd044481281f845e97fb4a23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyFootsteps
+  _navMeshAgent: {fileID: 100038903726692885}
+  _footstepSoundName: SeekerStep
+  _baseStepRate: 6
+  _randomVariation: 0.1
 --- !u!1 &4679152380909490013
 GameObject:
   m_ObjectHideFlags: 0

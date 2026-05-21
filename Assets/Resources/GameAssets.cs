@@ -38,6 +38,7 @@ public class GameAssets : MonoBehaviour
     [Header("Sounds")]
     public SoundCollection InteractionSounds;
     public SoundCollection UISounds;
+    public SoundCollection EnemySounds;
 
     [Header("Items")]
     public ItemDatabase ItemDatabase;

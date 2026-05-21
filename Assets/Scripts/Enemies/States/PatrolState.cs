@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using System;
 using UnityHFSM;
 
 public class PatrolState : EnemyStateBase
@@ -9,17 +10,19 @@ public class PatrolState : EnemyStateBase
     private int _currentPoint = 0;
     private float _timer, _timeToWait;
     private float _minWaitTime = 1f, _maxWaitTime = 4f;
-    public PatrolState(bool needsExitTime, Enemy enemy) : base(needsExitTime, enemy)
+    private float _speed;
+    public PatrolState(bool needsExitTime, Enemy enemy, Action<State<EnemyState, StateEvent>> onEnter, float speed) : base(needsExitTime, enemy, onEnter: onEnter)
     {
         this._checkpoints = enemy.PatrolPoints;
         _currentPoint = 0;
         _timer = 0; _timeToWait = 0;
+        this._speed = speed;
     }
 
     public override void OnEnter()
     {
         base.OnEnter();
-        Debug.Log("Entered Patrol");
+        this._agent.speed = _speed;
 
         //if the patrol path is not configured correctly, exit the state
         if (_checkpoints.Length <= 0)
@@ -27,7 +30,6 @@ public class PatrolState : EnemyStateBase
 
         _agent.enabled = true;
         _agent.isStopped = false;
-        Debug.Log("Next destination " + _checkpoints[_currentPoint].name);
         _agent.SetDestination(_checkpoints[_currentPoint].position);
         _timeToWait = UnityEngine.Random.Range(_minWaitTime, _maxWaitTime);
     }

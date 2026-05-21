@@ -1,11 +1,13 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityHFSM;
 
-[RequireComponent(typeof(Animator)), RequireComponent(typeof(UnityEngine.AI.NavMeshAgent))]
-public class Enemy : MonoBehaviour {
-    
+[RequireComponent(typeof(UnityEngine.AI.NavMeshAgent))]
+public class Enemy : MonoBehaviour
+{
+
     private GameObject _player;
     private NavMeshAgent _agent;
     private StateMachine<EnemyState, StateEvent> _enemyFSM;
@@ -28,6 +30,8 @@ public class Enemy : MonoBehaviour {
     public Transform[] PatrolPoints;
     [SerializeField]
     private float _waitStateTime;
+    [SerializeField]
+    private float _baseSpeed, _alarmSpeed;
 
     private void Awake()
     {
@@ -39,10 +43,10 @@ public class Enemy : MonoBehaviour {
 
         //add states to the state machine
         _enemyFSM.AddState(EnemyState.Idle, new IdleState(false, this));
-        _enemyFSM.AddState(EnemyState.Seek, new SeekState(false, this));
-        _enemyFSM.AddState(EnemyState.Wait, new WaitState(true, this, _waitStateTime));
-        _enemyFSM.AddState(EnemyState.Patrol, new PatrolState(false, this));
-        _enemyFSM.AddState(EnemyState.Alarm, new AlarmState(false, this, _player.transform));
+        _enemyFSM.AddState(EnemyState.Seek, new SeekState(false, this, onEnter: PlaySoundOnEnter, speed: _baseSpeed));
+        _enemyFSM.AddState(EnemyState.Wait, new WaitState(true, this, _waitStateTime, onEnter: PlaySoundOnEnter));
+        _enemyFSM.AddState(EnemyState.Patrol, new PatrolState(false, this, onEnter: PlaySoundOnEnter, speed: _baseSpeed));
+        _enemyFSM.AddState(EnemyState.Alarm, new AlarmState(false, this, _player.transform, onEnter: PlaySoundOnEnter, speed: _alarmSpeed));
 
         //add transitions that are triggered from events
         _enemyFSM.AddTriggerTransition(StateEvent.SoundHeard, new Transition<EnemyState>(EnemyState.Idle, EnemyState.Seek));
@@ -91,11 +95,11 @@ public class Enemy : MonoBehaviour {
     {
         LastPlayerPosition = lastPosition;
         _enemyFSM.Trigger(StateEvent.LostPlayer);
-        _isInAlarmRange = false;  
+        _isInAlarmRange = false;
     }
 
     private void SoundHeard(Vector3 position)
-    {        
+    {
         LastPlayerPosition = position;
         _enemyFSM.Trigger(StateEvent.SoundHeard);
     }
@@ -106,19 +110,26 @@ public class Enemy : MonoBehaviour {
         this._activeState = _enemyFSM.ActiveStateName.ToString();
     }
 
-
-
-    private void OnAttack(State<EnemyState, StateEvent> state)
+    private void PlaySoundOnEnter(State<EnemyState, StateEvent> State)
     {
-        
-    }
-    private void OnBounce(State<EnemyState, StateEvent> state)
-    {
-        
-    }
-    private void OnRoll(State<EnemyState, StateEvent> state)
-    {
-        
-    }
+        switch (State.name)
+        {
+            case EnemyState.Seek:
+                AudioManager.Instance.PlayOneShot(GameAssets.i.EnemySounds.GetSound("SeekerEnterSeek"), transform.position);
+                break;
 
+            case EnemyState.Wait:
+                AudioManager.Instance.PlayOneShot(GameAssets.i.EnemySounds.GetSound("SeekerEnterWait"), transform.position);
+                break;
+
+            case EnemyState.Alarm:
+                AudioManager.Instance.PlayOneShot(GameAssets.i.EnemySounds.GetSound("SeekerEnterAlert"), transform.position);
+                break;
+                
+            case EnemyState.Patrol:
+                AudioManager.Instance.PlayOneShot(GameAssets.i.EnemySounds.GetSound("SeekerInPatrol"), transform.position);
+                break;
+
+        }
+    }
 }

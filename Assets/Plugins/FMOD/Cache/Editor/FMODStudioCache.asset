@@ -81,6 +81,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 20000
+--- !u!114 &-8615165865133224482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Player_Breath/RTPC_Threat
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: RTPC_Threat
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1829580465
+    data2: 182172781
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
 --- !u!114 &-8541159251614056913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +402,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 20000
+--- !u!114 &-4148428095663444017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Player_Breath
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Player/Player_Breath
+  Guid:
+    Data1: -777123688
+    Data2: 1188322252
+    Data3: 2116816267
+    Data4: 1845116040
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -8615165865133224482}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 73500
 --- !u!114 &-3703253251767906770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,6 +484,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 33000
+--- !u!114 &-2976358090145903787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/RTPC_Threat
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: RTPC_Threat
+  StudioPath: parameter:/RTPC_Threat
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1829580465
+    data2: 182172781
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
 --- !u!114 &-2460180067987173401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,6 +530,33 @@ MonoBehaviour:
   - {fileID: 1270085778224537807}
   IsStream: 0
   Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2105416821414978564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemy/Seeker/Enemy_Seeker_Walk_Step
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Enemy/Seeker/Enemy_Seeker_Walk_Step
+  Guid:
+    Data1: 1160170753
+    Data2: 1152504449
+    Data3: 1188281485
+    Data4: 706927915
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -486,6 +589,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 20000
+--- !u!114 &-1877890767715602589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemy/Seeker/Enemy_Seeker_Verse_Patrol
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Enemy/Seeker/Enemy_Seeker_Verse_Patrol
+  Guid:
+    Data1: 416829658
+    Data2: 1170873947
+    Data3: 1566519186
+    Data4: 642948821
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-1113815656613296301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,10 +631,10 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639124477644742656
+  lastModified: 639149765795844273
   FileSizes:
   - Name: 
-    Value: 2844
+    Value: 3190
   Exists: 1
 --- !u!114 &-415077690380576858
 MonoBehaviour:
@@ -588,13 +718,20 @@ MonoBehaviour:
   - {fileID: 6550702428049889664}
   - {fileID: 4870581683527054511}
   - {fileID: 655759826282265076}
-  EditorParameters: []
+  - {fileID: -2105416821414978564}
+  - {fileID: 2564255145454288833}
+  - {fileID: -4148428095663444017}
+  - {fileID: 178721397430927590}
+  - {fileID: 4715609170678479169}
+  - {fileID: -1877890767715602589}
+  EditorParameters:
+  - {fileID: -2976358090145903787}
   MasterBanks:
   - {fileID: 1270085778224537807}
   StringsBanks:
   - {fileID: -1113815656613296301}
   cacheVersion: 131849
-  cacheTime: 639124477644742656
+  cacheTime: 639149765795844273
   SerializableEventsDict:
   - key: event:/Mimic_Foley_Step
     index: 0
@@ -672,6 +809,45 @@ MonoBehaviour:
     index: 36
   - key: event:/SFX/Player/Footsteps/Player_Walk_Step_Carpet
     index: 37
+  - key: event:/SFX/Enemy/Seeker/Enemy_Seeker_Walk_Step
+    index: 38
+  - key: event:/SFX/Enemy/Seeker/Enemy_Seeker_Verse_Idle
+    index: 39
+  - key: event:/SFX/Player/Player_Breath
+    index: 40
+  - key: event:/SFX/Enemy/Seeker/Enemy_Seeker_Verse_Alert
+    index: 41
+  - key: event:/SFX/Enemy/Seeker/Enemy_Seeker_Verse_Seek
+    index: 42
+  - key: event:/SFX/Enemy/Seeker/Enemy_Seeker_Verse_Patrol
+    index: 43
+--- !u!114 &178721397430927590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemy/Seeker/Enemy_Seeker_Verse_Alert
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Enemy/Seeker/Enemy_Seeker_Verse_Alert
+  Guid:
+    Data1: -73012572
+    Data2: 1265387764
+    Data3: 2126897579
+    Data4: 1633696392
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &507566576965657486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -741,7 +917,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639124477644734592
+  lastModified: 639149765795713766
   FileSizes: []
   Exists: 1
 --- !u!114 &2092651872394159158
@@ -780,6 +956,33 @@ MonoBehaviour:
     Data2: 1241370690
     Data3: 1271266698
     Data4: -384336561
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &2564255145454288833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemy/Seeker/Enemy_Seeker_Verse_Idle
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Enemy/Seeker/Enemy_Seeker_Verse_Idle
+  Guid:
+    Data1: 610083119
+    Data2: 1330508322
+    Data3: 1785166009
+    Data4: 329737190
   Banks:
   - {fileID: 1270085778224537807}
   IsStream: 0
@@ -972,6 +1175,33 @@ MonoBehaviour:
   Banks:
   - {fileID: 1270085778224537807}
   IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4715609170678479169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemy/Seeker/Enemy_Seeker_Verse_Seek
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Enemy/Seeker/Enemy_Seeker_Verse_Seek
+  Guid:
+    Data1: -82723907
+    Data2: 1136820798
+    Data3: -1221722957
+    Data4: -1716217875
+  Banks:
+  - {fileID: 1270085778224537807}
+  IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []

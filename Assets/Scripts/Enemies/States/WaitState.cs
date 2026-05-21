@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityHFSM;
 public class WaitState : EnemyStateBase
 {
-    public WaitState(bool needsExitTime, Enemy enemy, float exitTime) : base(needsExitTime, enemy, exitTime)
+    public WaitState(bool needsExitTime, Enemy enemy, float exitTime, Action<State<EnemyState, StateEvent>> onEnter) : base(needsExitTime, enemy, exitTime, onEnter)
     {
         base.OnEnter();
         _agent.isStopped = true;

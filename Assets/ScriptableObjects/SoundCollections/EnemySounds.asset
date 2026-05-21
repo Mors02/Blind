@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f2d80dfdc894b93833d13cada73a10, type: 3}
+  m_Name: EnemySounds
+  m_EditorClassIdentifier: Assembly-CSharp::SoundCollection
+  Sounds:
+  - sound:
+      Guid:
+        Data1: -73012572
+        Data2: 1265387764
+        Data3: 2126897579
+        Data4: 1633696392
+      Path: event:/SFX/Enemy/Seeker/Enemy_Seeker_Verse_Alert
+    id: SeekerEnterAlert
+  - sound:
+      Guid:
+        Data1: 610083119
+        Data2: 1330508322
+        Data3: 1785166009
+        Data4: 329737190
+      Path: event:/SFX/Enemy/Seeker/Enemy_Seeker_Verse_Idle
+    id: SeekerEnterWait
+  - sound:
+      Guid:
+        Data1: 416829658
+        Data2: 1170873947
+        Data3: 1566519186
+        Data4: 642948821
+      Path: event:/SFX/Enemy/Seeker/Enemy_Seeker_Verse_Patrol
+    id: SeekerInPatrol
+  - sound:
+      Guid:
+        Data1: -82723907
+        Data2: 1136820798
+        Data3: -1221722957
+        Data4: -1716217875
+      Path: event:/SFX/Enemy/Seeker/Enemy_Seeker_Verse_Seek
+    id: SeekerEnterSeek
+  - sound:
+      Guid:
+        Data1: 1160170753
+        Data2: 1152504449
+        Data3: 1188281485
+        Data4: 706927915
+      Path: event:/SFX/Enemy/Seeker/Enemy_Seeker_Walk_Step
+    id: SeekerStep
