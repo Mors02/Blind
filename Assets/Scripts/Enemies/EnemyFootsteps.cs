@@ -55,7 +55,6 @@ public class EnemyFootsteps : MonoBehaviour
         Debug.Log(_navMeshAgent.velocity.magnitude);
         if (_navMeshAgent.velocity.magnitude > 0)
         {
-            _timer += Time.deltaTime;
             //if I just started moving it should still be 0 so it enters in the check
             if (_timer >= _nextStepIn)
             {
@@ -72,6 +71,8 @@ public class EnemyFootsteps : MonoBehaviour
                 _nextStepIn = Random.Range(lowerBound, upperBound);
                 _timer = 0;
             }
+
+            _timer += Time.deltaTime;
 
         }
         else
