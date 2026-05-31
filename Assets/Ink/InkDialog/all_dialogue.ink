@@ -9,6 +9,10 @@ VAR drankBottle = false
 VAR keyState = "NOT_POSSESSED"
 VAR doorState = "CLOSE"
 VAR lampState = "OFF"
+VAR skull1State = "NOT_POSSESSED"
+VAR skull2State = "NOT_POSSESSED"
+VAR skull3State = "NOT_POSSESSED"
+VAR skull4State = "NOT_POSSESSED"
 
 //->wardrobe
 
@@ -222,7 +226,78 @@ An heavy metal grate. The rust sticks to your hand, covering them in a fine dust
 -> END
 
 === altar ===
-Made of stone and cold as a tomb. The air around it is rotten, like something died near it long time ago.
+Feels cold on the touch. The air around it is rotten, like something died near it long time ago.
+There are three pools of liquid on top of it, two of them contains what looks like a elongated skull.
++ {skull1 == "POSSESSED"} [- Put the small skull inside.]
+    You put the small skull inside, a loud scream may have alerted something of your presence.
+    -> END
++ {skull2 == "POSSESSED"} [- Put the heavy skull inside.]
+    You put the heavy skull inside, a loud scream may have alerted something of your presence.
+    -> END
++ {skull3 == "POSSESSED"} [- Put the cold skull inside.]
+    You put the cold skull inside, a loud scream may have alerted something of your presence.
+    -> END
++ {skull4 == "POSSESSED"} [- Put the strange skull inside.]
+    You put the strange skull inside and weird whirring comes from the altar.
+    An image of white beings running gets impressed on your retina, a flow of information so large that feels like a spike in your head.
+    The metal grate behind seems unlocked.
+    -> END
++ [- Go away]
 -> END
 
+=== skull1 ===
+A small metallic skull with an oblung shape.
+It produces a repetitive sound.
++ [- Check it closer.]
+    The teeth are missing and the eye hole are too big to be human. It belonged to something else.
+    -> skull1
++ {skull1State == "NOT_POSSESSED"} [- Take it.]
+    You put it in your pocket.
+    ~ UpdateInventory("skull1State", true)
+    -> END
+
++ {skull1State == "POSSESSED"} [- Put away.]
+    -> END
+    
+=== skull2 ===
+An heavy metallic skull with an oblung shape.
+It produces a repetitive sound.
++ [- Check it closer.]
+    The teeth are missing and the eye hole are too big to be human. It belonged to something else.
+    -> skull2
++ {skull2State == "NOT_POSSESSED"} [- Take it.]
+    You put it in your pocket.
+    ~ UpdateInventory("skull2State", true)
+    -> END
+
++ {skull2State == "POSSESSED"} [- Put away.]
+    -> END
+    
+=== skull3 ===
+A cold metallic skull with an oblung shape.
+It produces a repetitive sound.
++ [- Check it closer.]
+    The teeth are missing and the eye hole are too big to be human. It belonged to something else.
+    -> skull3
++ {skull3State == "NOT_POSSESSED"} [- Take it.]
+    You put it in your pocket.
+    ~ UpdateInventory("skull3State", true)
+    -> END
+
++ {skull3State == "POSSESSED"} [- Put away.]
+    -> END
+    
+=== skull4 ===
+A strange metallic skull with an oblung shape.
+It produces a repetitive sound.
++ [- Check it closer.]
+    The teeth are missing and the eye hole are too big to be human. It belonged to something else.
+    -> skull4
++ {skull4State == "NOT_POSSESSED"} [- Take it.]
+    You put it in your pocket.
+    ~ UpdateInventory("skull4State", true)
+    -> END
+
++ {skull4State == "POSSESSED"} [- Put away.]
+    -> END
      
