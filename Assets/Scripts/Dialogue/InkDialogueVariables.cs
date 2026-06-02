@@ -54,7 +54,7 @@ public class InkDialogueVariables
         }
     
         _variables[name] = value;
-        //Debug.Log("Updated dialogue variable: " + name + " = " + value);
+        Debug.Log("Updated dialogue variable: " + name + " = " + value);
     }
 
     /// <summary>

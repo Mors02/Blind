@@ -51,8 +51,8 @@ public class EnemyFootsteps : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(_navMeshAgent.speed);
-        Debug.Log(_navMeshAgent.velocity.magnitude);
+//        Debug.Log(_navMeshAgent.speed);
+//        Debug.Log(_navMeshAgent.velocity.magnitude);
         if (_navMeshAgent.velocity.magnitude > 0)
         {
             //if I just started moving it should still be 0 so it enters in the check

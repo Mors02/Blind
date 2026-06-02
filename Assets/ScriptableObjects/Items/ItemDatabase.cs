@@ -8,6 +8,7 @@ public class ItemDatabase : ScriptableObject
 
     public Item GetItem(string id)
     {
-        return Array.Find(AllItems, item => item.ObjectId == id);
+        Debug.Log("id: " + id);
+        return Array.Find(AllItems, item => {Debug.Log(item.ObjectId); return item.ObjectId == id;});
     }
 }

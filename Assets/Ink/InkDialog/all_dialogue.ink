@@ -207,6 +207,7 @@ Your key.  It opens the front door.
     -> key
 + {keyState == "NOT_POSSESSED"} [- Take it.]
     You put it in your pocket.
+    ~ keyState = "POSSESSED"
     ~ UpdateInventory("key", true)
     -> END
 
@@ -253,7 +254,8 @@ It produces a repetitive sound.
     -> skull1
 + {skull1State == "NOT_POSSESSED"} [- Take it.]
     You put it in your pocket.
-    ~ UpdateInventory("skull1State", true)
+    ~ skull1State = "POSSESSED"
+    ~ UpdateInventory("skull1", true)
     -> END
 
 + {skull1State == "POSSESSED"} [- Put away.]
@@ -267,7 +269,8 @@ It produces a repetitive sound.
     -> skull2
 + {skull2State == "NOT_POSSESSED"} [- Take it.]
     You put it in your pocket.
-    ~ UpdateInventory("skull2State", true)
+    ~ skull2State = "POSSESSED"
+    ~ UpdateInventory("skull2", true)
     -> END
 
 + {skull2State == "POSSESSED"} [- Put away.]
@@ -281,7 +284,8 @@ It produces a repetitive sound.
     -> skull3
 + {skull3State == "NOT_POSSESSED"} [- Take it.]
     You put it in your pocket.
-    ~ UpdateInventory("skull3State", true)
+    ~ skull3State = "POSSESSED"
+    ~ UpdateInventory("skull3", true)
     -> END
 
 + {skull3State == "POSSESSED"} [- Put away.]
@@ -295,6 +299,7 @@ It produces a repetitive sound.
     -> skull4
 + {skull4State == "NOT_POSSESSED"} [- Take it.]
     You put it in your pocket.
+    ~ skull4State = "POSSESSED"
     ~ UpdateInventory("skull4State", true)
     -> END
 
